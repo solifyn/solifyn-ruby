@@ -27,6 +27,7 @@
 | **stock** | **Integer** | Available stock quantity, or null for unlimited inventory. |  |
 | **activation_limit** | **Integer** | Maximum number of simultaneous active instances/devices allowed per issued license key (applicable if hasLicenseKey is true). |  |
 | **is_listed** | **Boolean** | Defines if the product is listed publicly on the merchant&#39;s storefront template. |  |
+| **is_free** | **Boolean** | Whether the product is free. |  |
 | **created_at** | **Time** | Timestamp indicating exactly when the product was created. |  |
 | **updated_at** | **Time** | Timestamp indicating when the product was last modified. |  |
 | **is_permanently_deleted** | **Boolean** | Indicates if the product has been permanently deleted. |  |
@@ -67,6 +68,7 @@ instance = Solifyn::CollectionProductDto.new(
   stock: null,
   activation_limit: 5,
   is_listed: true,
+  is_free: false,
   created_at: 2026-05-18T12:00:00.000Z,
   updated_at: 2026-05-18T12:00:00.000Z,
   is_permanently_deleted: false,

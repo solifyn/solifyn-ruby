@@ -31,6 +31,9 @@ module Solifyn
     # Subtotal amount in cents.
     attr_accessor :subtotal
 
+    # Total paid amount converted to USD.
+    attr_accessor :usd_total
+
     # Tax amount in cents.
     attr_accessor :tax_amount
 
@@ -99,6 +102,7 @@ module Solifyn
         :'customer' => :'customer',
         :'total_amount' => :'total_amount',
         :'subtotal' => :'subtotal',
+        :'usd_total' => :'usdTotal',
         :'tax_amount' => :'tax_amount',
         :'application_fee' => :'application_fee',
         :'amount_after_fees' => :'amount_after_fees',
@@ -135,6 +139,7 @@ module Solifyn
         :'customer' => :'OrderCustomer',
         :'total_amount' => :'Integer',
         :'subtotal' => :'Integer',
+        :'usd_total' => :'Float',
         :'tax_amount' => :'Integer',
         :'application_fee' => :'Integer',
         :'amount_after_fees' => :'Integer',
@@ -207,6 +212,10 @@ module Solifyn
         self.subtotal = attributes[:'subtotal']
       else
         self.subtotal = nil
+      end
+
+      if attributes.key?(:'usd_total')
+        self.usd_total = attributes[:'usd_total']
       end
 
       if attributes.key?(:'tax_amount')
@@ -421,6 +430,7 @@ module Solifyn
           customer == o.customer &&
           total_amount == o.total_amount &&
           subtotal == o.subtotal &&
+          usd_total == o.usd_total &&
           tax_amount == o.tax_amount &&
           application_fee == o.application_fee &&
           amount_after_fees == o.amount_after_fees &&
@@ -452,7 +462,7 @@ module Solifyn
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, invoice_url, customer, total_amount, subtotal, tax_amount, application_fee, amount_after_fees, currency, status, created_at, paid_at, payment_method, card_last_four, card_network, card_type, billing, product_cart, metadata, order, refundable, refunds, business_id, business_name, billing_reason].hash
+      [id, invoice_url, customer, total_amount, subtotal, usd_total, tax_amount, application_fee, amount_after_fees, currency, status, created_at, paid_at, payment_method, card_last_four, card_network, card_type, billing, product_cart, metadata, order, refundable, refunds, business_id, business_name, billing_reason].hash
     end
 
     # Builds the object from hash

@@ -6,6 +6,7 @@ All URIs are relative to *http://localhost:8000*
 | ------ | ------------ | ----------- |
 | [**checkout_create**](CheckoutApi.md#checkout_create) | **POST** /v1/checkout/create | Create Checkout Session |
 | [**checkout_create_collection**](CheckoutApi.md#checkout_create_collection) | **POST** /v1/checkout/collection/create | Create Collection Checkout Session |
+| [**checkout_create_setup**](CheckoutApi.md#checkout_create_setup) | **POST** /v1/checkout/setup-configuration | Create Setup Checkout Configuration |
 | [**checkout_get_session**](CheckoutApi.md#checkout_get_session) | **GET** /v1/checkout/session/{id} | Get Checkout Session Details |
 | [**checkout_price_preview**](CheckoutApi.md#checkout_price_preview) | **GET** /v1/checkout/price-preview | Get Converted Price Preview |
 | [**checkout_supported_currencies**](CheckoutApi.md#checkout_supported_currencies) | **GET** /v1/checkout/supported-currencies | Get Supported Currencies |
@@ -137,6 +138,69 @@ No authorization required
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+
+
+## checkout_create_setup
+
+> checkout_create_setup(create_setup_checkout_dto)
+
+Create Setup Checkout Configuration
+
+Create a new checkout session in setup mode for collecting cards without immediate charge.
+
+### Examples
+
+```ruby
+require 'time'
+require 'solifyn'
+
+api_instance = Solifyn::CheckoutApi.new
+create_setup_checkout_dto = Solifyn::CreateSetupCheckoutDto.new({company_id: 'biz_xxxxxxxxxxxxxx'}) # CreateSetupCheckoutDto | 
+
+begin
+  # Create Setup Checkout Configuration
+  api_instance.checkout_create_setup(create_setup_checkout_dto)
+rescue Solifyn::ApiError => e
+  puts "Error when calling CheckoutApi->checkout_create_setup: #{e}"
+end
+```
+
+#### Using the checkout_create_setup_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> checkout_create_setup_with_http_info(create_setup_checkout_dto)
+
+```ruby
+begin
+  # Create Setup Checkout Configuration
+  data, status_code, headers = api_instance.checkout_create_setup_with_http_info(create_setup_checkout_dto)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Solifyn::ApiError => e
+  puts "Error when calling CheckoutApi->checkout_create_setup_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **create_setup_checkout_dto** | [**CreateSetupCheckoutDto**](CreateSetupCheckoutDto.md) |  |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
 
 ## checkout_get_session

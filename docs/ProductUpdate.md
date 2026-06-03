@@ -25,6 +25,7 @@
 | **custom_fields** | [**Array&lt;ProductCreateCustomFieldsInner&gt;**](ProductCreateCustomFieldsInner.md) | Form field configurations to gather during checkout. | [optional] |
 | **stock** | **Integer** | Initial stock quantity limit. | [optional] |
 | **is_listed** | **Boolean** | Whether the product is publicly visible. | [optional][default to true] |
+| **is_free** | **Boolean** | Whether the product is free of charge. | [optional][default to false] |
 | **addons** | [**Array&lt;ProductCreateAddonsInner&gt;**](ProductCreateAddonsInner.md) | Product addons configurations. | [optional] |
 
 ## Example
@@ -54,6 +55,7 @@ instance = Solifyn::ProductUpdate.new(
   custom_fields: [{id&#x3D;57aa2241-eae4-43dc-b9ae-36069b84b2da, name&#x3D;Discord Username, order&#x3D;0, required&#x3D;true, field_type&#x3D;text, placeholder&#x3D;e.g. your_discord#1234}, {id&#x3D;c86da32a-a967-457c-815b-c3440294d70b, name&#x3D;Company Name, order&#x3D;1, required&#x3D;false, field_type&#x3D;text, placeholder&#x3D;e.g. Acme Corp (Optional)}],
   stock: 100,
   is_listed: true,
+  is_free: false,
   addons: null
 )
 ```

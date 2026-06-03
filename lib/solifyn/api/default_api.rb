@@ -22,7 +22,7 @@ module Solifyn
     # Dispute Created
     # Occurs when a payment charge is disputed by the customer (chargeback initiated).
     # @param [Hash] opts the optional parameters
-    # @option opts [UNKNOWN_BASE_TYPE] :unknown_base_type 
+    # @option opts [WebhookDisputePayload] :webhook_dispute_payload 
     # @return [nil]
     def dispute_created_post(opts = {})
       dispute_created_post_with_http_info(opts)
@@ -32,7 +32,7 @@ module Solifyn
     # Dispute Created
     # Occurs when a payment charge is disputed by the customer (chargeback initiated).
     # @param [Hash] opts the optional parameters
-    # @option opts [UNKNOWN_BASE_TYPE] :unknown_base_type 
+    # @option opts [WebhookDisputePayload] :webhook_dispute_payload 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def dispute_created_post_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -56,7 +56,7 @@ module Solifyn
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'unknown_base_type'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'webhook_dispute_payload'])
 
       # return_type
       return_type = opts[:debug_return_type]
@@ -84,7 +84,7 @@ module Solifyn
     # Dispute Lost
     # Occurs when a dispute challenge is lost and the funds are returned to the cardholder.
     # @param [Hash] opts the optional parameters
-    # @option opts [UNKNOWN_BASE_TYPE] :unknown_base_type 
+    # @option opts [WebhookDisputePayload] :webhook_dispute_payload 
     # @return [nil]
     def dispute_lost_post(opts = {})
       dispute_lost_post_with_http_info(opts)
@@ -94,7 +94,7 @@ module Solifyn
     # Dispute Lost
     # Occurs when a dispute challenge is lost and the funds are returned to the cardholder.
     # @param [Hash] opts the optional parameters
-    # @option opts [UNKNOWN_BASE_TYPE] :unknown_base_type 
+    # @option opts [WebhookDisputePayload] :webhook_dispute_payload 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def dispute_lost_post_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -118,7 +118,7 @@ module Solifyn
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'unknown_base_type'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'webhook_dispute_payload'])
 
       # return_type
       return_type = opts[:debug_return_type]
@@ -146,7 +146,7 @@ module Solifyn
     # Dispute Won
     # Occurs when a dispute challenge is won by the merchant.
     # @param [Hash] opts the optional parameters
-    # @option opts [UNKNOWN_BASE_TYPE] :unknown_base_type 
+    # @option opts [WebhookDisputePayload] :webhook_dispute_payload 
     # @return [nil]
     def dispute_won_post(opts = {})
       dispute_won_post_with_http_info(opts)
@@ -156,7 +156,7 @@ module Solifyn
     # Dispute Won
     # Occurs when a dispute challenge is won by the merchant.
     # @param [Hash] opts the optional parameters
-    # @option opts [UNKNOWN_BASE_TYPE] :unknown_base_type 
+    # @option opts [WebhookDisputePayload] :webhook_dispute_payload 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def dispute_won_post_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -180,7 +180,7 @@ module Solifyn
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'unknown_base_type'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'webhook_dispute_payload'])
 
       # return_type
       return_type = opts[:debug_return_type]
@@ -208,7 +208,7 @@ module Solifyn
     # License Created
     # Occurs when a new software license key is created or assigned to a customer purchase.
     # @param [Hash] opts the optional parameters
-    # @option opts [License] :license 
+    # @option opts [WebhookLicensePayload] :webhook_license_payload 
     # @return [nil]
     def license_created_post(opts = {})
       license_created_post_with_http_info(opts)
@@ -218,7 +218,7 @@ module Solifyn
     # License Created
     # Occurs when a new software license key is created or assigned to a customer purchase.
     # @param [Hash] opts the optional parameters
-    # @option opts [License] :license 
+    # @option opts [WebhookLicensePayload] :webhook_license_payload 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def license_created_post_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -242,7 +242,7 @@ module Solifyn
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'license'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'webhook_license_payload'])
 
       # return_type
       return_type = opts[:debug_return_type]
@@ -270,7 +270,7 @@ module Solifyn
     # License Revoked
     # Occurs when a software license key is revoked (e.g., due to subscription cancellation, refund, or dispute).
     # @param [Hash] opts the optional parameters
-    # @option opts [License] :license 
+    # @option opts [WebhookLicensePayload] :webhook_license_payload 
     # @return [nil]
     def license_revoked_post(opts = {})
       license_revoked_post_with_http_info(opts)
@@ -280,7 +280,7 @@ module Solifyn
     # License Revoked
     # Occurs when a software license key is revoked (e.g., due to subscription cancellation, refund, or dispute).
     # @param [Hash] opts the optional parameters
-    # @option opts [License] :license 
+    # @option opts [WebhookLicensePayload] :webhook_license_payload 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def license_revoked_post_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -304,7 +304,7 @@ module Solifyn
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'license'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'webhook_license_payload'])
 
       # return_type
       return_type = opts[:debug_return_type]
@@ -332,7 +332,7 @@ module Solifyn
     # Payment Created
     # Occurs when a new payment is initiated (e.g., at checkout start or subscription creation). The payment may still be in an incomplete or pending state.
     # @param [Hash] opts the optional parameters
-    # @option opts [UNKNOWN_BASE_TYPE] :unknown_base_type 
+    # @option opts [WebhookPaymentPayload] :webhook_payment_payload 
     # @return [nil]
     def payment_created_post(opts = {})
       payment_created_post_with_http_info(opts)
@@ -342,7 +342,7 @@ module Solifyn
     # Payment Created
     # Occurs when a new payment is initiated (e.g., at checkout start or subscription creation). The payment may still be in an incomplete or pending state.
     # @param [Hash] opts the optional parameters
-    # @option opts [UNKNOWN_BASE_TYPE] :unknown_base_type 
+    # @option opts [WebhookPaymentPayload] :webhook_payment_payload 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def payment_created_post_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -366,7 +366,7 @@ module Solifyn
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'unknown_base_type'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'webhook_payment_payload'])
 
       # return_type
       return_type = opts[:debug_return_type]
@@ -518,7 +518,7 @@ module Solifyn
     # Refund Failed
     # Occurs when a payment refund fails.
     # @param [Hash] opts the optional parameters
-    # @option opts [UNKNOWN_BASE_TYPE] :unknown_base_type 
+    # @option opts [WebhookRefundPayload] :webhook_refund_payload 
     # @return [nil]
     def refund_failed_post(opts = {})
       refund_failed_post_with_http_info(opts)
@@ -528,7 +528,7 @@ module Solifyn
     # Refund Failed
     # Occurs when a payment refund fails.
     # @param [Hash] opts the optional parameters
-    # @option opts [UNKNOWN_BASE_TYPE] :unknown_base_type 
+    # @option opts [WebhookRefundPayload] :webhook_refund_payload 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def refund_failed_post_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -552,7 +552,7 @@ module Solifyn
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'unknown_base_type'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'webhook_refund_payload'])
 
       # return_type
       return_type = opts[:debug_return_type]
@@ -580,7 +580,7 @@ module Solifyn
     # Refund Succeeded
     # Occurs when a payment refund is confirmed as succeeded.
     # @param [Hash] opts the optional parameters
-    # @option opts [UNKNOWN_BASE_TYPE] :unknown_base_type 
+    # @option opts [WebhookRefundPayload] :webhook_refund_payload 
     # @return [nil]
     def refund_succeeded_post(opts = {})
       refund_succeeded_post_with_http_info(opts)
@@ -590,7 +590,7 @@ module Solifyn
     # Refund Succeeded
     # Occurs when a payment refund is confirmed as succeeded.
     # @param [Hash] opts the optional parameters
-    # @option opts [UNKNOWN_BASE_TYPE] :unknown_base_type 
+    # @option opts [WebhookRefundPayload] :webhook_refund_payload 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def refund_succeeded_post_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -614,7 +614,7 @@ module Solifyn
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'unknown_base_type'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'webhook_refund_payload'])
 
       # return_type
       return_type = opts[:debug_return_type]
@@ -642,7 +642,7 @@ module Solifyn
     # Subscription Created
     # Occurs when a customer subscription is successfully started.
     # @param [Hash] opts the optional parameters
-    # @option opts [UNKNOWN_BASE_TYPE] :unknown_base_type 
+    # @option opts [WebhookSubscriptionPayload] :webhook_subscription_payload 
     # @return [nil]
     def subscription_created_post(opts = {})
       subscription_created_post_with_http_info(opts)
@@ -652,7 +652,7 @@ module Solifyn
     # Subscription Created
     # Occurs when a customer subscription is successfully started.
     # @param [Hash] opts the optional parameters
-    # @option opts [UNKNOWN_BASE_TYPE] :unknown_base_type 
+    # @option opts [WebhookSubscriptionPayload] :webhook_subscription_payload 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def subscription_created_post_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -676,7 +676,7 @@ module Solifyn
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'unknown_base_type'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'webhook_subscription_payload'])
 
       # return_type
       return_type = opts[:debug_return_type]
@@ -704,7 +704,7 @@ module Solifyn
     # Subscription Deactivated
     # Occurs when a customer subscription is deactivated or expired.
     # @param [Hash] opts the optional parameters
-    # @option opts [UNKNOWN_BASE_TYPE] :unknown_base_type 
+    # @option opts [WebhookSubscriptionPayload] :webhook_subscription_payload 
     # @return [nil]
     def subscription_deactivated_post(opts = {})
       subscription_deactivated_post_with_http_info(opts)
@@ -714,7 +714,7 @@ module Solifyn
     # Subscription Deactivated
     # Occurs when a customer subscription is deactivated or expired.
     # @param [Hash] opts the optional parameters
-    # @option opts [UNKNOWN_BASE_TYPE] :unknown_base_type 
+    # @option opts [WebhookSubscriptionPayload] :webhook_subscription_payload 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def subscription_deactivated_post_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -738,7 +738,7 @@ module Solifyn
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'unknown_base_type'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'webhook_subscription_payload'])
 
       # return_type
       return_type = opts[:debug_return_type]
@@ -766,7 +766,7 @@ module Solifyn
     # Subscription Updated
     # Occurs when a customer subscription is updated (e.g., cancel at period end changes).
     # @param [Hash] opts the optional parameters
-    # @option opts [UNKNOWN_BASE_TYPE] :unknown_base_type 
+    # @option opts [WebhookSubscriptionPayload] :webhook_subscription_payload 
     # @return [nil]
     def subscription_updated_post(opts = {})
       subscription_updated_post_with_http_info(opts)
@@ -776,7 +776,7 @@ module Solifyn
     # Subscription Updated
     # Occurs when a customer subscription is updated (e.g., cancel at period end changes).
     # @param [Hash] opts the optional parameters
-    # @option opts [UNKNOWN_BASE_TYPE] :unknown_base_type 
+    # @option opts [WebhookSubscriptionPayload] :webhook_subscription_payload 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def subscription_updated_post_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -800,7 +800,7 @@ module Solifyn
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'unknown_base_type'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'webhook_subscription_payload'])
 
       # return_type
       return_type = opts[:debug_return_type]

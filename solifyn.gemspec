@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Solifyn"]
   s.email       = ["support@solifyn.com"]
-  s.homepage    = "https://github.com/fyntechsolution-ux/solifyn-ruby"
+  s.homepage    = "https://github.com/solifyn/solifyn-ruby"
   s.summary     = "Solifyn Ruby SDK"
   s.description = "The official Ruby SDK for the Solifyn Payments API"
   s.license     = "MIT"

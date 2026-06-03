@@ -40,7 +40,7 @@ end
 
 api_instance = Solifyn::DefaultApi.new
 opts = {
-  unknown_base_type:  # UNKNOWN_BASE_TYPE | 
+  webhook_dispute_payload:  # WebhookDisputePayload | 
 }
 
 begin
@@ -73,7 +73,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md) |  | [optional] |
+| **webhook_dispute_payload** | [**WebhookDisputePayload**](WebhookDisputePayload.md) |  | [optional] |
 
 ### Return type
 
@@ -110,7 +110,7 @@ end
 
 api_instance = Solifyn::DefaultApi.new
 opts = {
-  unknown_base_type:  # UNKNOWN_BASE_TYPE | 
+  webhook_dispute_payload:  # WebhookDisputePayload | 
 }
 
 begin
@@ -143,7 +143,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md) |  | [optional] |
+| **webhook_dispute_payload** | [**WebhookDisputePayload**](WebhookDisputePayload.md) |  | [optional] |
 
 ### Return type
 
@@ -180,7 +180,7 @@ end
 
 api_instance = Solifyn::DefaultApi.new
 opts = {
-  unknown_base_type:  # UNKNOWN_BASE_TYPE | 
+  webhook_dispute_payload:  # WebhookDisputePayload | 
 }
 
 begin
@@ -213,7 +213,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md) |  | [optional] |
+| **webhook_dispute_payload** | [**WebhookDisputePayload**](WebhookDisputePayload.md) |  | [optional] |
 
 ### Return type
 
@@ -250,7 +250,7 @@ end
 
 api_instance = Solifyn::DefaultApi.new
 opts = {
-  license:  # License | 
+  webhook_license_payload:  # WebhookLicensePayload | 
 }
 
 begin
@@ -283,7 +283,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **license** | [**License**](License.md) |  | [optional] |
+| **webhook_license_payload** | [**WebhookLicensePayload**](WebhookLicensePayload.md) |  | [optional] |
 
 ### Return type
 
@@ -320,7 +320,7 @@ end
 
 api_instance = Solifyn::DefaultApi.new
 opts = {
-  license:  # License | 
+  webhook_license_payload:  # WebhookLicensePayload | 
 }
 
 begin
@@ -353,7 +353,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **license** | [**License**](License.md) |  | [optional] |
+| **webhook_license_payload** | [**WebhookLicensePayload**](WebhookLicensePayload.md) |  | [optional] |
 
 ### Return type
 
@@ -390,7 +390,7 @@ end
 
 api_instance = Solifyn::DefaultApi.new
 opts = {
-  unknown_base_type:  # UNKNOWN_BASE_TYPE | 
+  webhook_payment_payload:  # WebhookPaymentPayload | 
 }
 
 begin
@@ -423,7 +423,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md) |  | [optional] |
+| **webhook_payment_payload** | [**WebhookPaymentPayload**](WebhookPaymentPayload.md) |  | [optional] |
 
 ### Return type
 
@@ -600,7 +600,7 @@ end
 
 api_instance = Solifyn::DefaultApi.new
 opts = {
-  unknown_base_type:  # UNKNOWN_BASE_TYPE | 
+  webhook_refund_payload:  # WebhookRefundPayload | 
 }
 
 begin
@@ -633,7 +633,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md) |  | [optional] |
+| **webhook_refund_payload** | [**WebhookRefundPayload**](WebhookRefundPayload.md) |  | [optional] |
 
 ### Return type
 
@@ -670,7 +670,7 @@ end
 
 api_instance = Solifyn::DefaultApi.new
 opts = {
-  unknown_base_type:  # UNKNOWN_BASE_TYPE | 
+  webhook_refund_payload:  # WebhookRefundPayload | 
 }
 
 begin
@@ -703,7 +703,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md) |  | [optional] |
+| **webhook_refund_payload** | [**WebhookRefundPayload**](WebhookRefundPayload.md) |  | [optional] |
 
 ### Return type
 
@@ -740,7 +740,7 @@ end
 
 api_instance = Solifyn::DefaultApi.new
 opts = {
-  unknown_base_type:  # UNKNOWN_BASE_TYPE | 
+  webhook_subscription_payload:  # WebhookSubscriptionPayload | 
 }
 
 begin
@@ -773,7 +773,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md) |  | [optional] |
+| **webhook_subscription_payload** | [**WebhookSubscriptionPayload**](WebhookSubscriptionPayload.md) |  | [optional] |
 
 ### Return type
 
@@ -810,7 +810,7 @@ end
 
 api_instance = Solifyn::DefaultApi.new
 opts = {
-  unknown_base_type:  # UNKNOWN_BASE_TYPE | 
+  webhook_subscription_payload:  # WebhookSubscriptionPayload | 
 }
 
 begin
@@ -843,7 +843,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md) |  | [optional] |
+| **webhook_subscription_payload** | [**WebhookSubscriptionPayload**](WebhookSubscriptionPayload.md) |  | [optional] |
 
 ### Return type
 
@@ -880,7 +880,7 @@ end
 
 api_instance = Solifyn::DefaultApi.new
 opts = {
-  unknown_base_type:  # UNKNOWN_BASE_TYPE | 
+  webhook_subscription_payload:  # WebhookSubscriptionPayload | 
 }
 
 begin
@@ -913,7 +913,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md) |  | [optional] |
+| **webhook_subscription_payload** | [**WebhookSubscriptionPayload**](WebhookSubscriptionPayload.md) |  | [optional] |
 
 ### Return type
 

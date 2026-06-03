@@ -78,6 +78,9 @@ module Solifyn
     # Whether the product is publicly visible.
     attr_accessor :is_listed
 
+    # Whether the product is free of charge.
+    attr_accessor :is_free
+
     # Product addons configurations.
     attr_accessor :addons
 
@@ -127,6 +130,7 @@ module Solifyn
         :'custom_fields' => :'customFields',
         :'stock' => :'stock',
         :'is_listed' => :'isListed',
+        :'is_free' => :'isFree',
         :'addons' => :'addons'
       }
     end
@@ -160,6 +164,7 @@ module Solifyn
         :'custom_fields' => :'Array<ProductCreateCustomFieldsInner>',
         :'stock' => :'Integer',
         :'is_listed' => :'Boolean',
+        :'is_free' => :'Boolean',
         :'addons' => :'Array<ProductCreateAddonsInner>'
       }
     end
@@ -291,6 +296,12 @@ module Solifyn
         self.is_listed = true
       end
 
+      if attributes.key?(:'is_free')
+        self.is_free = attributes[:'is_free']
+      else
+        self.is_free = false
+      end
+
       if attributes.key?(:'addons')
         if (value = attributes[:'addons']).is_a?(Array)
           self.addons = value
@@ -383,6 +394,7 @@ module Solifyn
           custom_fields == o.custom_fields &&
           stock == o.stock &&
           is_listed == o.is_listed &&
+          is_free == o.is_free &&
           addons == o.addons
     end
 
@@ -395,7 +407,7 @@ module Solifyn
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, description, price, currency, image_url, tax_category, discount, has_license_key, has_digital_delivery, is_tax_inclusive, activation_limit, brand_id, billing_period, trial_period_days, expiration_days, statement_descriptor, pay_what_you_want, metadata, custom_fields, stock, is_listed, addons].hash
+      [name, description, price, currency, image_url, tax_category, discount, has_license_key, has_digital_delivery, is_tax_inclusive, activation_limit, brand_id, billing_period, trial_period_days, expiration_days, statement_descriptor, pay_what_you_want, metadata, custom_fields, stock, is_listed, is_free, addons].hash
     end
 
     # Builds the object from hash

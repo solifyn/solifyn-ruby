@@ -85,6 +85,9 @@ module Solifyn
     # Defines if the product is listed publicly on the merchant's storefront template.
     attr_accessor :is_listed
 
+    # Whether the product is free.
+    attr_accessor :is_free
+
     # Timestamp indicating exactly when the product was created.
     attr_accessor :created_at
 
@@ -160,6 +163,7 @@ module Solifyn
         :'stock' => :'stock',
         :'activation_limit' => :'activationLimit',
         :'is_listed' => :'isListed',
+        :'is_free' => :'isFree',
         :'created_at' => :'createdAt',
         :'updated_at' => :'updatedAt',
         :'is_permanently_deleted' => :'isPermanentlyDeleted',
@@ -203,6 +207,7 @@ module Solifyn
         :'stock' => :'Integer',
         :'activation_limit' => :'Integer',
         :'is_listed' => :'Boolean',
+        :'is_free' => :'Boolean',
         :'created_at' => :'Time',
         :'updated_at' => :'Time',
         :'is_permanently_deleted' => :'Boolean',
@@ -376,6 +381,12 @@ module Solifyn
         self.is_listed = nil
       end
 
+      if attributes.key?(:'is_free')
+        self.is_free = attributes[:'is_free']
+      else
+        self.is_free = nil
+      end
+
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
       else
@@ -524,6 +535,10 @@ module Solifyn
         invalid_properties.push('invalid value for "is_listed", is_listed cannot be nil.')
       end
 
+      if @is_free.nil?
+        invalid_properties.push('invalid value for "is_free", is_free cannot be nil.')
+      end
+
       if @created_at.nil?
         invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
       end
@@ -593,6 +608,7 @@ module Solifyn
       return false if @stock.nil?
       return false if @activation_limit.nil?
       return false if @is_listed.nil?
+      return false if @is_free.nil?
       return false if @created_at.nil?
       return false if @updated_at.nil?
       return false if @is_permanently_deleted.nil?
@@ -653,6 +669,7 @@ module Solifyn
           stock == o.stock &&
           activation_limit == o.activation_limit &&
           is_listed == o.is_listed &&
+          is_free == o.is_free &&
           created_at == o.created_at &&
           updated_at == o.updated_at &&
           is_permanently_deleted == o.is_permanently_deleted &&
@@ -673,7 +690,7 @@ module Solifyn
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, price, currency, description, status, image_url, tax_category, pricing_type, discount, has_license_key, has_digital_delivery, is_tax_inclusive, billing_period, trial_period_days, expiration_days, statement_descriptor, pay_what_you_want, metadata, custom_fields, stock, activation_limit, is_listed, created_at, updated_at, is_permanently_deleted, brand_id, digital_link, instructions, activation_message, expiry_hours, business_id].hash
+      [id, name, price, currency, description, status, image_url, tax_category, pricing_type, discount, has_license_key, has_digital_delivery, is_tax_inclusive, billing_period, trial_period_days, expiration_days, statement_descriptor, pay_what_you_want, metadata, custom_fields, stock, activation_limit, is_listed, is_free, created_at, updated_at, is_permanently_deleted, brand_id, digital_link, instructions, activation_message, expiry_hours, business_id].hash
     end
 
     # Builds the object from hash

@@ -19,18 +19,26 @@ module Solifyn
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Create Developer API Key
+    # @param create_api_key_dto [CreateApiKeyDto] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
-    def developer_controller_create_api_key(opts = {})
-      developer_controller_create_api_key_with_http_info(opts)
-      nil
+    # @return [ApiKeyResponseDto]
+    def developer_create_api_key(create_api_key_dto, opts = {})
+      data, _status_code, _headers = developer_create_api_key_with_http_info(create_api_key_dto, opts)
+      data
     end
 
+    # Create Developer API Key
+    # @param create_api_key_dto [CreateApiKeyDto] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def developer_controller_create_api_key_with_http_info(opts = {})
+    # @return [Array<(ApiKeyResponseDto, Integer, Hash)>] ApiKeyResponseDto data, response status code and response headers
+    def developer_create_api_key_with_http_info(create_api_key_dto, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeveloperApi.developer_controller_create_api_key ...'
+        @api_client.config.logger.debug 'Calling API: DeveloperApi.developer_create_api_key ...'
+      end
+      # verify the required parameter 'create_api_key_dto' is set
+      if @api_client.config.client_side_validation && create_api_key_dto.nil?
+        fail ArgumentError, "Missing the required parameter 'create_api_key_dto' when calling DeveloperApi.developer_create_api_key"
       end
       # resource path
       local_var_path = '/v1/developer/api-keys'
@@ -40,21 +48,28 @@ module Solifyn
 
       # header parameters
       header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body]
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(create_api_key_dto)
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'ApiKeyResponseDto'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"DeveloperApi.developer_controller_create_api_key",
+        :operation => :"DeveloperApi.developer_create_api_key",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -65,26 +80,100 @@ module Solifyn
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeveloperApi#developer_controller_create_api_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeveloperApi#developer_create_api_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
+    # Create Webhook Endpoint
+    # @param create_webhook_endpoint_dto [CreateWebhookEndpointDto] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
-    def developer_controller_create_webhook_endpoint(opts = {})
-      developer_controller_create_webhook_endpoint_with_http_info(opts)
-      nil
+    # @return [WebhookEndpointResponseDto]
+    def developer_create_webhook(create_webhook_endpoint_dto, opts = {})
+      data, _status_code, _headers = developer_create_webhook_with_http_info(create_webhook_endpoint_dto, opts)
+      data
     end
 
+    # Create Webhook Endpoint
+    # @param create_webhook_endpoint_dto [CreateWebhookEndpointDto] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def developer_controller_create_webhook_endpoint_with_http_info(opts = {})
+    # @return [Array<(WebhookEndpointResponseDto, Integer, Hash)>] WebhookEndpointResponseDto data, response status code and response headers
+    def developer_create_webhook_with_http_info(create_webhook_endpoint_dto, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeveloperApi.developer_controller_create_webhook_endpoint ...'
+        @api_client.config.logger.debug 'Calling API: DeveloperApi.developer_create_webhook ...'
+      end
+      # verify the required parameter 'create_webhook_endpoint_dto' is set
+      if @api_client.config.client_side_validation && create_webhook_endpoint_dto.nil?
+        fail ArgumentError, "Missing the required parameter 'create_webhook_endpoint_dto' when calling DeveloperApi.developer_create_webhook"
       end
       # resource path
       local_var_path = '/v1/developer/webhooks'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(create_webhook_endpoint_dto)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'WebhookEndpointResponseDto'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"DeveloperApi.developer_create_webhook",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeveloperApi#developer_create_webhook\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete Webhook Endpoint
+    # @param id [String] The webhook endpoint ID
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def developer_delete_webhook(id, opts = {})
+      developer_delete_webhook_with_http_info(id, opts)
+      nil
+    end
+
+    # Delete Webhook Endpoint
+    # @param id [String] The webhook endpoint ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def developer_delete_webhook_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeveloperApi.developer_delete_webhook ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DeveloperApi.developer_delete_webhook"
+      end
+      # resource path
+      local_var_path = '/v1/developer/webhooks/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -105,7 +194,7 @@ module Solifyn
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"DeveloperApi.developer_controller_create_webhook_endpoint",
+        :operation => :"DeveloperApi.developer_delete_webhook",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -114,31 +203,320 @@ module Solifyn
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeveloperApi#developer_controller_create_webhook_endpoint\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeveloperApi#developer_delete_webhook\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # @param id [String] 
+    # Retrieve Hosted Webhooks Portal URL
     # @param [Hash] opts the optional parameters
-    # @return [nil]
-    def developer_controller_delete_api_key(id, opts = {})
-      developer_controller_delete_api_key_with_http_info(id, opts)
-      nil
+    # @return [AppPortalUrlResponseDto]
+    def developer_get_app_portal(opts = {})
+      data, _status_code, _headers = developer_get_app_portal_with_http_info(opts)
+      data
     end
 
-    # @param id [String] 
+    # Retrieve Hosted Webhooks Portal URL
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def developer_controller_delete_api_key_with_http_info(id, opts = {})
+    # @return [Array<(AppPortalUrlResponseDto, Integer, Hash)>] AppPortalUrlResponseDto data, response status code and response headers
+    def developer_get_app_portal_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeveloperApi.developer_controller_delete_api_key ...'
+        @api_client.config.logger.debug 'Calling API: DeveloperApi.developer_get_app_portal ...'
+      end
+      # resource path
+      local_var_path = '/v1/developer/webhooks/app-portal'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AppPortalUrlResponseDto'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"DeveloperApi.developer_get_app_portal",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeveloperApi#developer_get_app_portal\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve Webhook Endpoint Details
+    # @param id [String] The webhook endpoint ID
+    # @param [Hash] opts the optional parameters
+    # @return [WebhookEndpointResponseDto]
+    def developer_get_webhook(id, opts = {})
+      data, _status_code, _headers = developer_get_webhook_with_http_info(id, opts)
+      data
+    end
+
+    # Retrieve Webhook Endpoint Details
+    # @param id [String] The webhook endpoint ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(WebhookEndpointResponseDto, Integer, Hash)>] WebhookEndpointResponseDto data, response status code and response headers
+    def developer_get_webhook_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeveloperApi.developer_get_webhook ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling DeveloperApi.developer_controller_delete_api_key"
+        fail ArgumentError, "Missing the required parameter 'id' when calling DeveloperApi.developer_get_webhook"
+      end
+      # resource path
+      local_var_path = '/v1/developer/webhooks/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'WebhookEndpointResponseDto'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"DeveloperApi.developer_get_webhook",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeveloperApi#developer_get_webhook\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Developer API Keys
+    # @param [Hash] opts the optional parameters
+    # @return [Array<ApiKeyResponseDto>]
+    def developer_list_api_keys(opts = {})
+      data, _status_code, _headers = developer_list_api_keys_with_http_info(opts)
+      data
+    end
+
+    # List Developer API Keys
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<ApiKeyResponseDto>, Integer, Hash)>] Array<ApiKeyResponseDto> data, response status code and response headers
+    def developer_list_api_keys_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeveloperApi.developer_list_api_keys ...'
+      end
+      # resource path
+      local_var_path = '/v1/developer/api-keys'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Array<ApiKeyResponseDto>'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"DeveloperApi.developer_list_api_keys",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeveloperApi#developer_list_api_keys\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve Webhook Delivery Logs
+    # @param id [String] The webhook endpoint ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<WebhookDeliveryResponseDto>]
+    def developer_list_webhook_deliveries(id, opts = {})
+      data, _status_code, _headers = developer_list_webhook_deliveries_with_http_info(id, opts)
+      data
+    end
+
+    # Retrieve Webhook Delivery Logs
+    # @param id [String] The webhook endpoint ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<WebhookDeliveryResponseDto>, Integer, Hash)>] Array<WebhookDeliveryResponseDto> data, response status code and response headers
+    def developer_list_webhook_deliveries_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeveloperApi.developer_list_webhook_deliveries ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DeveloperApi.developer_list_webhook_deliveries"
+      end
+      # resource path
+      local_var_path = '/v1/developer/webhooks/{id}/deliveries'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Array<WebhookDeliveryResponseDto>'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"DeveloperApi.developer_list_webhook_deliveries",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeveloperApi#developer_list_webhook_deliveries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Webhook Endpoints
+    # @param [Hash] opts the optional parameters
+    # @return [Array<WebhookEndpointResponseDto>]
+    def developer_list_webhooks(opts = {})
+      data, _status_code, _headers = developer_list_webhooks_with_http_info(opts)
+      data
+    end
+
+    # List Webhook Endpoints
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<WebhookEndpointResponseDto>, Integer, Hash)>] Array<WebhookEndpointResponseDto> data, response status code and response headers
+    def developer_list_webhooks_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeveloperApi.developer_list_webhooks ...'
+      end
+      # resource path
+      local_var_path = '/v1/developer/webhooks'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Array<WebhookEndpointResponseDto>'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"DeveloperApi.developer_list_webhooks",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeveloperApi#developer_list_webhooks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Revoke API Key
+    # @param id [String] The API key ID
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def developer_revoke_api_key(id, opts = {})
+      developer_revoke_api_key_with_http_info(id, opts)
+      nil
+    end
+
+    # Revoke API Key
+    # @param id [String] The API key ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def developer_revoke_api_key_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeveloperApi.developer_revoke_api_key ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DeveloperApi.developer_revoke_api_key"
       end
       # resource path
       local_var_path = '/v1/developer/api-keys/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
@@ -162,7 +540,7 @@ module Solifyn
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"DeveloperApi.developer_controller_delete_api_key",
+        :operation => :"DeveloperApi.developer_revoke_api_key",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -173,29 +551,37 @@ module Solifyn
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeveloperApi#developer_controller_delete_api_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeveloperApi#developer_revoke_api_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # @param id [String] 
+    # Update Webhook Endpoint
+    # @param id [String] The webhook endpoint ID
+    # @param update_webhook_endpoint_dto [UpdateWebhookEndpointDto] 
     # @param [Hash] opts the optional parameters
-    # @return [nil]
-    def developer_controller_delete_webhook_endpoint(id, opts = {})
-      developer_controller_delete_webhook_endpoint_with_http_info(id, opts)
-      nil
+    # @return [WebhookEndpointResponseDto]
+    def developer_update_webhook(id, update_webhook_endpoint_dto, opts = {})
+      data, _status_code, _headers = developer_update_webhook_with_http_info(id, update_webhook_endpoint_dto, opts)
+      data
     end
 
-    # @param id [String] 
+    # Update Webhook Endpoint
+    # @param id [String] The webhook endpoint ID
+    # @param update_webhook_endpoint_dto [UpdateWebhookEndpointDto] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def developer_controller_delete_webhook_endpoint_with_http_info(id, opts = {})
+    # @return [Array<(WebhookEndpointResponseDto, Integer, Hash)>] WebhookEndpointResponseDto data, response status code and response headers
+    def developer_update_webhook_with_http_info(id, update_webhook_endpoint_dto, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeveloperApi.developer_controller_delete_webhook_endpoint ...'
+        @api_client.config.logger.debug 'Calling API: DeveloperApi.developer_update_webhook ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling DeveloperApi.developer_controller_delete_webhook_endpoint"
+        fail ArgumentError, "Missing the required parameter 'id' when calling DeveloperApi.developer_update_webhook"
+      end
+      # verify the required parameter 'update_webhook_endpoint_dto' is set
+      if @api_client.config.client_side_validation && update_webhook_endpoint_dto.nil?
+        fail ArgumentError, "Missing the required parameter 'update_webhook_endpoint_dto' when calling DeveloperApi.developer_update_webhook"
       end
       # resource path
       local_var_path = '/v1/developer/webhooks/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
@@ -205,288 +591,28 @@ module Solifyn
 
       # header parameters
       header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body]
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(update_webhook_endpoint_dto)
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'WebhookEndpointResponseDto'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"DeveloperApi.developer_controller_delete_webhook_endpoint",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeveloperApi#developer_controller_delete_webhook_endpoint\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # @param [Hash] opts the optional parameters
-    # @return [nil]
-    def developer_controller_get_api_keys(opts = {})
-      developer_controller_get_api_keys_with_http_info(opts)
-      nil
-    end
-
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def developer_controller_get_api_keys_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeveloperApi.developer_controller_get_api_keys ...'
-      end
-      # resource path
-      local_var_path = '/v1/developer/api-keys'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type]
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || []
-
-      new_options = opts.merge(
-        :operation => :"DeveloperApi.developer_controller_get_api_keys",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeveloperApi#developer_controller_get_api_keys\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # @param [Hash] opts the optional parameters
-    # @return [nil]
-    def developer_controller_get_app_portal_url(opts = {})
-      developer_controller_get_app_portal_url_with_http_info(opts)
-      nil
-    end
-
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def developer_controller_get_app_portal_url_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeveloperApi.developer_controller_get_app_portal_url ...'
-      end
-      # resource path
-      local_var_path = '/v1/developer/webhooks/app-portal'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type]
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || []
-
-      new_options = opts.merge(
-        :operation => :"DeveloperApi.developer_controller_get_app_portal_url",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeveloperApi#developer_controller_get_app_portal_url\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # @param id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [nil]
-    def developer_controller_get_webhook_deliveries(id, opts = {})
-      developer_controller_get_webhook_deliveries_with_http_info(id, opts)
-      nil
-    end
-
-    # @param id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def developer_controller_get_webhook_deliveries_with_http_info(id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeveloperApi.developer_controller_get_webhook_deliveries ...'
-      end
-      # verify the required parameter 'id' is set
-      if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling DeveloperApi.developer_controller_get_webhook_deliveries"
-      end
-      # resource path
-      local_var_path = '/v1/developer/webhooks/{id}/deliveries'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type]
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || []
-
-      new_options = opts.merge(
-        :operation => :"DeveloperApi.developer_controller_get_webhook_deliveries",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeveloperApi#developer_controller_get_webhook_deliveries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # @param [Hash] opts the optional parameters
-    # @return [nil]
-    def developer_controller_get_webhook_endpoints(opts = {})
-      developer_controller_get_webhook_endpoints_with_http_info(opts)
-      nil
-    end
-
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def developer_controller_get_webhook_endpoints_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeveloperApi.developer_controller_get_webhook_endpoints ...'
-      end
-      # resource path
-      local_var_path = '/v1/developer/webhooks'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type]
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || []
-
-      new_options = opts.merge(
-        :operation => :"DeveloperApi.developer_controller_get_webhook_endpoints",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeveloperApi#developer_controller_get_webhook_endpoints\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # @param id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [nil]
-    def developer_controller_update_webhook_endpoint(id, opts = {})
-      developer_controller_update_webhook_endpoint_with_http_info(id, opts)
-      nil
-    end
-
-    # @param id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def developer_controller_update_webhook_endpoint_with_http_info(id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeveloperApi.developer_controller_update_webhook_endpoint ...'
-      end
-      # verify the required parameter 'id' is set
-      if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling DeveloperApi.developer_controller_update_webhook_endpoint"
-      end
-      # resource path
-      local_var_path = '/v1/developer/webhooks/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type]
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || []
-
-      new_options = opts.merge(
-        :operation => :"DeveloperApi.developer_controller_update_webhook_endpoint",
+        :operation => :"DeveloperApi.developer_update_webhook",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -497,7 +623,7 @@ module Solifyn
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeveloperApi#developer_controller_update_webhook_endpoint\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeveloperApi#developer_update_webhook\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -9,6 +9,7 @@
 | **customer** | [**OrderCustomer**](OrderCustomer.md) | Customer details. |  |
 | **total_amount** | **Integer** | Total paid amount in cents. |  |
 | **subtotal** | **Integer** | Subtotal amount in cents. |  |
+| **usd_total** | **Float** | Total paid amount converted to USD. | [optional] |
 | **tax_amount** | **Integer** | Tax amount in cents. |  |
 | **application_fee** | **Integer** | Application fee in cents. |  |
 | **amount_after_fees** | **Integer** | Net amount after fees in cents. |  |
@@ -41,6 +42,7 @@ instance = Solifyn::Order.new(
   customer: null,
   total_amount: 2900,
   subtotal: 2900,
+  usd_total: 30.6,
   tax_amount: 0,
   application_fee: 150,
   amount_after_fees: 2750,

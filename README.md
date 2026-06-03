@@ -78,6 +78,7 @@ Class | Method | HTTP request | Description
 *Solifyn::BalanceApi* | [**balance_controller_get_summary**](docs/BalanceApi.md#balance_controller_get_summary) | **GET** /v1/balances/summary | 
 *Solifyn::CheckoutApi* | [**checkout_create**](docs/CheckoutApi.md#checkout_create) | **POST** /v1/checkout/create | Create Checkout Session
 *Solifyn::CheckoutApi* | [**checkout_create_collection**](docs/CheckoutApi.md#checkout_create_collection) | **POST** /v1/checkout/collection/create | Create Collection Checkout Session
+*Solifyn::CheckoutApi* | [**checkout_create_setup**](docs/CheckoutApi.md#checkout_create_setup) | **POST** /v1/checkout/setup-configuration | Create Setup Checkout Configuration
 *Solifyn::CheckoutApi* | [**checkout_get_session**](docs/CheckoutApi.md#checkout_get_session) | **GET** /v1/checkout/session/{id} | Get Checkout Session Details
 *Solifyn::CheckoutApi* | [**checkout_price_preview**](docs/CheckoutApi.md#checkout_price_preview) | **GET** /v1/checkout/price-preview | Get Converted Price Preview
 *Solifyn::CheckoutApi* | [**checkout_supported_currencies**](docs/CheckoutApi.md#checkout_supported_currencies) | **GET** /v1/checkout/supported-currencies | Get Supported Currencies
@@ -101,15 +102,16 @@ Class | Method | HTTP request | Description
 *Solifyn::CustomersApi* | [**customers_get**](docs/CustomersApi.md#customers_get) | **GET** /v1/customers/{id} | Retrieve Customer
 *Solifyn::CustomersApi* | [**customers_list**](docs/CustomersApi.md#customers_list) | **GET** /v1/customers | List Customers
 *Solifyn::CustomersApi* | [**customers_update**](docs/CustomersApi.md#customers_update) | **PATCH** /v1/customers/{id} | Update Customer
-*Solifyn::DeveloperApi* | [**developer_controller_create_api_key**](docs/DeveloperApi.md#developer_controller_create_api_key) | **POST** /v1/developer/api-keys | 
-*Solifyn::DeveloperApi* | [**developer_controller_create_webhook_endpoint**](docs/DeveloperApi.md#developer_controller_create_webhook_endpoint) | **POST** /v1/developer/webhooks | 
-*Solifyn::DeveloperApi* | [**developer_controller_delete_api_key**](docs/DeveloperApi.md#developer_controller_delete_api_key) | **DELETE** /v1/developer/api-keys/{id} | 
-*Solifyn::DeveloperApi* | [**developer_controller_delete_webhook_endpoint**](docs/DeveloperApi.md#developer_controller_delete_webhook_endpoint) | **DELETE** /v1/developer/webhooks/{id} | 
-*Solifyn::DeveloperApi* | [**developer_controller_get_api_keys**](docs/DeveloperApi.md#developer_controller_get_api_keys) | **GET** /v1/developer/api-keys | 
-*Solifyn::DeveloperApi* | [**developer_controller_get_app_portal_url**](docs/DeveloperApi.md#developer_controller_get_app_portal_url) | **GET** /v1/developer/webhooks/app-portal | 
-*Solifyn::DeveloperApi* | [**developer_controller_get_webhook_deliveries**](docs/DeveloperApi.md#developer_controller_get_webhook_deliveries) | **GET** /v1/developer/webhooks/{id}/deliveries | 
-*Solifyn::DeveloperApi* | [**developer_controller_get_webhook_endpoints**](docs/DeveloperApi.md#developer_controller_get_webhook_endpoints) | **GET** /v1/developer/webhooks | 
-*Solifyn::DeveloperApi* | [**developer_controller_update_webhook_endpoint**](docs/DeveloperApi.md#developer_controller_update_webhook_endpoint) | **PATCH** /v1/developer/webhooks/{id} | 
+*Solifyn::DeveloperApi* | [**developer_create_api_key**](docs/DeveloperApi.md#developer_create_api_key) | **POST** /v1/developer/api-keys | Create Developer API Key
+*Solifyn::DeveloperApi* | [**developer_create_webhook**](docs/DeveloperApi.md#developer_create_webhook) | **POST** /v1/developer/webhooks | Create Webhook Endpoint
+*Solifyn::DeveloperApi* | [**developer_delete_webhook**](docs/DeveloperApi.md#developer_delete_webhook) | **DELETE** /v1/developer/webhooks/{id} | Delete Webhook Endpoint
+*Solifyn::DeveloperApi* | [**developer_get_app_portal**](docs/DeveloperApi.md#developer_get_app_portal) | **GET** /v1/developer/webhooks/app-portal | Retrieve Hosted Webhooks Portal URL
+*Solifyn::DeveloperApi* | [**developer_get_webhook**](docs/DeveloperApi.md#developer_get_webhook) | **GET** /v1/developer/webhooks/{id} | Retrieve Webhook Endpoint Details
+*Solifyn::DeveloperApi* | [**developer_list_api_keys**](docs/DeveloperApi.md#developer_list_api_keys) | **GET** /v1/developer/api-keys | List Developer API Keys
+*Solifyn::DeveloperApi* | [**developer_list_webhook_deliveries**](docs/DeveloperApi.md#developer_list_webhook_deliveries) | **GET** /v1/developer/webhooks/{id}/deliveries | Retrieve Webhook Delivery Logs
+*Solifyn::DeveloperApi* | [**developer_list_webhooks**](docs/DeveloperApi.md#developer_list_webhooks) | **GET** /v1/developer/webhooks | List Webhook Endpoints
+*Solifyn::DeveloperApi* | [**developer_revoke_api_key**](docs/DeveloperApi.md#developer_revoke_api_key) | **DELETE** /v1/developer/api-keys/{id} | Revoke API Key
+*Solifyn::DeveloperApi* | [**developer_update_webhook**](docs/DeveloperApi.md#developer_update_webhook) | **PATCH** /v1/developer/webhooks/{id} | Update Webhook Endpoint
 *Solifyn::DigitalFileApi* | [**digital_file_controller_create**](docs/DigitalFileApi.md#digital_file_controller_create) | **POST** /v1/digital-files | 
 *Solifyn::DigitalFileApi* | [**digital_file_controller_find_all**](docs/DigitalFileApi.md#digital_file_controller_find_all) | **GET** /v1/digital-files | 
 *Solifyn::DigitalFileApi* | [**digital_file_controller_remove**](docs/DigitalFileApi.md#digital_file_controller_remove) | **DELETE** /v1/digital-files/{id} | 
@@ -161,14 +163,6 @@ Class | Method | HTTP request | Description
 *Solifyn::OrdersApi* | [**orders_list**](docs/OrdersApi.md#orders_list) | **GET** /v1/orders | List Orders
 *Solifyn::OrdersApi* | [**orders_update**](docs/OrdersApi.md#orders_update) | **PATCH** /v1/orders/{id} | Update Order Billing Address
 *Solifyn::OrdersApi* | [**refunds_create**](docs/OrdersApi.md#refunds_create) | **POST** /v1/orders/{id}/refund | Create Refund
-*Solifyn::PayoutsApi* | [**payouts_create_withdrawal**](docs/PayoutsApi.md#payouts_create_withdrawal) | **POST** /v1/payouts/withdrawals | Create Withdrawal
-*Solifyn::PayoutsApi* | [**payouts_get_account**](docs/PayoutsApi.md#payouts_get_account) | **GET** /v1/payouts/account | Retrieve Payout Account
-*Solifyn::PayoutsApi* | [**payouts_get_account_link**](docs/PayoutsApi.md#payouts_get_account_link) | **GET** /v1/payouts/account-link | Create Account Link
-*Solifyn::PayoutsApi* | [**payouts_get_token**](docs/PayoutsApi.md#payouts_get_token) | **GET** /v1/payouts/token | Generate Portal Access Token
-*Solifyn::PayoutsApi* | [**payouts_get_withdrawals**](docs/PayoutsApi.md#payouts_get_withdrawals) | **GET** /v1/payouts/withdrawals | Get Withdrawals List
-*Solifyn::PayoutsApi* | [**payouts_list_methods**](docs/PayoutsApi.md#payouts_list_methods) | **GET** /v1/payouts/methods | List Payout Methods
-*Solifyn::PayoutsApi* | [**payouts_list_verifications**](docs/PayoutsApi.md#payouts_list_verifications) | **GET** /v1/payouts/verifications | List Verifications
-*Solifyn::PayoutsApi* | [**payouts_list_withdrawals**](docs/PayoutsApi.md#payouts_list_withdrawals) | **GET** /v1/payouts | List Withdrawals
 *Solifyn::ProductAddOnsApi* | [**products_create_addon**](docs/ProductAddOnsApi.md#products_create_addon) | **POST** /v1/products/{id}/addons | Create Product Add-on
 *Solifyn::ProductAddOnsApi* | [**products_delete_addon**](docs/ProductAddOnsApi.md#products_delete_addon) | **DELETE** /v1/products/{id}/addons/{addonId} | Delete Product Add-on
 *Solifyn::ProductAddOnsApi* | [**products_get_addon**](docs/ProductAddOnsApi.md#products_get_addon) | **GET** /v1/products/{id}/addons/{addonId} | Retrieve Product Add-on
@@ -181,6 +175,11 @@ Class | Method | HTTP request | Description
 *Solifyn::ProductsApi* | [**products_list**](docs/ProductsApi.md#products_list) | **GET** /v1/products | List Products
 *Solifyn::ProductsApi* | [**products_unarchive**](docs/ProductsApi.md#products_unarchive) | **POST** /v1/products/{id}/unarchive | Unarchive Product
 *Solifyn::ProductsApi* | [**products_update**](docs/ProductsApi.md#products_update) | **PATCH** /v1/products/{id} | Update Product
+*Solifyn::RefundRequestsApi* | [**refund_requests_list**](docs/RefundRequestsApi.md#refund_requests_list) | **GET** /v1/refund-requests | List Refund Requests (Merchant)
+*Solifyn::RefundRequestsApi* | [**refund_requests_list_messages**](docs/RefundRequestsApi.md#refund_requests_list_messages) | **GET** /v1/refund-requests/{id}/messages | List Messages for Refund Request (Merchant)
+*Solifyn::RefundRequestsApi* | [**refund_requests_send_message**](docs/RefundRequestsApi.md#refund_requests_send_message) | **POST** /v1/refund-requests/{id}/messages | Send Refund Request Message (Merchant)
+*Solifyn::RefundRequestsApi* | [**refund_requests_update_status**](docs/RefundRequestsApi.md#refund_requests_update_status) | **PATCH** /v1/refund-requests/{id}/status | Update Refund Request Status (Merchant)
+*Solifyn::RefundRequestsApi* | [**refund_requests_upload_evidence**](docs/RefundRequestsApi.md#refund_requests_upload_evidence) | **POST** /v1/refund-requests/upload-evidence | Upload Dispute Evidence File (Merchant)
 *Solifyn::RefundsChargebacksApi* | [**refunds_create**](docs/RefundsChargebacksApi.md#refunds_create) | **POST** /v1/orders/{id}/refund | Create Refund
 *Solifyn::RefundsChargebacksApi* | [**refunds_get**](docs/RefundsChargebacksApi.md#refunds_get) | **GET** /v1/refunds/{id} | Retrieve Refund details
 *Solifyn::RefundsChargebacksApi* | [**refunds_list**](docs/RefundsChargebacksApi.md#refunds_list) | **GET** /v1/refunds | List Refunds
@@ -189,6 +188,15 @@ Class | Method | HTTP request | Description
 *Solifyn::SubscriptionsApi* | [**subscriptions_list**](docs/SubscriptionsApi.md#subscriptions_list) | **GET** /v1/subscriptions | List Subscriptions
 *Solifyn::WebhookApi* | [**webhook_controller_handle_svix_webhook**](docs/WebhookApi.md#webhook_controller_handle_svix_webhook) | **POST** /v1/webhook/svix | 
 *Solifyn::WebhookApi* | [**webhook_controller_handle_webhook**](docs/WebhookApi.md#webhook_controller_handle_webhook) | **POST** /v1/webhook | 
+*Solifyn::WebhookEndpointApi* | [**operational_webhook_controller_create**](docs/WebhookEndpointApi.md#operational_webhook_controller_create) | **POST** /v1/operational-webhook/endpoint | Create Operational Webhook Endpoint
+*Solifyn::WebhookEndpointApi* | [**operational_webhook_controller_delete**](docs/WebhookEndpointApi.md#operational_webhook_controller_delete) | **DELETE** /v1/operational-webhook/endpoint/{id} | Delete Operational Webhook Endpoint
+*Solifyn::WebhookEndpointApi* | [**operational_webhook_controller_get**](docs/WebhookEndpointApi.md#operational_webhook_controller_get) | **GET** /v1/operational-webhook/endpoint/{id} | Get Operational Webhook Endpoint
+*Solifyn::WebhookEndpointApi* | [**operational_webhook_controller_get_headers**](docs/WebhookEndpointApi.md#operational_webhook_controller_get_headers) | **GET** /v1/operational-webhook/endpoint/{id}/headers | Get Operational Webhook Endpoint Headers
+*Solifyn::WebhookEndpointApi* | [**operational_webhook_controller_get_secret**](docs/WebhookEndpointApi.md#operational_webhook_controller_get_secret) | **GET** /v1/operational-webhook/endpoint/{id}/secret | Get Operational Webhook Endpoint Secret
+*Solifyn::WebhookEndpointApi* | [**operational_webhook_controller_list**](docs/WebhookEndpointApi.md#operational_webhook_controller_list) | **GET** /v1/operational-webhook/endpoint | List Operational Webhook Endpoints
+*Solifyn::WebhookEndpointApi* | [**operational_webhook_controller_rotate_secret**](docs/WebhookEndpointApi.md#operational_webhook_controller_rotate_secret) | **POST** /v1/operational-webhook/endpoint/{id}/secret/rotate | Rotate Operational Webhook Endpoint Secret
+*Solifyn::WebhookEndpointApi* | [**operational_webhook_controller_update**](docs/WebhookEndpointApi.md#operational_webhook_controller_update) | **PUT** /v1/operational-webhook/endpoint/{id} | Update Operational Webhook Endpoint
+*Solifyn::WebhookEndpointApi* | [**operational_webhook_controller_update_headers**](docs/WebhookEndpointApi.md#operational_webhook_controller_update_headers) | **PUT** /v1/operational-webhook/endpoint/{id}/headers | Set Operational Webhook Endpoint Headers
 
 
 ## Documentation for Models
@@ -197,13 +205,11 @@ Class | Method | HTTP request | Description
  - [Solifyn::Addon](docs/Addon.md)
  - [Solifyn::AddonCreate](docs/AddonCreate.md)
  - [Solifyn::AddonUpdate](docs/AddonUpdate.md)
+ - [Solifyn::ApiKeyResponseDto](docs/ApiKeyResponseDto.md)
+ - [Solifyn::AppPortalUrlResponseDto](docs/AppPortalUrlResponseDto.md)
  - [Solifyn::Brand](docs/Brand.md)
  - [Solifyn::BrandCreate](docs/BrandCreate.md)
  - [Solifyn::BrandUpdate](docs/BrandUpdate.md)
- - [Solifyn::Business](docs/Business.md)
- - [Solifyn::BusinessCreate](docs/BusinessCreate.md)
- - [Solifyn::BusinessFullCreate](docs/BusinessFullCreate.md)
- - [Solifyn::BusinessFullCreateResponse](docs/BusinessFullCreateResponse.md)
  - [Solifyn::CheckoutLinkMessageResponseDto](docs/CheckoutLinkMessageResponseDto.md)
  - [Solifyn::CheckoutLinkResponseDto](docs/CheckoutLinkResponseDto.md)
  - [Solifyn::CheckoutResponseDto](docs/CheckoutResponseDto.md)
@@ -218,12 +224,15 @@ Class | Method | HTTP request | Description
  - [Solifyn::CollectionResponseDto](docs/CollectionResponseDto.md)
  - [Solifyn::CollectionUnarchivedResponseDto](docs/CollectionUnarchivedResponseDto.md)
  - [Solifyn::CollectionUpdatedResponseDto](docs/CollectionUpdatedResponseDto.md)
+ - [Solifyn::CreateApiKeyDto](docs/CreateApiKeyDto.md)
  - [Solifyn::CreateCheckoutDto](docs/CreateCheckoutDto.md)
  - [Solifyn::CreateCheckoutLinkDto](docs/CreateCheckoutLinkDto.md)
  - [Solifyn::CreateCollectionCheckoutDto](docs/CreateCollectionCheckoutDto.md)
  - [Solifyn::CreateCollectionDto](docs/CreateCollectionDto.md)
  - [Solifyn::CreateCustomerDto](docs/CreateCustomerDto.md)
  - [Solifyn::CreateMeterDto](docs/CreateMeterDto.md)
+ - [Solifyn::CreateSetupCheckoutDto](docs/CreateSetupCheckoutDto.md)
+ - [Solifyn::CreateWebhookEndpointDto](docs/CreateWebhookEndpointDto.md)
  - [Solifyn::CustomerListResponseDto](docs/CustomerListResponseDto.md)
  - [Solifyn::CustomerMessageResponseDto](docs/CustomerMessageResponseDto.md)
  - [Solifyn::CustomerResponseDto](docs/CustomerResponseDto.md)
@@ -262,6 +271,14 @@ Class | Method | HTTP request | Description
  - [Solifyn::MeterQuantitiesResponseDto](docs/MeterQuantitiesResponseDto.md)
  - [Solifyn::MeterResponseDto](docs/MeterResponseDto.md)
  - [Solifyn::MeterUsageEventDto](docs/MeterUsageEventDto.md)
+ - [Solifyn::OperationalWebhookEndpointHeadersInDto](docs/OperationalWebhookEndpointHeadersInDto.md)
+ - [Solifyn::OperationalWebhookEndpointHeadersResponseDto](docs/OperationalWebhookEndpointHeadersResponseDto.md)
+ - [Solifyn::OperationalWebhookEndpointInDto](docs/OperationalWebhookEndpointInDto.md)
+ - [Solifyn::OperationalWebhookEndpointListResponseDto](docs/OperationalWebhookEndpointListResponseDto.md)
+ - [Solifyn::OperationalWebhookEndpointResponseDto](docs/OperationalWebhookEndpointResponseDto.md)
+ - [Solifyn::OperationalWebhookEndpointSecretInDto](docs/OperationalWebhookEndpointSecretInDto.md)
+ - [Solifyn::OperationalWebhookEndpointSecretResponseDto](docs/OperationalWebhookEndpointSecretResponseDto.md)
+ - [Solifyn::OperationalWebhookEndpointUpdateDto](docs/OperationalWebhookEndpointUpdateDto.md)
  - [Solifyn::Order](docs/Order.md)
  - [Solifyn::OrderBilling](docs/OrderBilling.md)
  - [Solifyn::OrderBillingUpdate](docs/OrderBillingUpdate.md)
@@ -272,13 +289,6 @@ Class | Method | HTTP request | Description
  - [Solifyn::OrderRefund](docs/OrderRefund.md)
  - [Solifyn::OrderRefundCreate](docs/OrderRefundCreate.md)
  - [Solifyn::OrderUpdate](docs/OrderUpdate.md)
- - [Solifyn::PayoutAccessToken](docs/PayoutAccessToken.md)
- - [Solifyn::PayoutAccount](docs/PayoutAccount.md)
- - [Solifyn::PayoutAccountLink](docs/PayoutAccountLink.md)
- - [Solifyn::PayoutMethod](docs/PayoutMethod.md)
- - [Solifyn::PayoutMethodList](docs/PayoutMethodList.md)
- - [Solifyn::PayoutVerification](docs/PayoutVerification.md)
- - [Solifyn::PayoutVerificationList](docs/PayoutVerificationList.md)
  - [Solifyn::PricePreviewResponseDto](docs/PricePreviewResponseDto.md)
  - [Solifyn::Product](docs/Product.md)
  - [Solifyn::ProductCreate](docs/ProductCreate.md)
@@ -313,16 +323,15 @@ Class | Method | HTTP request | Description
  - [Solifyn::UpdateCustomerDto](docs/UpdateCustomerDto.md)
  - [Solifyn::UpdateInstanceDto](docs/UpdateInstanceDto.md)
  - [Solifyn::UpdateMeterDto](docs/UpdateMeterDto.md)
- - [Solifyn::UserPage](docs/UserPage.md)
- - [Solifyn::UserSettings](docs/UserSettings.md)
- - [Solifyn::UserSettingsUpdate](docs/UserSettingsUpdate.md)
- - [Solifyn::UserStats](docs/UserStats.md)
- - [Solifyn::UserTheme](docs/UserTheme.md)
- - [Solifyn::UserThemeUpdate](docs/UserThemeUpdate.md)
- - [Solifyn::WhopApiKeysRotation](docs/WhopApiKeysRotation.md)
- - [Solifyn::Withdrawal](docs/Withdrawal.md)
- - [Solifyn::WithdrawalCreate](docs/WithdrawalCreate.md)
- - [Solifyn::WithdrawalList](docs/WithdrawalList.md)
+ - [Solifyn::UpdateWebhookEndpointDto](docs/UpdateWebhookEndpointDto.md)
+ - [Solifyn::WebhookDeliveryResponseDto](docs/WebhookDeliveryResponseDto.md)
+ - [Solifyn::WebhookDisputePayload](docs/WebhookDisputePayload.md)
+ - [Solifyn::WebhookEndpointResponseDto](docs/WebhookEndpointResponseDto.md)
+ - [Solifyn::WebhookLicensePayload](docs/WebhookLicensePayload.md)
+ - [Solifyn::WebhookPaymentPayload](docs/WebhookPaymentPayload.md)
+ - [Solifyn::WebhookPaymentPayloadBillingAddress](docs/WebhookPaymentPayloadBillingAddress.md)
+ - [Solifyn::WebhookRefundPayload](docs/WebhookRefundPayload.md)
+ - [Solifyn::WebhookSubscriptionPayload](docs/WebhookSubscriptionPayload.md)
 
 
 ## Documentation for Authorization

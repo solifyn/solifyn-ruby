@@ -4,80 +4,23 @@ All URIs are relative to *http://localhost:8000*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**developer_controller_create_api_key**](DeveloperApi.md#developer_controller_create_api_key) | **POST** /v1/developer/api-keys |  |
-| [**developer_controller_create_webhook_endpoint**](DeveloperApi.md#developer_controller_create_webhook_endpoint) | **POST** /v1/developer/webhooks |  |
-| [**developer_controller_delete_api_key**](DeveloperApi.md#developer_controller_delete_api_key) | **DELETE** /v1/developer/api-keys/{id} |  |
-| [**developer_controller_delete_webhook_endpoint**](DeveloperApi.md#developer_controller_delete_webhook_endpoint) | **DELETE** /v1/developer/webhooks/{id} |  |
-| [**developer_controller_get_api_keys**](DeveloperApi.md#developer_controller_get_api_keys) | **GET** /v1/developer/api-keys |  |
-| [**developer_controller_get_app_portal_url**](DeveloperApi.md#developer_controller_get_app_portal_url) | **GET** /v1/developer/webhooks/app-portal |  |
-| [**developer_controller_get_webhook_deliveries**](DeveloperApi.md#developer_controller_get_webhook_deliveries) | **GET** /v1/developer/webhooks/{id}/deliveries |  |
-| [**developer_controller_get_webhook_endpoints**](DeveloperApi.md#developer_controller_get_webhook_endpoints) | **GET** /v1/developer/webhooks |  |
-| [**developer_controller_update_webhook_endpoint**](DeveloperApi.md#developer_controller_update_webhook_endpoint) | **PATCH** /v1/developer/webhooks/{id} |  |
+| [**developer_create_api_key**](DeveloperApi.md#developer_create_api_key) | **POST** /v1/developer/api-keys | Create Developer API Key |
+| [**developer_create_webhook**](DeveloperApi.md#developer_create_webhook) | **POST** /v1/developer/webhooks | Create Webhook Endpoint |
+| [**developer_delete_webhook**](DeveloperApi.md#developer_delete_webhook) | **DELETE** /v1/developer/webhooks/{id} | Delete Webhook Endpoint |
+| [**developer_get_app_portal**](DeveloperApi.md#developer_get_app_portal) | **GET** /v1/developer/webhooks/app-portal | Retrieve Hosted Webhooks Portal URL |
+| [**developer_get_webhook**](DeveloperApi.md#developer_get_webhook) | **GET** /v1/developer/webhooks/{id} | Retrieve Webhook Endpoint Details |
+| [**developer_list_api_keys**](DeveloperApi.md#developer_list_api_keys) | **GET** /v1/developer/api-keys | List Developer API Keys |
+| [**developer_list_webhook_deliveries**](DeveloperApi.md#developer_list_webhook_deliveries) | **GET** /v1/developer/webhooks/{id}/deliveries | Retrieve Webhook Delivery Logs |
+| [**developer_list_webhooks**](DeveloperApi.md#developer_list_webhooks) | **GET** /v1/developer/webhooks | List Webhook Endpoints |
+| [**developer_revoke_api_key**](DeveloperApi.md#developer_revoke_api_key) | **DELETE** /v1/developer/api-keys/{id} | Revoke API Key |
+| [**developer_update_webhook**](DeveloperApi.md#developer_update_webhook) | **PATCH** /v1/developer/webhooks/{id} | Update Webhook Endpoint |
 
 
-## developer_controller_create_api_key
+## developer_create_api_key
 
-> developer_controller_create_api_key
+> <ApiKeyResponseDto> developer_create_api_key(create_api_key_dto)
 
-
-
-### Examples
-
-```ruby
-require 'time'
-require 'solifyn'
-
-api_instance = Solifyn::DeveloperApi.new
-
-begin
-  
-  api_instance.developer_controller_create_api_key
-rescue Solifyn::ApiError => e
-  puts "Error when calling DeveloperApi->developer_controller_create_api_key: #{e}"
-end
-```
-
-#### Using the developer_controller_create_api_key_with_http_info variant
-
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
-
-> <Array(nil, Integer, Hash)> developer_controller_create_api_key_with_http_info
-
-```ruby
-begin
-  
-  data, status_code, headers = api_instance.developer_controller_create_api_key_with_http_info
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => nil
-rescue Solifyn::ApiError => e
-  puts "Error when calling DeveloperApi->developer_controller_create_api_key_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-nil (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-## developer_controller_create_webhook_endpoint
-
-> developer_controller_create_webhook_endpoint
-
-
+Create Developer API Key
 
 ### Examples
 
@@ -86,89 +29,32 @@ require 'time'
 require 'solifyn'
 
 api_instance = Solifyn::DeveloperApi.new
+create_api_key_dto = Solifyn::CreateApiKeyDto.new({name: 'Production Key'}) # CreateApiKeyDto | 
 
 begin
-  
-  api_instance.developer_controller_create_webhook_endpoint
+  # Create Developer API Key
+  result = api_instance.developer_create_api_key(create_api_key_dto)
+  p result
 rescue Solifyn::ApiError => e
-  puts "Error when calling DeveloperApi->developer_controller_create_webhook_endpoint: #{e}"
+  puts "Error when calling DeveloperApi->developer_create_api_key: #{e}"
 end
 ```
 
-#### Using the developer_controller_create_webhook_endpoint_with_http_info variant
+#### Using the developer_create_api_key_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> developer_controller_create_webhook_endpoint_with_http_info
+> <Array(<ApiKeyResponseDto>, Integer, Hash)> developer_create_api_key_with_http_info(create_api_key_dto)
 
 ```ruby
 begin
-  
-  data, status_code, headers = api_instance.developer_controller_create_webhook_endpoint_with_http_info
+  # Create Developer API Key
+  data, status_code, headers = api_instance.developer_create_api_key_with_http_info(create_api_key_dto)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <ApiKeyResponseDto>
 rescue Solifyn::ApiError => e
-  puts "Error when calling DeveloperApi->developer_controller_create_webhook_endpoint_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-nil (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-## developer_controller_delete_api_key
-
-> developer_controller_delete_api_key(id)
-
-
-
-### Examples
-
-```ruby
-require 'time'
-require 'solifyn'
-
-api_instance = Solifyn::DeveloperApi.new
-id = 'id_example' # String | 
-
-begin
-  
-  api_instance.developer_controller_delete_api_key(id)
-rescue Solifyn::ApiError => e
-  puts "Error when calling DeveloperApi->developer_controller_delete_api_key: #{e}"
-end
-```
-
-#### Using the developer_controller_delete_api_key_with_http_info variant
-
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
-
-> <Array(nil, Integer, Hash)> developer_controller_delete_api_key_with_http_info(id)
-
-```ruby
-begin
-  
-  data, status_code, headers = api_instance.developer_controller_delete_api_key_with_http_info(id)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => nil
-rescue Solifyn::ApiError => e
-  puts "Error when calling DeveloperApi->developer_controller_delete_api_key_with_http_info: #{e}"
+  puts "Error when calling DeveloperApi->developer_create_api_key_with_http_info: #{e}"
 end
 ```
 
@@ -176,11 +62,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** |  |  |
+| **create_api_key_dto** | [**CreateApiKeyDto**](CreateApiKeyDto.md) |  |  |
 
 ### Return type
 
-nil (empty response body)
+[**ApiKeyResponseDto**](ApiKeyResponseDto.md)
 
 ### Authorization
 
@@ -188,15 +74,15 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
-## developer_controller_delete_webhook_endpoint
+## developer_create_webhook
 
-> developer_controller_delete_webhook_endpoint(id)
+> <WebhookEndpointResponseDto> developer_create_webhook(create_webhook_endpoint_dto)
 
-
+Create Webhook Endpoint
 
 ### Examples
 
@@ -205,31 +91,32 @@ require 'time'
 require 'solifyn'
 
 api_instance = Solifyn::DeveloperApi.new
-id = 'id_example' # String | 
+create_webhook_endpoint_dto = Solifyn::CreateWebhookEndpointDto.new({url: 'https://api.example.com/webhooks', events: [payment.created,  payment.succeeded]}) # CreateWebhookEndpointDto | 
 
 begin
-  
-  api_instance.developer_controller_delete_webhook_endpoint(id)
+  # Create Webhook Endpoint
+  result = api_instance.developer_create_webhook(create_webhook_endpoint_dto)
+  p result
 rescue Solifyn::ApiError => e
-  puts "Error when calling DeveloperApi->developer_controller_delete_webhook_endpoint: #{e}"
+  puts "Error when calling DeveloperApi->developer_create_webhook: #{e}"
 end
 ```
 
-#### Using the developer_controller_delete_webhook_endpoint_with_http_info variant
+#### Using the developer_create_webhook_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> developer_controller_delete_webhook_endpoint_with_http_info(id)
+> <Array(<WebhookEndpointResponseDto>, Integer, Hash)> developer_create_webhook_with_http_info(create_webhook_endpoint_dto)
 
 ```ruby
 begin
-  
-  data, status_code, headers = api_instance.developer_controller_delete_webhook_endpoint_with_http_info(id)
+  # Create Webhook Endpoint
+  data, status_code, headers = api_instance.developer_create_webhook_with_http_info(create_webhook_endpoint_dto)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <WebhookEndpointResponseDto>
 rescue Solifyn::ApiError => e
-  puts "Error when calling DeveloperApi->developer_controller_delete_webhook_endpoint_with_http_info: #{e}"
+  puts "Error when calling DeveloperApi->developer_create_webhook_with_http_info: #{e}"
 end
 ```
 
@@ -237,7 +124,68 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** |  |  |
+| **create_webhook_endpoint_dto** | [**CreateWebhookEndpointDto**](CreateWebhookEndpointDto.md) |  |  |
+
+### Return type
+
+[**WebhookEndpointResponseDto**](WebhookEndpointResponseDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## developer_delete_webhook
+
+> developer_delete_webhook(id)
+
+Delete Webhook Endpoint
+
+### Examples
+
+```ruby
+require 'time'
+require 'solifyn'
+
+api_instance = Solifyn::DeveloperApi.new
+id = 'id_example' # String | The webhook endpoint ID
+
+begin
+  # Delete Webhook Endpoint
+  api_instance.developer_delete_webhook(id)
+rescue Solifyn::ApiError => e
+  puts "Error when calling DeveloperApi->developer_delete_webhook: #{e}"
+end
+```
+
+#### Using the developer_delete_webhook_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> developer_delete_webhook_with_http_info(id)
+
+```ruby
+begin
+  # Delete Webhook Endpoint
+  data, status_code, headers = api_instance.developer_delete_webhook_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Solifyn::ApiError => e
+  puts "Error when calling DeveloperApi->developer_delete_webhook_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | The webhook endpoint ID |  |
 
 ### Return type
 
@@ -253,11 +201,11 @@ No authorization required
 - **Accept**: Not defined
 
 
-## developer_controller_get_api_keys
+## developer_get_app_portal
 
-> developer_controller_get_api_keys
+> <AppPortalUrlResponseDto> developer_get_app_portal
 
-
+Retrieve Hosted Webhooks Portal URL
 
 ### Examples
 
@@ -268,28 +216,29 @@ require 'solifyn'
 api_instance = Solifyn::DeveloperApi.new
 
 begin
-  
-  api_instance.developer_controller_get_api_keys
+  # Retrieve Hosted Webhooks Portal URL
+  result = api_instance.developer_get_app_portal
+  p result
 rescue Solifyn::ApiError => e
-  puts "Error when calling DeveloperApi->developer_controller_get_api_keys: #{e}"
+  puts "Error when calling DeveloperApi->developer_get_app_portal: #{e}"
 end
 ```
 
-#### Using the developer_controller_get_api_keys_with_http_info variant
+#### Using the developer_get_app_portal_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> developer_controller_get_api_keys_with_http_info
+> <Array(<AppPortalUrlResponseDto>, Integer, Hash)> developer_get_app_portal_with_http_info
 
 ```ruby
 begin
-  
-  data, status_code, headers = api_instance.developer_controller_get_api_keys_with_http_info
+  # Retrieve Hosted Webhooks Portal URL
+  data, status_code, headers = api_instance.developer_get_app_portal_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <AppPortalUrlResponseDto>
 rescue Solifyn::ApiError => e
-  puts "Error when calling DeveloperApi->developer_controller_get_api_keys_with_http_info: #{e}"
+  puts "Error when calling DeveloperApi->developer_get_app_portal_with_http_info: #{e}"
 end
 ```
 
@@ -299,7 +248,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-nil (empty response body)
+[**AppPortalUrlResponseDto**](AppPortalUrlResponseDto.md)
 
 ### Authorization
 
@@ -308,14 +257,76 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
-## developer_controller_get_app_portal_url
+## developer_get_webhook
 
-> developer_controller_get_app_portal_url
+> <WebhookEndpointResponseDto> developer_get_webhook(id)
+
+Retrieve Webhook Endpoint Details
+
+### Examples
+
+```ruby
+require 'time'
+require 'solifyn'
+
+api_instance = Solifyn::DeveloperApi.new
+id = 'id_example' # String | The webhook endpoint ID
+
+begin
+  # Retrieve Webhook Endpoint Details
+  result = api_instance.developer_get_webhook(id)
+  p result
+rescue Solifyn::ApiError => e
+  puts "Error when calling DeveloperApi->developer_get_webhook: #{e}"
+end
+```
+
+#### Using the developer_get_webhook_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<WebhookEndpointResponseDto>, Integer, Hash)> developer_get_webhook_with_http_info(id)
+
+```ruby
+begin
+  # Retrieve Webhook Endpoint Details
+  data, status_code, headers = api_instance.developer_get_webhook_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <WebhookEndpointResponseDto>
+rescue Solifyn::ApiError => e
+  puts "Error when calling DeveloperApi->developer_get_webhook_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | The webhook endpoint ID |  |
+
+### Return type
+
+[**WebhookEndpointResponseDto**](WebhookEndpointResponseDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## developer_list_api_keys
+
+> <Array<ApiKeyResponseDto>> developer_list_api_keys
+
+List Developer API Keys
 
 ### Examples
 
@@ -326,28 +337,29 @@ require 'solifyn'
 api_instance = Solifyn::DeveloperApi.new
 
 begin
-  
-  api_instance.developer_controller_get_app_portal_url
+  # List Developer API Keys
+  result = api_instance.developer_list_api_keys
+  p result
 rescue Solifyn::ApiError => e
-  puts "Error when calling DeveloperApi->developer_controller_get_app_portal_url: #{e}"
+  puts "Error when calling DeveloperApi->developer_list_api_keys: #{e}"
 end
 ```
 
-#### Using the developer_controller_get_app_portal_url_with_http_info variant
+#### Using the developer_list_api_keys_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> developer_controller_get_app_portal_url_with_http_info
+> <Array(<Array<ApiKeyResponseDto>>, Integer, Hash)> developer_list_api_keys_with_http_info
 
 ```ruby
 begin
-  
-  data, status_code, headers = api_instance.developer_controller_get_app_portal_url_with_http_info
+  # List Developer API Keys
+  data, status_code, headers = api_instance.developer_list_api_keys_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <Array<ApiKeyResponseDto>>
 rescue Solifyn::ApiError => e
-  puts "Error when calling DeveloperApi->developer_controller_get_app_portal_url_with_http_info: #{e}"
+  puts "Error when calling DeveloperApi->developer_list_api_keys_with_http_info: #{e}"
 end
 ```
 
@@ -357,7 +369,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-nil (empty response body)
+[**Array&lt;ApiKeyResponseDto&gt;**](ApiKeyResponseDto.md)
 
 ### Authorization
 
@@ -366,14 +378,14 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
-## developer_controller_get_webhook_deliveries
+## developer_list_webhook_deliveries
 
-> developer_controller_get_webhook_deliveries(id)
+> <Array<WebhookDeliveryResponseDto>> developer_list_webhook_deliveries(id)
 
-
+Retrieve Webhook Delivery Logs
 
 ### Examples
 
@@ -382,31 +394,32 @@ require 'time'
 require 'solifyn'
 
 api_instance = Solifyn::DeveloperApi.new
-id = 'id_example' # String | 
+id = 'id_example' # String | The webhook endpoint ID
 
 begin
-  
-  api_instance.developer_controller_get_webhook_deliveries(id)
+  # Retrieve Webhook Delivery Logs
+  result = api_instance.developer_list_webhook_deliveries(id)
+  p result
 rescue Solifyn::ApiError => e
-  puts "Error when calling DeveloperApi->developer_controller_get_webhook_deliveries: #{e}"
+  puts "Error when calling DeveloperApi->developer_list_webhook_deliveries: #{e}"
 end
 ```
 
-#### Using the developer_controller_get_webhook_deliveries_with_http_info variant
+#### Using the developer_list_webhook_deliveries_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> developer_controller_get_webhook_deliveries_with_http_info(id)
+> <Array(<Array<WebhookDeliveryResponseDto>>, Integer, Hash)> developer_list_webhook_deliveries_with_http_info(id)
 
 ```ruby
 begin
-  
-  data, status_code, headers = api_instance.developer_controller_get_webhook_deliveries_with_http_info(id)
+  # Retrieve Webhook Delivery Logs
+  data, status_code, headers = api_instance.developer_list_webhook_deliveries_with_http_info(id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <Array<WebhookDeliveryResponseDto>>
 rescue Solifyn::ApiError => e
-  puts "Error when calling DeveloperApi->developer_controller_get_webhook_deliveries_with_http_info: #{e}"
+  puts "Error when calling DeveloperApi->developer_list_webhook_deliveries_with_http_info: #{e}"
 end
 ```
 
@@ -414,11 +427,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** |  |  |
+| **id** | **String** | The webhook endpoint ID |  |
 
 ### Return type
 
-nil (empty response body)
+[**Array&lt;WebhookDeliveryResponseDto&gt;**](WebhookDeliveryResponseDto.md)
 
 ### Authorization
 
@@ -427,14 +440,14 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
-## developer_controller_get_webhook_endpoints
+## developer_list_webhooks
 
-> developer_controller_get_webhook_endpoints
+> <Array<WebhookEndpointResponseDto>> developer_list_webhooks
 
-
+List Webhook Endpoints
 
 ### Examples
 
@@ -445,28 +458,29 @@ require 'solifyn'
 api_instance = Solifyn::DeveloperApi.new
 
 begin
-  
-  api_instance.developer_controller_get_webhook_endpoints
+  # List Webhook Endpoints
+  result = api_instance.developer_list_webhooks
+  p result
 rescue Solifyn::ApiError => e
-  puts "Error when calling DeveloperApi->developer_controller_get_webhook_endpoints: #{e}"
+  puts "Error when calling DeveloperApi->developer_list_webhooks: #{e}"
 end
 ```
 
-#### Using the developer_controller_get_webhook_endpoints_with_http_info variant
+#### Using the developer_list_webhooks_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> developer_controller_get_webhook_endpoints_with_http_info
+> <Array(<Array<WebhookEndpointResponseDto>>, Integer, Hash)> developer_list_webhooks_with_http_info
 
 ```ruby
 begin
-  
-  data, status_code, headers = api_instance.developer_controller_get_webhook_endpoints_with_http_info
+  # List Webhook Endpoints
+  data, status_code, headers = api_instance.developer_list_webhooks_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <Array<WebhookEndpointResponseDto>>
 rescue Solifyn::ApiError => e
-  puts "Error when calling DeveloperApi->developer_controller_get_webhook_endpoints_with_http_info: #{e}"
+  puts "Error when calling DeveloperApi->developer_list_webhooks_with_http_info: #{e}"
 end
 ```
 
@@ -476,7 +490,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-nil (empty response body)
+[**Array&lt;WebhookEndpointResponseDto&gt;**](WebhookEndpointResponseDto.md)
 
 ### Authorization
 
@@ -485,14 +499,14 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
-## developer_controller_update_webhook_endpoint
+## developer_revoke_api_key
 
-> developer_controller_update_webhook_endpoint(id)
+> developer_revoke_api_key(id)
 
-
+Revoke API Key
 
 ### Examples
 
@@ -501,31 +515,31 @@ require 'time'
 require 'solifyn'
 
 api_instance = Solifyn::DeveloperApi.new
-id = 'id_example' # String | 
+id = 'id_example' # String | The API key ID
 
 begin
-  
-  api_instance.developer_controller_update_webhook_endpoint(id)
+  # Revoke API Key
+  api_instance.developer_revoke_api_key(id)
 rescue Solifyn::ApiError => e
-  puts "Error when calling DeveloperApi->developer_controller_update_webhook_endpoint: #{e}"
+  puts "Error when calling DeveloperApi->developer_revoke_api_key: #{e}"
 end
 ```
 
-#### Using the developer_controller_update_webhook_endpoint_with_http_info variant
+#### Using the developer_revoke_api_key_with_http_info variant
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> developer_controller_update_webhook_endpoint_with_http_info(id)
+> <Array(nil, Integer, Hash)> developer_revoke_api_key_with_http_info(id)
 
 ```ruby
 begin
-  
-  data, status_code, headers = api_instance.developer_controller_update_webhook_endpoint_with_http_info(id)
+  # Revoke API Key
+  data, status_code, headers = api_instance.developer_revoke_api_key_with_http_info(id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
 rescue Solifyn::ApiError => e
-  puts "Error when calling DeveloperApi->developer_controller_update_webhook_endpoint_with_http_info: #{e}"
+  puts "Error when calling DeveloperApi->developer_revoke_api_key_with_http_info: #{e}"
 end
 ```
 
@@ -533,7 +547,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** |  |  |
+| **id** | **String** | The API key ID |  |
 
 ### Return type
 
@@ -547,4 +561,68 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
+
+
+## developer_update_webhook
+
+> <WebhookEndpointResponseDto> developer_update_webhook(id, update_webhook_endpoint_dto)
+
+Update Webhook Endpoint
+
+### Examples
+
+```ruby
+require 'time'
+require 'solifyn'
+
+api_instance = Solifyn::DeveloperApi.new
+id = 'id_example' # String | The webhook endpoint ID
+update_webhook_endpoint_dto = Solifyn::UpdateWebhookEndpointDto.new # UpdateWebhookEndpointDto | 
+
+begin
+  # Update Webhook Endpoint
+  result = api_instance.developer_update_webhook(id, update_webhook_endpoint_dto)
+  p result
+rescue Solifyn::ApiError => e
+  puts "Error when calling DeveloperApi->developer_update_webhook: #{e}"
+end
+```
+
+#### Using the developer_update_webhook_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<WebhookEndpointResponseDto>, Integer, Hash)> developer_update_webhook_with_http_info(id, update_webhook_endpoint_dto)
+
+```ruby
+begin
+  # Update Webhook Endpoint
+  data, status_code, headers = api_instance.developer_update_webhook_with_http_info(id, update_webhook_endpoint_dto)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <WebhookEndpointResponseDto>
+rescue Solifyn::ApiError => e
+  puts "Error when calling DeveloperApi->developer_update_webhook_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | The webhook endpoint ID |  |
+| **update_webhook_endpoint_dto** | [**UpdateWebhookEndpointDto**](UpdateWebhookEndpointDto.md) |  |  |
+
+### Return type
+
+[**WebhookEndpointResponseDto**](WebhookEndpointResponseDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
