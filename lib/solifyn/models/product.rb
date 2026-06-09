@@ -52,6 +52,15 @@ module Solifyn
     # Whether the product includes digital file downloads upon purchase.
     attr_accessor :has_digital_delivery
 
+    # Whether the product includes GitHub repository access.
+    attr_accessor :has_github_access
+
+    # GitHub repository to grant access to (format: owner/repo).
+    attr_accessor :github_repo
+
+    # GitHub collaborator permission level.
+    attr_accessor :github_permission
+
     # Whether the product price already includes applicable sales taxes.
     attr_accessor :is_tax_inclusive
 
@@ -152,6 +161,9 @@ module Solifyn
         :'discount' => :'discount',
         :'has_license_key' => :'hasLicenseKey',
         :'has_digital_delivery' => :'hasDigitalDelivery',
+        :'has_github_access' => :'hasGithubAccess',
+        :'github_repo' => :'githubRepo',
+        :'github_permission' => :'githubPermission',
         :'is_tax_inclusive' => :'isTaxInclusive',
         :'billing_period' => :'billingPeriod',
         :'trial_period_days' => :'trialPeriodDays',
@@ -196,6 +208,9 @@ module Solifyn
         :'discount' => :'Float',
         :'has_license_key' => :'Boolean',
         :'has_digital_delivery' => :'Boolean',
+        :'has_github_access' => :'Boolean',
+        :'github_repo' => :'String',
+        :'github_permission' => :'String',
         :'is_tax_inclusive' => :'Boolean',
         :'billing_period' => :'Integer',
         :'trial_period_days' => :'Integer',
@@ -309,6 +324,24 @@ module Solifyn
         self.has_digital_delivery = attributes[:'has_digital_delivery']
       else
         self.has_digital_delivery = nil
+      end
+
+      if attributes.key?(:'has_github_access')
+        self.has_github_access = attributes[:'has_github_access']
+      else
+        self.has_github_access = nil
+      end
+
+      if attributes.key?(:'github_repo')
+        self.github_repo = attributes[:'github_repo']
+      else
+        self.github_repo = nil
+      end
+
+      if attributes.key?(:'github_permission')
+        self.github_permission = attributes[:'github_permission']
+      else
+        self.github_permission = nil
       end
 
       if attributes.key?(:'is_tax_inclusive')
@@ -491,6 +524,18 @@ module Solifyn
         invalid_properties.push('invalid value for "has_digital_delivery", has_digital_delivery cannot be nil.')
       end
 
+      if @has_github_access.nil?
+        invalid_properties.push('invalid value for "has_github_access", has_github_access cannot be nil.')
+      end
+
+      if @github_repo.nil?
+        invalid_properties.push('invalid value for "github_repo", github_repo cannot be nil.')
+      end
+
+      if @github_permission.nil?
+        invalid_properties.push('invalid value for "github_permission", github_permission cannot be nil.')
+      end
+
       if @is_tax_inclusive.nil?
         invalid_properties.push('invalid value for "is_tax_inclusive", is_tax_inclusive cannot be nil.')
       end
@@ -597,6 +642,11 @@ module Solifyn
       return false if @discount.nil?
       return false if @has_license_key.nil?
       return false if @has_digital_delivery.nil?
+      return false if @has_github_access.nil?
+      return false if @github_repo.nil?
+      return false if @github_permission.nil?
+      github_permission_validator = EnumAttributeValidator.new('String', ["pull", "triage", "push", "maintain", "admin"])
+      return false unless github_permission_validator.valid?(@github_permission)
       return false if @is_tax_inclusive.nil?
       return false if @billing_period.nil?
       return false if @trial_period_days.nil?
@@ -641,6 +691,16 @@ module Solifyn
       @pricing_type = pricing_type
     end
 
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] github_permission Object to be assigned
+    def github_permission=(github_permission)
+      validator = EnumAttributeValidator.new('String', ["pull", "triage", "push", "maintain", "admin"])
+      unless validator.valid?(github_permission)
+        fail ArgumentError, "invalid value for \"github_permission\", must be one of #{validator.allowable_values}."
+      end
+      @github_permission = github_permission
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -658,6 +718,9 @@ module Solifyn
           discount == o.discount &&
           has_license_key == o.has_license_key &&
           has_digital_delivery == o.has_digital_delivery &&
+          has_github_access == o.has_github_access &&
+          github_repo == o.github_repo &&
+          github_permission == o.github_permission &&
           is_tax_inclusive == o.is_tax_inclusive &&
           billing_period == o.billing_period &&
           trial_period_days == o.trial_period_days &&
@@ -690,7 +753,7 @@ module Solifyn
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, price, currency, description, status, image_url, tax_category, pricing_type, discount, has_license_key, has_digital_delivery, is_tax_inclusive, billing_period, trial_period_days, expiration_days, statement_descriptor, pay_what_you_want, metadata, custom_fields, stock, activation_limit, is_listed, is_free, created_at, updated_at, is_permanently_deleted, brand_id, digital_link, instructions, activation_message, expiry_hours, business_id].hash
+      [id, name, price, currency, description, status, image_url, tax_category, pricing_type, discount, has_license_key, has_digital_delivery, has_github_access, github_repo, github_permission, is_tax_inclusive, billing_period, trial_period_days, expiration_days, statement_descriptor, pay_what_you_want, metadata, custom_fields, stock, activation_limit, is_listed, is_free, created_at, updated_at, is_permanently_deleted, brand_id, digital_link, instructions, activation_message, expiry_hours, business_id].hash
     end
 
     # Builds the object from hash

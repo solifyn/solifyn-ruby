@@ -15,6 +15,7 @@
 | **payment_id** | **String** | Database payment transaction ID | [optional] |
 | **checkout_url** | **String** | Checkout session redirect URL if loaded in link mode | [optional] |
 | **product** | [**Product**](Product.md) | The details of the product being purchased | [optional] |
+| **entitlement_grants** | **Array&lt;Object&gt;** | List of entitlement grants (e.g. GitHub repo invites) associated with this checkout. | [optional] |
 
 ## Example
 
@@ -32,7 +33,8 @@ instance = Solifyn::CheckoutSessionDetailsDto.new(
   session_id: ch_XXXXXXXXX,
   payment_id: pay_XXXXXXXXX,
   checkout_url: https://solifyn.com/checkout/prod_XXXXXXXXX?checkout_id&#x3D;019e56ba-9832-72ae-XXXXXXXXXXX,
-  product: null
+  product: null,
+  entitlement_grants: null
 )
 ```
 

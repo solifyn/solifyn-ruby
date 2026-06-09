@@ -65,6 +65,10 @@ docs/DisputeFileUpload.md
 docs/DisputeList.md
 docs/DisputeListMetaDto.md
 docs/DisputesApi.md
+docs/EntitlementGrantResponseDto.md
+docs/EntitlementGrantsApi.md
+docs/GitHubIntegrationApi.md
+docs/GithubReposResponseDto.md
 docs/Instance.md
 docs/Invoice.md
 docs/License.md
@@ -142,6 +146,7 @@ docs/SubscriptionUserDto.md
 docs/SubscriptionsAction201Response.md
 docs/SubscriptionsApi.md
 docs/SupportedCurrenciesResponseDto.md
+docs/SyncLoginDto.md
 docs/UpdateCheckoutLinkDto.md
 docs/UpdateCollectionDto.md
 docs/UpdateCollectionProductDto.md
@@ -171,6 +176,8 @@ lib/solifyn/api/developer_api.rb
 lib/solifyn/api/digital_file_api.rb
 lib/solifyn/api/discounts_api.rb
 lib/solifyn/api/disputes_api.rb
+lib/solifyn/api/entitlement_grants_api.rb
+lib/solifyn/api/git_hub_integration_api.rb
 lib/solifyn/api/license_api.rb
 lib/solifyn/api/license_keys_api.rb
 lib/solifyn/api/license_keys_client_api.rb
@@ -235,6 +242,8 @@ lib/solifyn/models/dispute_evidence_update.rb
 lib/solifyn/models/dispute_file_upload.rb
 lib/solifyn/models/dispute_list.rb
 lib/solifyn/models/dispute_list_meta_dto.rb
+lib/solifyn/models/entitlement_grant_response_dto.rb
+lib/solifyn/models/github_repos_response_dto.rb
 lib/solifyn/models/instance.rb
 lib/solifyn/models/invoice.rb
 lib/solifyn/models/license.rb
@@ -302,6 +311,7 @@ lib/solifyn/models/subscription_seat_adjustment.rb
 lib/solifyn/models/subscription_user_dto.rb
 lib/solifyn/models/subscriptions_action201_response.rb
 lib/solifyn/models/supported_currencies_response_dto.rb
+lib/solifyn/models/sync_login_dto.rb
 lib/solifyn/models/update_checkout_link_dto.rb
 lib/solifyn/models/update_collection_dto.rb
 lib/solifyn/models/update_collection_product_dto.rb
@@ -319,6 +329,4 @@ lib/solifyn/models/webhook_refund_payload.rb
 lib/solifyn/models/webhook_subscription_payload.rb
 lib/solifyn/version.rb
 solifyn.gemspec
-spec/api/refund_requests_api_spec.rb
-spec/models/create_setup_checkout_dto_spec.rb
 spec/spec_helper.rb

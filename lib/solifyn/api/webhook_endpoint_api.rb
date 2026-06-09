@@ -66,7 +66,7 @@ module Solifyn
       return_type = opts[:debug_return_type] || 'OperationalWebhookEndpointResponseDto'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :operation => :"WebhookEndpointApi.operational_webhook_controller_create",
@@ -125,7 +125,7 @@ module Solifyn
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :operation => :"WebhookEndpointApi.operational_webhook_controller_delete",
@@ -186,7 +186,7 @@ module Solifyn
       return_type = opts[:debug_return_type] || 'OperationalWebhookEndpointResponseDto'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :operation => :"WebhookEndpointApi.operational_webhook_controller_get",
@@ -247,7 +247,7 @@ module Solifyn
       return_type = opts[:debug_return_type] || 'OperationalWebhookEndpointHeadersResponseDto'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :operation => :"WebhookEndpointApi.operational_webhook_controller_get_headers",
@@ -308,7 +308,7 @@ module Solifyn
       return_type = opts[:debug_return_type] || 'OperationalWebhookEndpointSecretResponseDto'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :operation => :"WebhookEndpointApi.operational_webhook_controller_get_secret",
@@ -363,7 +363,7 @@ module Solifyn
       return_type = opts[:debug_return_type] || 'OperationalWebhookEndpointListResponseDto'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :operation => :"WebhookEndpointApi.operational_webhook_controller_list",
@@ -433,7 +433,7 @@ module Solifyn
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :operation => :"WebhookEndpointApi.operational_webhook_controller_rotate_secret",
@@ -505,7 +505,7 @@ module Solifyn
       return_type = opts[:debug_return_type] || 'OperationalWebhookEndpointResponseDto'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :operation => :"WebhookEndpointApi.operational_webhook_controller_update",
@@ -575,7 +575,7 @@ module Solifyn
       return_type = opts[:debug_return_type]
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :operation => :"WebhookEndpointApi.operational_webhook_controller_update_headers",

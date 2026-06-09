@@ -14,58 +14,14 @@ require 'date'
 require 'time'
 
 module Solifyn
-  class CheckoutSessionDetailsDto
-    # Checkout session identifier
-    attr_accessor :id
-
-    # Total purchase amount
-    attr_accessor :price
-
-    # ISO currency code of the purchase
-    attr_accessor :currency
-
-    # Title or name of the merchant/store selling the item
-    attr_accessor :store_name
-
-    # Current status of the checkout session
-    attr_accessor :status
-
-    # Customer billing address details
-    attr_accessor :billing_address
-
-    # Custom fields collected during purchase
-    attr_accessor :custom_fields
-
-    # The payment partner session ID
-    attr_accessor :session_id
-
-    # Database payment transaction ID
-    attr_accessor :payment_id
-
-    # Checkout session redirect URL if loaded in link mode
-    attr_accessor :checkout_url
-
-    # The details of the product being purchased
-    attr_accessor :product
-
-    # List of entitlement grants (e.g. GitHub repo invites) associated with this checkout.
-    attr_accessor :entitlement_grants
+  class SyncLoginDto
+    # The JWT access token from the Live API server
+    attr_accessor :live_token
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'price' => :'price',
-        :'currency' => :'currency',
-        :'store_name' => :'storeName',
-        :'status' => :'status',
-        :'billing_address' => :'billingAddress',
-        :'custom_fields' => :'customFields',
-        :'session_id' => :'session_id',
-        :'payment_id' => :'paymentId',
-        :'checkout_url' => :'checkoutUrl',
-        :'product' => :'product',
-        :'entitlement_grants' => :'entitlementGrants'
+        :'live_token' => :'liveToken'
       }
     end
 
@@ -77,18 +33,7 @@ module Solifyn
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'price' => :'Float',
-        :'currency' => :'String',
-        :'store_name' => :'String',
-        :'status' => :'String',
-        :'billing_address' => :'Object',
-        :'custom_fields' => :'Object',
-        :'session_id' => :'String',
-        :'payment_id' => :'String',
-        :'checkout_url' => :'String',
-        :'product' => :'Product',
-        :'entitlement_grants' => :'Array<Object>'
+        :'live_token' => :'String'
       }
     end
 
@@ -102,75 +47,21 @@ module Solifyn
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Solifyn::CheckoutSessionDetailsDto` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Solifyn::SyncLoginDto` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Solifyn::CheckoutSessionDetailsDto`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Solifyn::SyncLoginDto`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'live_token')
+        self.live_token = attributes[:'live_token']
       else
-        self.id = nil
-      end
-
-      if attributes.key?(:'price')
-        self.price = attributes[:'price']
-      else
-        self.price = nil
-      end
-
-      if attributes.key?(:'currency')
-        self.currency = attributes[:'currency']
-      else
-        self.currency = nil
-      end
-
-      if attributes.key?(:'store_name')
-        self.store_name = attributes[:'store_name']
-      else
-        self.store_name = nil
-      end
-
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
-      else
-        self.status = nil
-      end
-
-      if attributes.key?(:'billing_address')
-        self.billing_address = attributes[:'billing_address']
-      end
-
-      if attributes.key?(:'custom_fields')
-        self.custom_fields = attributes[:'custom_fields']
-      end
-
-      if attributes.key?(:'session_id')
-        self.session_id = attributes[:'session_id']
-      end
-
-      if attributes.key?(:'payment_id')
-        self.payment_id = attributes[:'payment_id']
-      end
-
-      if attributes.key?(:'checkout_url')
-        self.checkout_url = attributes[:'checkout_url']
-      end
-
-      if attributes.key?(:'product')
-        self.product = attributes[:'product']
-      end
-
-      if attributes.key?(:'entitlement_grants')
-        if (value = attributes[:'entitlement_grants']).is_a?(Array)
-          self.entitlement_grants = value
-        end
+        self.live_token = nil
       end
     end
 
@@ -179,24 +70,8 @@ module Solifyn
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
-      if @price.nil?
-        invalid_properties.push('invalid value for "price", price cannot be nil.')
-      end
-
-      if @currency.nil?
-        invalid_properties.push('invalid value for "currency", currency cannot be nil.')
-      end
-
-      if @store_name.nil?
-        invalid_properties.push('invalid value for "store_name", store_name cannot be nil.')
-      end
-
-      if @status.nil?
-        invalid_properties.push('invalid value for "status", status cannot be nil.')
+      if @live_token.nil?
+        invalid_properties.push('invalid value for "live_token", live_token cannot be nil.')
       end
 
       invalid_properties
@@ -206,11 +81,7 @@ module Solifyn
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @id.nil?
-      return false if @price.nil?
-      return false if @currency.nil?
-      return false if @store_name.nil?
-      return false if @status.nil?
+      return false if @live_token.nil?
       true
     end
 
@@ -219,18 +90,7 @@ module Solifyn
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          price == o.price &&
-          currency == o.currency &&
-          store_name == o.store_name &&
-          status == o.status &&
-          billing_address == o.billing_address &&
-          custom_fields == o.custom_fields &&
-          session_id == o.session_id &&
-          payment_id == o.payment_id &&
-          checkout_url == o.checkout_url &&
-          product == o.product &&
-          entitlement_grants == o.entitlement_grants
+          live_token == o.live_token
     end
 
     # @see the `==` method
@@ -242,7 +102,7 @@ module Solifyn
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, price, currency, store_name, status, billing_address, custom_fields, session_id, payment_id, checkout_url, product, entitlement_grants].hash
+      [live_token].hash
     end
 
     # Builds the object from hash

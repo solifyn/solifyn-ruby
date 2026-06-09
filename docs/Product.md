@@ -16,6 +16,9 @@
 | **discount** | **Float** | Discount value as a percentage or fixed amount. |  |
 | **has_license_key** | **Boolean** | Indicates if the product issues a cryptographically secure software license key upon checkout completion. |  |
 | **has_digital_delivery** | **Boolean** | Whether the product includes digital file downloads upon purchase. |  |
+| **has_github_access** | **Boolean** | Whether the product includes GitHub repository access. |  |
+| **github_repo** | **String** | GitHub repository to grant access to (format: owner/repo). |  |
+| **github_permission** | **String** | GitHub collaborator permission level. |  |
 | **is_tax_inclusive** | **Boolean** | Whether the product price already includes applicable sales taxes. |  |
 | **billing_period** | **Integer** | The subscription billing cycle interval in days (for subscription products). |  |
 | **trial_period_days** | **Integer** | Trial duration in days for subscription products. |  |
@@ -56,6 +59,9 @@ instance = Solifyn::Product.new(
   discount: 0,
   has_license_key: true,
   has_digital_delivery: false,
+  has_github_access: false,
+  github_repo: solifyn/premium-app,
+  github_permission: pull,
   is_tax_inclusive: false,
   billing_period: null,
   trial_period_days: null,

@@ -13,6 +13,9 @@
 | **discount** | **Float** | Percentage or flat rate discount. | [optional] |
 | **has_license_key** | **Boolean** | Whether to automatically issue license keys upon successful orders. | [optional][default to false] |
 | **has_digital_delivery** | **Boolean** | Whether the purchase includes downloadable files. | [optional][default to false] |
+| **has_github_access** | **Boolean** | Whether the purchase includes GitHub repository access. | [optional][default to false] |
+| **github_repo** | **String** | GitHub repository to grant access to (format: owner/repo). | [optional] |
+| **github_permission** | **String** | GitHub collaborator permission level. | [optional] |
 | **is_tax_inclusive** | **Boolean** | Whether tax is included in the base price. | [optional][default to false] |
 | **activation_limit** | **Integer** | Maximum concurrent activated instances allowed per license key. | [optional] |
 | **brand_id** | **String** | Brand id for the product, if not provided will default to primary brand. | [optional] |
@@ -43,6 +46,9 @@ instance = Solifyn::ProductCreate.new(
   discount: 0,
   has_license_key: false,
   has_digital_delivery: false,
+  has_github_access: false,
+  github_repo: solifyn/premium-app,
+  github_permission: pull,
   is_tax_inclusive: false,
   activation_limit: null,
   brand_id: brd_4e29285b8sdf34ff51e07d4,

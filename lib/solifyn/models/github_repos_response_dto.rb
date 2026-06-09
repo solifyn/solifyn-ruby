@@ -14,58 +14,22 @@ require 'date'
 require 'time'
 
 module Solifyn
-  class CheckoutSessionDetailsDto
-    # Checkout session identifier
+  class GithubReposResponseDto
+    # The GitHub repository ID
     attr_accessor :id
 
-    # Total purchase amount
-    attr_accessor :price
+    # The repository full name (owner/repo)
+    attr_accessor :full_name
 
-    # ISO currency code of the purchase
-    attr_accessor :currency
-
-    # Title or name of the merchant/store selling the item
-    attr_accessor :store_name
-
-    # Current status of the checkout session
-    attr_accessor :status
-
-    # Customer billing address details
-    attr_accessor :billing_address
-
-    # Custom fields collected during purchase
-    attr_accessor :custom_fields
-
-    # The payment partner session ID
-    attr_accessor :session_id
-
-    # Database payment transaction ID
-    attr_accessor :payment_id
-
-    # Checkout session redirect URL if loaded in link mode
-    attr_accessor :checkout_url
-
-    # The details of the product being purchased
-    attr_accessor :product
-
-    # List of entitlement grants (e.g. GitHub repo invites) associated with this checkout.
-    attr_accessor :entitlement_grants
+    # The repository name
+    attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'price' => :'price',
-        :'currency' => :'currency',
-        :'store_name' => :'storeName',
-        :'status' => :'status',
-        :'billing_address' => :'billingAddress',
-        :'custom_fields' => :'customFields',
-        :'session_id' => :'session_id',
-        :'payment_id' => :'paymentId',
-        :'checkout_url' => :'checkoutUrl',
-        :'product' => :'product',
-        :'entitlement_grants' => :'entitlementGrants'
+        :'full_name' => :'fullName',
+        :'name' => :'name'
       }
     end
 
@@ -77,18 +41,9 @@ module Solifyn
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'price' => :'Float',
-        :'currency' => :'String',
-        :'store_name' => :'String',
-        :'status' => :'String',
-        :'billing_address' => :'Object',
-        :'custom_fields' => :'Object',
-        :'session_id' => :'String',
-        :'payment_id' => :'String',
-        :'checkout_url' => :'String',
-        :'product' => :'Product',
-        :'entitlement_grants' => :'Array<Object>'
+        :'id' => :'Float',
+        :'full_name' => :'String',
+        :'name' => :'String'
       }
     end
 
@@ -102,13 +57,13 @@ module Solifyn
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Solifyn::CheckoutSessionDetailsDto` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Solifyn::GithubReposResponseDto` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Solifyn::CheckoutSessionDetailsDto`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Solifyn::GithubReposResponseDto`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -119,58 +74,16 @@ module Solifyn
         self.id = nil
       end
 
-      if attributes.key?(:'price')
-        self.price = attributes[:'price']
+      if attributes.key?(:'full_name')
+        self.full_name = attributes[:'full_name']
       else
-        self.price = nil
+        self.full_name = nil
       end
 
-      if attributes.key?(:'currency')
-        self.currency = attributes[:'currency']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       else
-        self.currency = nil
-      end
-
-      if attributes.key?(:'store_name')
-        self.store_name = attributes[:'store_name']
-      else
-        self.store_name = nil
-      end
-
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
-      else
-        self.status = nil
-      end
-
-      if attributes.key?(:'billing_address')
-        self.billing_address = attributes[:'billing_address']
-      end
-
-      if attributes.key?(:'custom_fields')
-        self.custom_fields = attributes[:'custom_fields']
-      end
-
-      if attributes.key?(:'session_id')
-        self.session_id = attributes[:'session_id']
-      end
-
-      if attributes.key?(:'payment_id')
-        self.payment_id = attributes[:'payment_id']
-      end
-
-      if attributes.key?(:'checkout_url')
-        self.checkout_url = attributes[:'checkout_url']
-      end
-
-      if attributes.key?(:'product')
-        self.product = attributes[:'product']
-      end
-
-      if attributes.key?(:'entitlement_grants')
-        if (value = attributes[:'entitlement_grants']).is_a?(Array)
-          self.entitlement_grants = value
-        end
+        self.name = nil
       end
     end
 
@@ -183,20 +96,12 @@ module Solifyn
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
-      if @price.nil?
-        invalid_properties.push('invalid value for "price", price cannot be nil.')
+      if @full_name.nil?
+        invalid_properties.push('invalid value for "full_name", full_name cannot be nil.')
       end
 
-      if @currency.nil?
-        invalid_properties.push('invalid value for "currency", currency cannot be nil.')
-      end
-
-      if @store_name.nil?
-        invalid_properties.push('invalid value for "store_name", store_name cannot be nil.')
-      end
-
-      if @status.nil?
-        invalid_properties.push('invalid value for "status", status cannot be nil.')
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
       invalid_properties
@@ -207,10 +112,8 @@ module Solifyn
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @id.nil?
-      return false if @price.nil?
-      return false if @currency.nil?
-      return false if @store_name.nil?
-      return false if @status.nil?
+      return false if @full_name.nil?
+      return false if @name.nil?
       true
     end
 
@@ -220,17 +123,8 @@ module Solifyn
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          price == o.price &&
-          currency == o.currency &&
-          store_name == o.store_name &&
-          status == o.status &&
-          billing_address == o.billing_address &&
-          custom_fields == o.custom_fields &&
-          session_id == o.session_id &&
-          payment_id == o.payment_id &&
-          checkout_url == o.checkout_url &&
-          product == o.product &&
-          entitlement_grants == o.entitlement_grants
+          full_name == o.full_name &&
+          name == o.name
     end
 
     # @see the `==` method
@@ -242,7 +136,7 @@ module Solifyn
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, price, currency, store_name, status, billing_address, custom_fields, session_id, payment_id, checkout_url, product, entitlement_grants].hash
+      [id, full_name, name].hash
     end
 
     # Builds the object from hash

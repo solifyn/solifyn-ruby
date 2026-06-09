@@ -1,6 +1,6 @@
 # Solifyn::WebhookEndpointApi
 
-All URIs are relative to *http://localhost:8000*
+All URIs are relative to *https://api.solifyn.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -26,6 +26,11 @@ Create Operational Webhook Endpoint
 ```ruby
 require 'time'
 require 'solifyn'
+# setup authorization
+Solifyn.configure do |config|
+  # Configure Bearer authorization (API Key): ApiKeyAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
 
 api_instance = Solifyn::WebhookEndpointApi.new
 operational_webhook_endpoint_in_dto = Solifyn::OperationalWebhookEndpointInDto.new({url: 'https://example.com/webhook/'}) # OperationalWebhookEndpointInDto | 
@@ -69,7 +74,7 @@ end
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -88,6 +93,11 @@ Delete Operational Webhook Endpoint
 ```ruby
 require 'time'
 require 'solifyn'
+# setup authorization
+Solifyn.configure do |config|
+  # Configure Bearer authorization (API Key): ApiKeyAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
 
 api_instance = Solifyn::WebhookEndpointApi.new
 id = 'id_example' # String | The endpoint ID or UID
@@ -130,7 +140,7 @@ nil (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -149,6 +159,11 @@ Get Operational Webhook Endpoint
 ```ruby
 require 'time'
 require 'solifyn'
+# setup authorization
+Solifyn.configure do |config|
+  # Configure Bearer authorization (API Key): ApiKeyAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
 
 api_instance = Solifyn::WebhookEndpointApi.new
 id = 'id_example' # String | The endpoint ID or UID
@@ -192,7 +207,7 @@ end
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -211,6 +226,11 @@ Get Operational Webhook Endpoint Headers
 ```ruby
 require 'time'
 require 'solifyn'
+# setup authorization
+Solifyn.configure do |config|
+  # Configure Bearer authorization (API Key): ApiKeyAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
 
 api_instance = Solifyn::WebhookEndpointApi.new
 id = 'id_example' # String | The endpoint ID or UID
@@ -254,7 +274,7 @@ end
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -273,6 +293,11 @@ Get Operational Webhook Endpoint Secret
 ```ruby
 require 'time'
 require 'solifyn'
+# setup authorization
+Solifyn.configure do |config|
+  # Configure Bearer authorization (API Key): ApiKeyAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
 
 api_instance = Solifyn::WebhookEndpointApi.new
 id = 'id_example' # String | The endpoint ID or UID
@@ -316,7 +341,7 @@ end
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -335,6 +360,11 @@ List Operational Webhook Endpoints
 ```ruby
 require 'time'
 require 'solifyn'
+# setup authorization
+Solifyn.configure do |config|
+  # Configure Bearer authorization (API Key): ApiKeyAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
 
 api_instance = Solifyn::WebhookEndpointApi.new
 
@@ -375,7 +405,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -394,6 +424,11 @@ Rotate Operational Webhook Endpoint Secret
 ```ruby
 require 'time'
 require 'solifyn'
+# setup authorization
+Solifyn.configure do |config|
+  # Configure Bearer authorization (API Key): ApiKeyAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
 
 api_instance = Solifyn::WebhookEndpointApi.new
 id = 'id_example' # String | The endpoint ID or UID
@@ -438,7 +473,7 @@ nil (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -457,6 +492,11 @@ Update Operational Webhook Endpoint
 ```ruby
 require 'time'
 require 'solifyn'
+# setup authorization
+Solifyn.configure do |config|
+  # Configure Bearer authorization (API Key): ApiKeyAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
 
 api_instance = Solifyn::WebhookEndpointApi.new
 id = 'id_example' # String | The endpoint ID or UID
@@ -502,7 +542,7 @@ end
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -521,6 +561,11 @@ Set Operational Webhook Endpoint Headers
 ```ruby
 require 'time'
 require 'solifyn'
+# setup authorization
+Solifyn.configure do |config|
+  # Configure Bearer authorization (API Key): ApiKeyAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
 
 api_instance = Solifyn::WebhookEndpointApi.new
 id = 'id_example' # String | The endpoint ID or UID
@@ -565,7 +610,7 @@ nil (empty response body)
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

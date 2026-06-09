@@ -157,8 +157,8 @@ module Solifyn
     attr_accessor :force_ending_format
 
     def initialize
-      @scheme = 'http'
-      @host = 'localhost:8000'
+      @scheme = 'https'
+      @host = 'api.solifyn.com'
       @base_path = ''
       @server_index = nil
       @server_operation_index = {}
@@ -259,11 +259,11 @@ module Solifyn
     def server_settings
       [
         {
-          url: "http://localhost:8000",
+          url: "https://api.solifyn.com",
           description: "Live environment",
         },
         {
-          url: "http://localhost:8001",
+          url: "https://sandbox-api.solifyn.com",
           description: "Test environment",
         }
       ]
