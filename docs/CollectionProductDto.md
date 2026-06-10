@@ -48,7 +48,7 @@
 require 'solifyn'
 
 instance = Solifyn::CollectionProductDto.new(
-  id: prod_9z8x7c6v5b4n,
+  id: null,
   name: Enterprise SaaS Plan,
   price: 99,
   currency: USD,
@@ -75,8 +75,8 @@ instance = Solifyn::CollectionProductDto.new(
   activation_limit: 5,
   is_listed: true,
   is_free: false,
-  created_at: 2026-05-18T12:00:00.000Z,
-  updated_at: 2026-05-18T12:00:00.000Z,
+  created_at: 2026-05-18T12:00Z,
+  updated_at: 2026-05-18T12:00Z,
   is_permanently_deleted: false,
   brand_id: brd_4e29285b8sdf34ff51e07d4,
   digital_link: null,

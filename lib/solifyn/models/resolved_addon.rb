@@ -55,6 +55,7 @@ module Solifyn
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'image_url',
       ])
     end
 
@@ -111,10 +112,6 @@ module Solifyn
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if @image_url.nil?
-        invalid_properties.push('invalid value for "image_url", image_url cannot be nil.')
-      end
-
       if @quantity.nil?
         invalid_properties.push('invalid value for "quantity", quantity cannot be nil.')
       end
@@ -128,7 +125,6 @@ module Solifyn
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @product_id.nil?
       return false if @name.nil?
-      return false if @image_url.nil?
       return false if @quantity.nil?
       true
     end

@@ -26,11 +26,11 @@
 require 'solifyn'
 
 instance = Solifyn::EntitlementGrantResponseDto.new(
-  id: grant_123456,
-  business_id: biz_123456,
-  customer_id: cust_123456,
-  payment_id: pay_123456,
-  product_id: prod_123456,
+  id: null,
+  business_id: null,
+  customer_id: null,
+  payment_id: null,
+  product_id: null,
   type: GITHUB,
   github_repo: solifyn/premium-app,
   github_permission: pull,

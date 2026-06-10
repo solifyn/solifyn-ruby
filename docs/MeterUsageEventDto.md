@@ -23,8 +23,8 @@ instance = Solifyn::MeterUsageEventDto.new(
   customer_id: cus_8n7m6l5k4j3h2g1f0e9d8c,
   value: 1,
   metadata: {&quot;plan&quot;:&quot;enterprise&quot;,&quot;region&quot;:&quot;asia-southeast-1&quot;},
-  timestamp: 2026-05-23T10:00:00.000Z,
-  processed_at: 2026-05-23T10:00:01.000Z
+  timestamp: 2026-05-23T10:00Z,
+  processed_at: 2026-05-23T10:00:01Z
 )
 ```
 

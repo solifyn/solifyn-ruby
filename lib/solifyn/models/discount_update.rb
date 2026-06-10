@@ -102,6 +102,9 @@ module Solifyn
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'usage_limit',
+        :'expires_at',
+        :'subscription_cycles',
       ])
     end
 

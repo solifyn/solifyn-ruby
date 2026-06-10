@@ -48,7 +48,6 @@ docs/CustomerResponseDto.md
 docs/CustomerSharedInviteResponseDto.md
 docs/CustomersApi.md
 docs/DashboardStatsDto.md
-docs/DefaultApi.md
 docs/DeveloperApi.md
 docs/DigitalFileApi.md
 docs/Discount.md
@@ -172,7 +171,6 @@ lib/solifyn/api/checkout_api.rb
 lib/solifyn/api/checkout_links_api.rb
 lib/solifyn/api/collections_api.rb
 lib/solifyn/api/customers_api.rb
-lib/solifyn/api/default_api.rb
 lib/solifyn/api/developer_api.rb
 lib/solifyn/api/digital_file_api.rb
 lib/solifyn/api/discounts_api.rb

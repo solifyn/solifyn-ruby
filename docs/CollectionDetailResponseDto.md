@@ -21,15 +21,15 @@
 require 'solifyn'
 
 instance = Solifyn::CollectionDetailResponseDto.new(
-  id: col_123,
+  id: null,
   name: Summer Bundle,
   description: Everything you need for summer.,
   image_url: https://example.com/image.png,
   status: ACTIVE,
   business_id: biz_4r5t6y7u8i9o,
   is_permanently_deleted: false,
-  created_at: 2025-01-01T12:00:00Z,
-  updated_at: 2025-01-01T12:00:00Z,
+  created_at: 2025-01-01T12:00Z,
+  updated_at: 2025-01-01T12:00Z,
   products: null
 )
 ```

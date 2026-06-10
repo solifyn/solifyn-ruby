@@ -30,8 +30,8 @@ instance = Solifyn::CustomerResponseDto.new(
   phone: +1234567890,
   phone_number: +1234567890,
   metadata: {&quot;key&quot;:&quot;value&quot;},
-  created_at: 2025-01-01T12:00:00Z,
-  updated_at: 2025-01-01T12:00:00Z,
+  created_at: 2025-01-01T12:00Z,
+  updated_at: 2025-01-01T12:00Z,
   business_id: 537825c3-14d6-4173-b072-33f921416efc
 )
 ```

@@ -71,6 +71,10 @@ module Solifyn
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'instance_id',
+        :'instance_name',
+        :'ip_address',
+        :'last_seen_at'
       ])
     end
 
@@ -145,24 +149,8 @@ module Solifyn
         invalid_properties.push('invalid value for "license_id", license_id cannot be nil.')
       end
 
-      if @instance_id.nil?
-        invalid_properties.push('invalid value for "instance_id", instance_id cannot be nil.')
-      end
-
-      if @instance_name.nil?
-        invalid_properties.push('invalid value for "instance_name", instance_name cannot be nil.')
-      end
-
-      if @ip_address.nil?
-        invalid_properties.push('invalid value for "ip_address", ip_address cannot be nil.')
-      end
-
       if @activated_at.nil?
         invalid_properties.push('invalid value for "activated_at", activated_at cannot be nil.')
-      end
-
-      if @last_seen_at.nil?
-        invalid_properties.push('invalid value for "last_seen_at", last_seen_at cannot be nil.')
       end
 
       invalid_properties
@@ -174,11 +162,7 @@ module Solifyn
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @id.nil?
       return false if @license_id.nil?
-      return false if @instance_id.nil?
-      return false if @instance_name.nil?
-      return false if @ip_address.nil?
       return false if @activated_at.nil?
-      return false if @last_seen_at.nil?
       true
     end
 

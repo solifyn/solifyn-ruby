@@ -47,7 +47,7 @@
 require 'solifyn'
 
 instance = Solifyn::Product.new(
-  id: prod_9z8x7c6v5b4n,
+  id: null,
   name: Enterprise SaaS Plan,
   price: 99,
   currency: USD,
@@ -68,14 +68,14 @@ instance = Solifyn::Product.new(
   expiration_days: null,
   statement_descriptor: SOLIFYN*SAAS,
   pay_what_you_want: false,
-  metadata: {tier&#x3D;enterprise, department&#x3D;engineering},
-  custom_fields: [{id&#x3D;57aa2241-eae4-43dc-b9ae-36069b84b2da, name&#x3D;Discord Username, order&#x3D;0, required&#x3D;true, field_type&#x3D;text, placeholder&#x3D;e.g. your_discord#1234}, {id&#x3D;c86da32a-a967-457c-815b-c3440294d70b, name&#x3D;Company Name, order&#x3D;1, required&#x3D;false, field_type&#x3D;text, placeholder&#x3D;e.g. Acme Corp (Optional)}],
+  metadata: {&quot;tier&quot;:&quot;enterprise&quot;,&quot;department&quot;:&quot;engineering&quot;},
+  custom_fields: [{&quot;id&quot;:&quot;57aa2241-eae4-43dc-b9ae-36069b84b2da&quot;,&quot;name&quot;:&quot;Discord Username&quot;,&quot;order&quot;:0,&quot;required&quot;:true,&quot;field_type&quot;:&quot;text&quot;,&quot;placeholder&quot;:&quot;e.g. your_discord#1234&quot;},{&quot;id&quot;:&quot;c86da32a-a967-457c-815b-c3440294d70b&quot;,&quot;name&quot;:&quot;Company Name&quot;,&quot;order&quot;:1,&quot;required&quot;:false,&quot;field_type&quot;:&quot;text&quot;,&quot;placeholder&quot;:&quot;e.g. Acme Corp (Optional)&quot;}],
   stock: null,
   activation_limit: 5,
   is_listed: true,
   is_free: false,
-  created_at: 2026-05-18T12:00:00.000Z,
-  updated_at: 2026-05-18T12:00:00.000Z,
+  created_at: 2026-05-18T12:00Z,
+  updated_at: 2026-05-18T12:00Z,
   is_permanently_deleted: false,
   brand_id: brd_4e29285b8sdf34ff51e07d4,
   digital_link: null,

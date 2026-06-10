@@ -187,6 +187,8 @@ module Solifyn
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'activation_limit',
+        :'brand_id',
       ])
     end
 
@@ -275,8 +277,6 @@ module Solifyn
 
       if attributes.key?(:'activation_limit')
         self.activation_limit = attributes[:'activation_limit']
-      else
-        self.activation_limit = null
       end
 
       if attributes.key?(:'brand_id')

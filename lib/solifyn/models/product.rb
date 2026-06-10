@@ -238,6 +238,23 @@ module Solifyn
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'description',
+        :'image_url',
+        :'discount',
+        :'github_repo',
+        :'github_permission',
+        :'billing_period',
+        :'trial_period_days',
+        :'expiration_days',
+        :'statement_descriptor',
+        :'metadata',
+        :'custom_fields',
+        :'stock',
+        :'brand_id',
+        :'digital_link',
+        :'instructions',
+        :'activation_message',
+        :'expiry_hours',
       ])
     end
 
@@ -500,20 +517,12 @@ module Solifyn
         invalid_properties.push('invalid value for "status", status cannot be nil.')
       end
 
-      if @image_url.nil?
-        invalid_properties.push('invalid value for "image_url", image_url cannot be nil.')
-      end
-
       if @tax_category.nil?
         invalid_properties.push('invalid value for "tax_category", tax_category cannot be nil.')
       end
 
       if @pricing_type.nil?
         invalid_properties.push('invalid value for "pricing_type", pricing_type cannot be nil.')
-      end
-
-      if @discount.nil?
-        invalid_properties.push('invalid value for "discount", discount cannot be nil.')
       end
 
       if @has_license_key.nil?
@@ -528,48 +537,12 @@ module Solifyn
         invalid_properties.push('invalid value for "has_github_access", has_github_access cannot be nil.')
       end
 
-      if @github_repo.nil?
-        invalid_properties.push('invalid value for "github_repo", github_repo cannot be nil.')
-      end
-
-      if @github_permission.nil?
-        invalid_properties.push('invalid value for "github_permission", github_permission cannot be nil.')
-      end
-
       if @is_tax_inclusive.nil?
         invalid_properties.push('invalid value for "is_tax_inclusive", is_tax_inclusive cannot be nil.')
       end
 
-      if @billing_period.nil?
-        invalid_properties.push('invalid value for "billing_period", billing_period cannot be nil.')
-      end
-
-      if @trial_period_days.nil?
-        invalid_properties.push('invalid value for "trial_period_days", trial_period_days cannot be nil.')
-      end
-
-      if @expiration_days.nil?
-        invalid_properties.push('invalid value for "expiration_days", expiration_days cannot be nil.')
-      end
-
-      if @statement_descriptor.nil?
-        invalid_properties.push('invalid value for "statement_descriptor", statement_descriptor cannot be nil.')
-      end
-
       if @pay_what_you_want.nil?
         invalid_properties.push('invalid value for "pay_what_you_want", pay_what_you_want cannot be nil.')
-      end
-
-      if @metadata.nil?
-        invalid_properties.push('invalid value for "metadata", metadata cannot be nil.')
-      end
-
-      if @custom_fields.nil?
-        invalid_properties.push('invalid value for "custom_fields", custom_fields cannot be nil.')
-      end
-
-      if @stock.nil?
-        invalid_properties.push('invalid value for "stock", stock cannot be nil.')
       end
 
       if @activation_limit.nil?
@@ -596,26 +569,6 @@ module Solifyn
         invalid_properties.push('invalid value for "is_permanently_deleted", is_permanently_deleted cannot be nil.')
       end
 
-      if @brand_id.nil?
-        invalid_properties.push('invalid value for "brand_id", brand_id cannot be nil.')
-      end
-
-      if @digital_link.nil?
-        invalid_properties.push('invalid value for "digital_link", digital_link cannot be nil.')
-      end
-
-      if @instructions.nil?
-        invalid_properties.push('invalid value for "instructions", instructions cannot be nil.')
-      end
-
-      if @activation_message.nil?
-        invalid_properties.push('invalid value for "activation_message", activation_message cannot be nil.')
-      end
-
-      if @expiry_hours.nil?
-        invalid_properties.push('invalid value for "expiry_hours", expiry_hours cannot be nil.')
-      end
-
       if @business_id.nil?
         invalid_properties.push('invalid value for "business_id", business_id cannot be nil.')
       end
@@ -632,41 +585,25 @@ module Solifyn
       return false if @price.nil?
       return false if @currency.nil?
       return false if @status.nil?
-      return false if @image_url.nil?
       return false if @tax_category.nil?
       tax_category_validator = EnumAttributeValidator.new('String', ["digital_products", "saas", "physical_products", "service"])
       return false unless tax_category_validator.valid?(@tax_category)
       return false if @pricing_type.nil?
       pricing_type_validator = EnumAttributeValidator.new('String', ["usage_based", "one_time", "renewal"])
       return false unless pricing_type_validator.valid?(@pricing_type)
-      return false if @discount.nil?
       return false if @has_license_key.nil?
       return false if @has_digital_delivery.nil?
       return false if @has_github_access.nil?
-      return false if @github_repo.nil?
-      return false if @github_permission.nil?
       github_permission_validator = EnumAttributeValidator.new('String', ["pull", "triage", "push", "maintain", "admin"])
       return false unless github_permission_validator.valid?(@github_permission)
       return false if @is_tax_inclusive.nil?
-      return false if @billing_period.nil?
-      return false if @trial_period_days.nil?
-      return false if @expiration_days.nil?
-      return false if @statement_descriptor.nil?
       return false if @pay_what_you_want.nil?
-      return false if @metadata.nil?
-      return false if @custom_fields.nil?
-      return false if @stock.nil?
       return false if @activation_limit.nil?
       return false if @is_listed.nil?
       return false if @is_free.nil?
       return false if @created_at.nil?
       return false if @updated_at.nil?
       return false if @is_permanently_deleted.nil?
-      return false if @brand_id.nil?
-      return false if @digital_link.nil?
-      return false if @instructions.nil?
-      return false if @activation_message.nil?
-      return false if @expiry_hours.nil?
       return false if @business_id.nil?
       true
     end

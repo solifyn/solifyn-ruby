@@ -166,6 +166,16 @@ module Solifyn
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'renewal_period_start',
+        :'renewal_period_end',
+        :'cancel_option',
+        :'cancellation_reason',
+        :'canceled_at',
+        :'promo_code',
+        :'license_key',
+        :'price',
+        :'type',
+        :'customer_id'
       ])
     end
 
@@ -372,28 +382,8 @@ module Solifyn
         invalid_properties.push('invalid value for "user", user cannot be nil.')
       end
 
-      if @renewal_period_start.nil?
-        invalid_properties.push('invalid value for "renewal_period_start", renewal_period_start cannot be nil.')
-      end
-
-      if @renewal_period_end.nil?
-        invalid_properties.push('invalid value for "renewal_period_end", renewal_period_end cannot be nil.')
-      end
-
       if @cancel_at_period_end.nil?
         invalid_properties.push('invalid value for "cancel_at_period_end", cancel_at_period_end cannot be nil.')
-      end
-
-      if @cancel_option.nil?
-        invalid_properties.push('invalid value for "cancel_option", cancel_option cannot be nil.')
-      end
-
-      if @cancellation_reason.nil?
-        invalid_properties.push('invalid value for "cancellation_reason", cancellation_reason cannot be nil.')
-      end
-
-      if @canceled_at.nil?
-        invalid_properties.push('invalid value for "canceled_at", canceled_at cannot be nil.')
       end
 
       if @currency.nil?
@@ -408,16 +398,8 @@ module Solifyn
         invalid_properties.push('invalid value for "plan", plan cannot be nil.')
       end
 
-      if @promo_code.nil?
-        invalid_properties.push('invalid value for "promo_code", promo_code cannot be nil.')
-      end
-
       if @product.nil?
         invalid_properties.push('invalid value for "product", product cannot be nil.')
-      end
-
-      if @license_key.nil?
-        invalid_properties.push('invalid value for "license_key", license_key cannot be nil.')
       end
 
       if @metadata.nil?
@@ -447,18 +429,11 @@ module Solifyn
       return false if @manage_url.nil?
       return false if @member.nil?
       return false if @user.nil?
-      return false if @renewal_period_start.nil?
-      return false if @renewal_period_end.nil?
       return false if @cancel_at_period_end.nil?
-      return false if @cancel_option.nil?
-      return false if @cancellation_reason.nil?
-      return false if @canceled_at.nil?
       return false if @currency.nil?
       return false if @company.nil?
       return false if @plan.nil?
-      return false if @promo_code.nil?
       return false if @product.nil?
-      return false if @license_key.nil?
       return false if @metadata.nil?
       return false if @payment_collection_paused.nil?
       return false if @checkout_configuration_id.nil?

@@ -60,6 +60,8 @@ module Solifyn
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'max_quantity',
+        :'price_override',
       ])
     end
 
@@ -122,14 +124,6 @@ module Solifyn
         invalid_properties.push('invalid value for "min_quantity", min_quantity cannot be nil.')
       end
 
-      if @max_quantity.nil?
-        invalid_properties.push('invalid value for "max_quantity", max_quantity cannot be nil.')
-      end
-
-      if @price_override.nil?
-        invalid_properties.push('invalid value for "price_override", price_override cannot be nil.')
-      end
-
       if @is_seat_addon.nil?
         invalid_properties.push('invalid value for "is_seat_addon", is_seat_addon cannot be nil.')
       end
@@ -143,8 +137,6 @@ module Solifyn
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @product_id.nil?
       return false if @min_quantity.nil?
-      return false if @max_quantity.nil?
-      return false if @price_override.nil?
       return false if @is_seat_addon.nil?
       true
     end

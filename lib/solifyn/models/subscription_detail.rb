@@ -56,6 +56,7 @@ module Solifyn
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'product'
       ])
     end
 
@@ -120,10 +121,6 @@ module Solifyn
         invalid_properties.push('invalid value for "purchased_addons", purchased_addons cannot be nil.')
       end
 
-      if @product.nil?
-        invalid_properties.push('invalid value for "product", product cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -134,7 +131,6 @@ module Solifyn
       return false if @subscription.nil?
       return false if @payments.nil?
       return false if @purchased_addons.nil?
-      return false if @product.nil?
       true
     end
 

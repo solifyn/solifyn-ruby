@@ -20,7 +20,7 @@ instance = Solifyn::Invoice.new(
   order_id: pay_123,
   url: https://api.solifyn.com/v1/orders/pay_123/invoice/pdf,
   status: paid,
-  created_at: 2026-05-22T08:00:00Z
+  created_at: 2026-05-22T08:00Z
 )
 ```
 

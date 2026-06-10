@@ -63,6 +63,9 @@ module Solifyn
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'activation_limit',
+        :'activation_message',
+        :'expires_at',
       ])
     end
 
@@ -139,18 +142,6 @@ module Solifyn
         invalid_properties.push('invalid value for "status", status cannot be nil.')
       end
 
-      if @activation_limit.nil?
-        invalid_properties.push('invalid value for "activation_limit", activation_limit cannot be nil.')
-      end
-
-      if @activation_message.nil?
-        invalid_properties.push('invalid value for "activation_message", activation_message cannot be nil.')
-      end
-
-      if @expires_at.nil?
-        invalid_properties.push('invalid value for "expires_at", expires_at cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -161,9 +152,6 @@ module Solifyn
       return false if @id.nil?
       return false if @key.nil?
       return false if @status.nil?
-      return false if @activation_limit.nil?
-      return false if @activation_message.nil?
-      return false if @expires_at.nil?
       true
     end
 

@@ -138,6 +138,14 @@ module Solifyn
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'product_id',
+        :'payment_id',
+        :'customer_id',
+        :'activation_limit',
+        :'activation_message',
+        :'expiry_hours',
+        :'expires_at',
+        :'filters',
       ])
     end
 
@@ -274,40 +282,8 @@ module Solifyn
         invalid_properties.push('invalid value for "business_id", business_id cannot be nil.')
       end
 
-      if @product_id.nil?
-        invalid_properties.push('invalid value for "product_id", product_id cannot be nil.')
-      end
-
-      if @payment_id.nil?
-        invalid_properties.push('invalid value for "payment_id", payment_id cannot be nil.')
-      end
-
-      if @customer_id.nil?
-        invalid_properties.push('invalid value for "customer_id", customer_id cannot be nil.')
-      end
-
-      if @activation_limit.nil?
-        invalid_properties.push('invalid value for "activation_limit", activation_limit cannot be nil.')
-      end
-
-      if @activation_message.nil?
-        invalid_properties.push('invalid value for "activation_message", activation_message cannot be nil.')
-      end
-
       if @instances_count.nil?
         invalid_properties.push('invalid value for "instances_count", instances_count cannot be nil.')
-      end
-
-      if @expiry_hours.nil?
-        invalid_properties.push('invalid value for "expiry_hours", expiry_hours cannot be nil.')
-      end
-
-      if @expires_at.nil?
-        invalid_properties.push('invalid value for "expires_at", expires_at cannot be nil.')
-      end
-
-      if @filters.nil?
-        invalid_properties.push('invalid value for "filters", filters cannot be nil.')
       end
 
       if @archived.nil?
@@ -335,15 +311,7 @@ module Solifyn
       status_validator = EnumAttributeValidator.new('String', ["ACTIVE", "DISABLED", "REVOKED"])
       return false unless status_validator.valid?(@status)
       return false if @business_id.nil?
-      return false if @product_id.nil?
-      return false if @payment_id.nil?
-      return false if @customer_id.nil?
-      return false if @activation_limit.nil?
-      return false if @activation_message.nil?
       return false if @instances_count.nil?
-      return false if @expiry_hours.nil?
-      return false if @expires_at.nil?
-      return false if @filters.nil?
       return false if @archived.nil?
       return false if @created_at.nil?
       return false if @updated_at.nil?

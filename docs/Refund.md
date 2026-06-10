@@ -24,7 +24,7 @@
 require 'solifyn'
 
 instance = Solifyn::Refund.new(
-  id: ref_123,
+  id: null,
   whop_id: rf_xyz123,
   idempotency_key: idemp_abc123,
   amount: 10.5,
@@ -33,10 +33,10 @@ instance = Solifyn::Refund.new(
   provider: stripe,
   reason: requested_by_customer,
   reference_value: ARN123456789,
-  payment_id: pay_123,
-  provider_created_at: 2025-01-01T12:00:00Z,
-  created_at: 2025-01-01T12:00:00Z,
-  updated_at: 2025-01-01T12:00:00Z
+  payment_id: null,
+  provider_created_at: 2025-01-01T12:00Z,
+  created_at: 2025-01-01T12:00Z,
+  updated_at: 2025-01-01T12:00Z
 )
 ```
 

@@ -39,9 +39,9 @@ require 'solifyn'
 instance = Solifyn::Subscription.new(
   id: mem_123,
   status: active,
-  created_at: 2025-01-01T12:00:00.000Z,
-  joined_at: 2025-01-01T12:00:00.000Z,
-  updated_at: 2025-01-01T12:00:00.000Z,
+  created_at: 2025-01-01T12:00Z,
+  joined_at: 2025-01-01T12:00Z,
+  updated_at: 2025-01-01T12:00Z,
   manage_url: https://example.com/billing/manage/mber_123,
   member: null,
   user: null,
