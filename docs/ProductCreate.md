@@ -17,7 +17,7 @@
 | **github_repo** | **String** | GitHub repository to grant access to (format: owner/repo). | [optional] |
 | **github_permission** | **String** | GitHub collaborator permission level. | [optional] |
 | **is_tax_inclusive** | **Boolean** | Whether tax is included in the base price. | [optional][default to false] |
-| **activation_limit** | **Integer** | Maximum concurrent activated instances allowed per license key. | [optional] |
+| **activation_limit** | **Integer** | Maximum concurrent activated instances allowed per license key. | [optional][default to null] |
 | **brand_id** | **String** | Brand id for the product, if not provided will default to primary brand. | [optional] |
 | **billing_period** | **Integer** | Billing period in days (for Subscription products). | [optional] |
 | **trial_period_days** | **Integer** | Trial duration in days. | [optional] |
@@ -57,8 +57,8 @@ instance = Solifyn::ProductCreate.new(
   expiration_days: null,
   statement_descriptor: SOLIFYN*SAAS,
   pay_what_you_want: false,
-  metadata: {internal_id&#x3D;12345, campaign&#x3D;summer_sale},
-  custom_fields: [{id&#x3D;57aa2241-eae4-43dc-b9ae-36069b84b2da, name&#x3D;Discord Username, order&#x3D;0, required&#x3D;true, field_type&#x3D;text, placeholder&#x3D;e.g. your_discord#1234}, {id&#x3D;c86da32a-a967-457c-815b-c3440294d70b, name&#x3D;Company Name, order&#x3D;1, required&#x3D;false, field_type&#x3D;text, placeholder&#x3D;e.g. Acme Corp (Optional)}],
+  metadata: {&quot;internal_id&quot;:&quot;12345&quot;,&quot;campaign&quot;:&quot;summer_sale&quot;},
+  custom_fields: [{&quot;id&quot;:&quot;57aa2241-eae4-43dc-b9ae-36069b84b2da&quot;,&quot;name&quot;:&quot;Discord Username&quot;,&quot;order&quot;:0,&quot;required&quot;:true,&quot;field_type&quot;:&quot;text&quot;,&quot;placeholder&quot;:&quot;e.g. your_discord#1234&quot;},{&quot;id&quot;:&quot;c86da32a-a967-457c-815b-c3440294d70b&quot;,&quot;name&quot;:&quot;Company Name&quot;,&quot;order&quot;:1,&quot;required&quot;:false,&quot;field_type&quot;:&quot;text&quot;,&quot;placeholder&quot;:&quot;e.g. Acme Corp (Optional)&quot;}],
   stock: 100,
   is_listed: true,
   is_free: false,

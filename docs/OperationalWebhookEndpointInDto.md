@@ -22,8 +22,8 @@ instance = Solifyn::OperationalWebhookEndpointInDto.new(
   url: https://example.com/webhook/,
   description: Production monitoring endpoint,
   disabled: false,
-  filter_types: [message.attempt.failing, message.attempt.exhausted],
-  metadata: {environment&#x3D;production},
+  filter_types: [&quot;message.attempt.failing&quot;,&quot;message.attempt.exhausted&quot;],
+  metadata: {&quot;environment&quot;:&quot;production&quot;},
   secret: whsec_C2FVsBQIhrscChlQIMV+b5sSYspob7oD,
   throttle_rate: 5,
   uid: monitoring-prod-endpoint

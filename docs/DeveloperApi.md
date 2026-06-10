@@ -91,7 +91,7 @@ require 'time'
 require 'solifyn'
 
 api_instance = Solifyn::DeveloperApi.new
-create_webhook_endpoint_dto = Solifyn::CreateWebhookEndpointDto.new({url: 'https://api.example.com/webhooks', events: [payment.created,  payment.succeeded]}) # CreateWebhookEndpointDto | 
+create_webhook_endpoint_dto = Solifyn::CreateWebhookEndpointDto.new({url: 'https://api.example.com/webhooks', events: ["payment.created", "payment.succeeded"]}) # CreateWebhookEndpointDto | 
 
 begin
   # Create Webhook Endpoint

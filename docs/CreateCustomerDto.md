@@ -20,7 +20,7 @@ instance = Solifyn::CreateCustomerDto.new(
   name: John Doe,
   phone: +1234567890,
   username: johndoe,
-  metadata: {customKey&#x3D;customValue}
+  metadata: {&quot;customKey&quot;:&quot;customValue&quot;}
 )
 ```
 

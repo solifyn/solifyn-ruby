@@ -57,7 +57,7 @@ instance = Solifyn::Subscription.new(
   promo_code: null,
   product: null,
   license_key: null,
-  metadata: {is_usage_based&#x3D;false},
+  metadata: {&quot;is_usage_based&quot;:&quot;false&quot;},
   payment_collection_paused: false,
   checkout_configuration_id: ch_123,
   price: 99,

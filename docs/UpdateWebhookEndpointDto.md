@@ -17,7 +17,7 @@ require 'solifyn'
 instance = Solifyn::UpdateWebhookEndpointDto.new(
   url: https://api.example.com/new-webhooks,
   description: Updated payment listener,
-  events: [payment.created, payment.succeeded, refund.succeeded],
+  events: [&quot;payment.created&quot;,&quot;payment.succeeded&quot;,&quot;refund.succeeded&quot;],
   status: ACTIVE
 )
 ```

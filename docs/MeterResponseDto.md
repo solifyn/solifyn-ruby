@@ -31,7 +31,7 @@ instance = Solifyn::MeterResponseDto.new(
   aggregation_type: COUNT,
   aggregation_key: tokens,
   unit: requests,
-  filters: {event_type&#x3D;premium, region&#x3D;asia},
+  filters: {&quot;event_type&quot;:&quot;premium&quot;,&quot;region&quot;:&quot;asia&quot;},
   archived: false,
   created_at: 2026-05-23T10:00:00.000Z,
   updated_at: 2026-05-23T10:00:00.000Z
