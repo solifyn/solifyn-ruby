@@ -11,5 +11,5 @@ Generator version: 7.10.0
 =end
 
 module Solifyn
-  VERSION = '1.0.5'
+  VERSION = '1.1.4'
 end

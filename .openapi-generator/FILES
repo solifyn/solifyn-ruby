@@ -335,5 +335,4 @@ lib/solifyn/models/webhook_refund_payload.rb
 lib/solifyn/models/webhook_subscription_payload.rb
 lib/solifyn/version.rb
 solifyn.gemspec
-spec/api/default_api_spec.rb
 spec/spec_helper.rb
