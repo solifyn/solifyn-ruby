@@ -55,10 +55,6 @@ module Solifyn
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'cancellation_policy',
-        :'customer_communication',
-        :'refund_policy',
-        :'uncategorized'
       ])
     end
 

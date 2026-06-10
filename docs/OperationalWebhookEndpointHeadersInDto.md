@@ -12,7 +12,7 @@
 require 'solifyn'
 
 instance = Solifyn::OperationalWebhookEndpointHeadersInDto.new(
-  headers: {&quot;X-Example&quot;:&quot;123&quot;,&quot;X-Foobar&quot;:&quot;Bar&quot;}
+  headers: {X-Example&#x3D;123, X-Foobar&#x3D;Bar}
 )
 ```
 

@@ -23,7 +23,7 @@ instance = Solifyn::WebhookEndpointResponseDto.new(
   id: ep_12345,
   url: https://api.example.com/webhooks,
   description: Primary payment listener,
-  events: [&quot;payment.created&quot;,&quot;payment.succeeded&quot;],
+  events: [payment.created, payment.succeeded],
   status: ACTIVE,
   masked_secret: whsec_Ab...xyz,
   secret: whsec_AbCDeFGhiJKlMnOpQrStUvWxYz123456,

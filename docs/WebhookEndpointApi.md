@@ -569,7 +569,7 @@ end
 
 api_instance = Solifyn::WebhookEndpointApi.new
 id = 'id_example' # String | The endpoint ID or UID
-operational_webhook_endpoint_headers_in_dto = Solifyn::OperationalWebhookEndpointHeadersInDto.new({headers: {"X-Example":"123","X-Foobar":"Bar"}}) # OperationalWebhookEndpointHeadersInDto | 
+operational_webhook_endpoint_headers_in_dto = Solifyn::OperationalWebhookEndpointHeadersInDto.new({headers: {X-Example=123, X-Foobar=Bar}}) # OperationalWebhookEndpointHeadersInDto | 
 
 begin
   # Set Operational Webhook Endpoint Headers

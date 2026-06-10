@@ -21,8 +21,8 @@ instance = Solifyn::OperationalWebhookEndpointUpdateDto.new(
   url: https://example.com/new-webhook/,
   description: Updated monitoring endpoint,
   disabled: true,
-  filter_types: [&quot;message.attempt.failing&quot;,&quot;message.attempt.exhausted&quot;,&quot;endpoint.disabled&quot;],
-  metadata: {&quot;environment&quot;:&quot;staging&quot;},
+  filter_types: [message.attempt.failing, message.attempt.exhausted, endpoint.disabled],
+  metadata: {environment&#x3D;staging},
   throttle_rate: 10,
   uid: monitoring-updated-endpoint
 )

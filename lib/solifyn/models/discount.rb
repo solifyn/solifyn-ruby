@@ -123,8 +123,6 @@ module Solifyn
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'usage_limit',
-        :'expires_at',
       ])
     end
 
@@ -245,8 +243,16 @@ module Solifyn
         invalid_properties.push('invalid value for "amount", amount cannot be nil.')
       end
 
+      if @usage_limit.nil?
+        invalid_properties.push('invalid value for "usage_limit", usage_limit cannot be nil.')
+      end
+
       if @times_used.nil?
         invalid_properties.push('invalid value for "times_used", times_used cannot be nil.')
+      end
+
+      if @expires_at.nil?
+        invalid_properties.push('invalid value for "expires_at", expires_at cannot be nil.')
       end
 
       if @status.nil?
@@ -279,7 +285,9 @@ module Solifyn
       type_validator = EnumAttributeValidator.new('String', ["percentage", "fixed_amount"])
       return false unless type_validator.valid?(@type)
       return false if @amount.nil?
+      return false if @usage_limit.nil?
       return false if @times_used.nil?
+      return false if @expires_at.nil?
       return false if @status.nil?
       status_validator = EnumAttributeValidator.new('String', ["active", "expired"])
       return false unless status_validator.valid?(@status)

@@ -103,12 +103,6 @@ module Solifyn
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'payment_id',
-        :'github_repo',
-        :'github_permission',
-        :'github_username',
-        :'oauth_url',
-        :'error_details',
       ])
     end
 

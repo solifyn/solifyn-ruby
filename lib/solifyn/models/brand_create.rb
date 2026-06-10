@@ -65,11 +65,6 @@ module Solifyn
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'website_url',
-        :'support_email',
-        :'description',
-        :'logo_url',
-        :'statement_descriptor'
       ])
     end
 
@@ -162,7 +157,11 @@ module Solifyn
     # Custom attribute writer method with validation
     # @param [Object] statement_descriptor Value to be assigned
     def statement_descriptor=(statement_descriptor)
-      if !statement_descriptor.nil? && statement_descriptor.to_s.length > 22
+      if statement_descriptor.nil?
+        fail ArgumentError, 'statement_descriptor cannot be nil'
+      end
+
+      if statement_descriptor.to_s.length > 22
         fail ArgumentError, 'invalid value for "statement_descriptor", the character length must be smaller than or equal to 22.'
       end
 

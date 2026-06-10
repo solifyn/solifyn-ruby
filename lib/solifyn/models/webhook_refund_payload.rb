@@ -81,10 +81,6 @@ module Solifyn
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'reason',
-        :'reference_value',
-        :'provider',
-        :'provider_created_at',
       ])
     end
 

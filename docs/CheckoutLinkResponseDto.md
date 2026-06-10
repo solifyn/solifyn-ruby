@@ -28,7 +28,7 @@
 require 'solifyn'
 
 instance = Solifyn::CheckoutLinkResponseDto.new(
-  id: null,
+  id: chk_123,
   title: Winter Bundle Checkout,
   product_id: prod_123,
   collection_id: col_123,
@@ -43,8 +43,8 @@ instance = Solifyn::CheckoutLinkResponseDto.new(
   redirect_url: https://example.com/success,
   cancel_url: https://example.com/cancel,
   show_discounts: true,
-  created_at: 2025-01-01T12:00Z,
-  updated_at: 2025-01-01T12:00Z
+  created_at: 2025-01-01T12:00:00Z,
+  updated_at: 2025-01-01T12:00:00Z
 )
 ```
 

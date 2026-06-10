@@ -26,7 +26,7 @@ instance = Solifyn::OrderRefund.new(
   status: succeeded,
   reason: requested_by_customer,
   is_partial: true,
-  created_at: 2026-05-22T08:00Z
+  created_at: 2026-05-22T08:00:00Z
 )
 ```
 

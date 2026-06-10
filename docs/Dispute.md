@@ -39,7 +39,7 @@ instance = Solifyn::Dispute.new(
   status: warning_needs_response,
   reason: Product not received,
   editable: true,
-  needs_response_by: 2025-01-01T12:00Z,
+  needs_response_by: 2025-01-01T12:00:00Z,
   visa_rdr: false,
   billing_address: 123 Main St, New York, NY,
   customer_name: John Doe,
@@ -51,8 +51,8 @@ instance = Solifyn::Dispute.new(
   evidence: null,
   payment_id: pay_123,
   business_id: biz_123,
-  created_at: 2025-01-01T12:00Z,
-  updated_at: 2025-01-01T12:00Z
+  created_at: 2025-01-01T12:00:00Z,
+  updated_at: 2025-01-01T12:00:00Z
 )
 ```
 

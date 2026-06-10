@@ -25,7 +25,7 @@ instance = Solifyn::CreateMeterDto.new(
   aggregation_type: COUNT,
   aggregation_key: tokens,
   unit: requests,
-  filters: {&quot;event_type&quot;:&quot;premium&quot;,&quot;region&quot;:&quot;asia&quot;},
+  filters: {event_type&#x3D;premium, region&#x3D;asia},
   enable_filtering: false
 )
 ```

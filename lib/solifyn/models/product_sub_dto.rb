@@ -47,7 +47,6 @@ module Solifyn
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'digital_link'
       ])
     end
 
@@ -98,6 +97,10 @@ module Solifyn
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
+      if @digital_link.nil?
+        invalid_properties.push('invalid value for "digital_link", digital_link cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -107,6 +110,7 @@ module Solifyn
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @id.nil?
       return false if @name.nil?
+      return false if @digital_link.nil?
       true
     end
 

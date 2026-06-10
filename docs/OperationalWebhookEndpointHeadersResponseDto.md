@@ -13,8 +13,8 @@
 require 'solifyn'
 
 instance = Solifyn::OperationalWebhookEndpointHeadersResponseDto.new(
-  headers: {&quot;X-Example&quot;:&quot;123&quot;,&quot;X-Foobar&quot;:&quot;Bar&quot;},
-  sensitive: [&quot;Authorization&quot;]
+  headers: {X-Example&#x3D;123, X-Foobar&#x3D;Bar},
+  sensitive: [Authorization]
 )
 ```
 

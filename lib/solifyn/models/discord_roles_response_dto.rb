@@ -14,58 +14,26 @@ require 'date'
 require 'time'
 
 module Solifyn
-  class Brand
-    # The unique brand ID
+  class DiscordRolesResponseDto
+    # The Discord Role ID
     attr_accessor :id
 
-    # The brand name
+    # The Discord Role Name
     attr_accessor :name
 
-    # The website URL associated with the brand
-    attr_accessor :website_url
+    # The position of the role in the server hierarchy
+    attr_accessor :position
 
-    # Support email address for customer service
-    attr_accessor :support_email
-
-    # Short description of the brand
-    attr_accessor :description
-
-    # Brand logo image URL
-    attr_accessor :logo_url
-
-    # Whether this is the primary brand for the merchant business
-    attr_accessor :is_primary
-
-    # Credit card statement descriptor
-    attr_accessor :statement_descriptor
-
-    # The merchant ID owning the brand
-    attr_accessor :merchant_id
-
-    # The business ID linked to the brand
-    attr_accessor :business_id
-
-    # Timestamp when the brand was created
-    attr_accessor :created_at
-
-    # Timestamp when the brand was last updated
-    attr_accessor :updated_at
+    # The color of the role (hex integer code)
+    attr_accessor :color
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
         :'name' => :'name',
-        :'website_url' => :'websiteUrl',
-        :'support_email' => :'supportEmail',
-        :'description' => :'description',
-        :'logo_url' => :'logoUrl',
-        :'is_primary' => :'isPrimary',
-        :'statement_descriptor' => :'statementDescriptor',
-        :'merchant_id' => :'merchantId',
-        :'business_id' => :'businessId',
-        :'created_at' => :'createdAt',
-        :'updated_at' => :'updatedAt'
+        :'position' => :'position',
+        :'color' => :'color'
       }
     end
 
@@ -79,16 +47,8 @@ module Solifyn
       {
         :'id' => :'String',
         :'name' => :'String',
-        :'website_url' => :'String',
-        :'support_email' => :'String',
-        :'description' => :'String',
-        :'logo_url' => :'String',
-        :'is_primary' => :'Boolean',
-        :'statement_descriptor' => :'String',
-        :'merchant_id' => :'String',
-        :'business_id' => :'String',
-        :'created_at' => :'Time',
-        :'updated_at' => :'Time'
+        :'position' => :'Float',
+        :'color' => :'Float'
       }
     end
 
@@ -102,13 +62,13 @@ module Solifyn
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Solifyn::Brand` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Solifyn::DiscordRolesResponseDto` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Solifyn::Brand`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Solifyn::DiscordRolesResponseDto`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -125,52 +85,16 @@ module Solifyn
         self.name = nil
       end
 
-      if attributes.key?(:'website_url')
-        self.website_url = attributes[:'website_url']
-      end
-
-      if attributes.key?(:'support_email')
-        self.support_email = attributes[:'support_email']
-      end
-
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.key?(:'logo_url')
-        self.logo_url = attributes[:'logo_url']
-      end
-
-      if attributes.key?(:'is_primary')
-        self.is_primary = attributes[:'is_primary']
+      if attributes.key?(:'position')
+        self.position = attributes[:'position']
       else
-        self.is_primary = nil
+        self.position = nil
       end
 
-      if attributes.key?(:'statement_descriptor')
-        self.statement_descriptor = attributes[:'statement_descriptor']
-      end
-
-      if attributes.key?(:'merchant_id')
-        self.merchant_id = attributes[:'merchant_id']
+      if attributes.key?(:'color')
+        self.color = attributes[:'color']
       else
-        self.merchant_id = nil
-      end
-
-      if attributes.key?(:'business_id')
-        self.business_id = attributes[:'business_id']
-      end
-
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      else
-        self.created_at = nil
-      end
-
-      if attributes.key?(:'updated_at')
-        self.updated_at = attributes[:'updated_at']
-      else
-        self.updated_at = nil
+        self.color = nil
       end
     end
 
@@ -187,20 +111,12 @@ module Solifyn
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if @is_primary.nil?
-        invalid_properties.push('invalid value for "is_primary", is_primary cannot be nil.')
+      if @position.nil?
+        invalid_properties.push('invalid value for "position", position cannot be nil.')
       end
 
-      if @merchant_id.nil?
-        invalid_properties.push('invalid value for "merchant_id", merchant_id cannot be nil.')
-      end
-
-      if @created_at.nil?
-        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
-      end
-
-      if @updated_at.nil?
-        invalid_properties.push('invalid value for "updated_at", updated_at cannot be nil.')
+      if @color.nil?
+        invalid_properties.push('invalid value for "color", color cannot be nil.')
       end
 
       invalid_properties
@@ -212,10 +128,8 @@ module Solifyn
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @id.nil?
       return false if @name.nil?
-      return false if @is_primary.nil?
-      return false if @merchant_id.nil?
-      return false if @created_at.nil?
-      return false if @updated_at.nil?
+      return false if @position.nil?
+      return false if @color.nil?
       true
     end
 
@@ -226,16 +140,8 @@ module Solifyn
       self.class == o.class &&
           id == o.id &&
           name == o.name &&
-          website_url == o.website_url &&
-          support_email == o.support_email &&
-          description == o.description &&
-          logo_url == o.logo_url &&
-          is_primary == o.is_primary &&
-          statement_descriptor == o.statement_descriptor &&
-          merchant_id == o.merchant_id &&
-          business_id == o.business_id &&
-          created_at == o.created_at &&
-          updated_at == o.updated_at
+          position == o.position &&
+          color == o.color
     end
 
     # @see the `==` method
@@ -247,7 +153,7 @@ module Solifyn
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, website_url, support_email, description, logo_url, is_primary, statement_descriptor, merchant_id, business_id, created_at, updated_at].hash
+      [id, name, position, color].hash
     end
 
     # Builds the object from hash

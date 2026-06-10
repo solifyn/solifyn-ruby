@@ -51,6 +51,15 @@ module Solifyn
     # GitHub collaborator permission level.
     attr_accessor :github_permission
 
+    # Whether the purchase includes Discord server role access.
+    attr_accessor :has_discord_access
+
+    # Discord Guild (Server) ID to grant access to.
+    attr_accessor :discord_guild_id
+
+    # Discord Role ID to assign to the user.
+    attr_accessor :discord_role_id
+
     # Whether tax is included in the base price.
     attr_accessor :is_tax_inclusive
 
@@ -130,6 +139,9 @@ module Solifyn
         :'has_github_access' => :'hasGithubAccess',
         :'github_repo' => :'githubRepo',
         :'github_permission' => :'githubPermission',
+        :'has_discord_access' => :'hasDiscordAccess',
+        :'discord_guild_id' => :'discordGuildId',
+        :'discord_role_id' => :'discordRoleId',
         :'is_tax_inclusive' => :'isTaxInclusive',
         :'activation_limit' => :'activationLimit',
         :'brand_id' => :'brandId',
@@ -167,6 +179,9 @@ module Solifyn
         :'has_github_access' => :'Boolean',
         :'github_repo' => :'String',
         :'github_permission' => :'String',
+        :'has_discord_access' => :'Boolean',
+        :'discord_guild_id' => :'String',
+        :'discord_role_id' => :'String',
         :'is_tax_inclusive' => :'Boolean',
         :'activation_limit' => :'Integer',
         :'brand_id' => :'String',
@@ -187,8 +202,6 @@ module Solifyn
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'activation_limit',
-        :'brand_id',
       ])
     end
 
@@ -261,6 +274,20 @@ module Solifyn
 
       if attributes.key?(:'github_permission')
         self.github_permission = attributes[:'github_permission']
+      end
+
+      if attributes.key?(:'has_discord_access')
+        self.has_discord_access = attributes[:'has_discord_access']
+      else
+        self.has_discord_access = false
+      end
+
+      if attributes.key?(:'discord_guild_id')
+        self.discord_guild_id = attributes[:'discord_guild_id']
+      end
+
+      if attributes.key?(:'discord_role_id')
+        self.discord_role_id = attributes[:'discord_role_id']
       end
 
       if attributes.key?(:'is_tax_inclusive')
@@ -402,6 +429,9 @@ module Solifyn
           has_github_access == o.has_github_access &&
           github_repo == o.github_repo &&
           github_permission == o.github_permission &&
+          has_discord_access == o.has_discord_access &&
+          discord_guild_id == o.discord_guild_id &&
+          discord_role_id == o.discord_role_id &&
           is_tax_inclusive == o.is_tax_inclusive &&
           activation_limit == o.activation_limit &&
           brand_id == o.brand_id &&
@@ -427,7 +457,7 @@ module Solifyn
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, description, price, currency, image_url, tax_category, discount, has_license_key, has_digital_delivery, has_github_access, github_repo, github_permission, is_tax_inclusive, activation_limit, brand_id, billing_period, trial_period_days, expiration_days, statement_descriptor, pay_what_you_want, metadata, custom_fields, stock, is_listed, is_free, addons].hash
+      [name, description, price, currency, image_url, tax_category, discount, has_license_key, has_digital_delivery, has_github_access, github_repo, github_permission, has_discord_access, discord_guild_id, discord_role_id, is_tax_inclusive, activation_limit, brand_id, billing_period, trial_period_days, expiration_days, statement_descriptor, pay_what_you_want, metadata, custom_fields, stock, is_listed, is_free, addons].hash
     end
 
     # Builds the object from hash

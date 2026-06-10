@@ -13,6 +13,10 @@
 | **github_repo** | **String** | Target GitHub repository (owner/repo) if type is GITHUB. | [optional] |
 | **github_permission** | **String** | GitHub access permission level if type is GITHUB. | [optional] |
 | **github_username** | **String** | The connected customer GitHub username. | [optional] |
+| **discord_guild_id** | **String** | Target Discord Guild ID if type is DISCORD. | [optional] |
+| **discord_role_id** | **String** | Target Discord Role ID if type is DISCORD. | [optional] |
+| **discord_username** | **String** | The connected customer Discord username. | [optional] |
+| **discord_user_id** | **String** | The connected customer Discord user ID. | [optional] |
 | **status** | **String** | Delivery status of the collaborator invite (PENDING, DELIVERED, FAILED, REVOKED). |  |
 | **oauth_url** | **String** | OAuth URL to redirect the customer to. | [optional] |
 | **error_details** | **String** | Error message if invitation delivery failed. | [optional] |
@@ -26,15 +30,19 @@
 require 'solifyn'
 
 instance = Solifyn::EntitlementGrantResponseDto.new(
-  id: null,
-  business_id: null,
-  customer_id: null,
-  payment_id: null,
-  product_id: null,
+  id: grant_123456,
+  business_id: biz_123456,
+  customer_id: cust_123456,
+  payment_id: pay_123456,
+  product_id: prod_123456,
   type: GITHUB,
   github_repo: solifyn/premium-app,
   github_permission: pull,
   github_username: octocat,
+  discord_guild_id: 123456789012345678,
+  discord_role_id: 876543210987654321,
+  discord_username: discorduser#1234,
+  discord_user_id: 112233445566778899,
   status: PENDING,
   oauth_url: https://github.com/login/oauth/authorize...,
   error_details: Permission denied,

@@ -19,6 +19,9 @@
 | **has_github_access** | **Boolean** | Whether the product includes GitHub repository access. |  |
 | **github_repo** | **String** | GitHub repository to grant access to (format: owner/repo). |  |
 | **github_permission** | **String** | GitHub collaborator permission level. |  |
+| **has_discord_access** | **Boolean** | Whether the product includes Discord role access. |  |
+| **discord_guild_id** | **String** | Discord Guild (Server) ID to grant access to. |  |
+| **discord_role_id** | **String** | Discord Role ID to assign to the user. |  |
 | **is_tax_inclusive** | **Boolean** | Whether the product price already includes applicable sales taxes. |  |
 | **billing_period** | **Integer** | The subscription billing cycle interval in days (for subscription products). |  |
 | **trial_period_days** | **Integer** | Trial duration in days for subscription products. |  |
@@ -47,7 +50,7 @@
 require 'solifyn'
 
 instance = Solifyn::Product.new(
-  id: null,
+  id: prod_9z8x7c6v5b4n,
   name: Enterprise SaaS Plan,
   price: 99,
   currency: USD,
@@ -62,20 +65,23 @@ instance = Solifyn::Product.new(
   has_github_access: false,
   github_repo: solifyn/premium-app,
   github_permission: pull,
+  has_discord_access: false,
+  discord_guild_id: 123456789012345678,
+  discord_role_id: 876543210987654321,
   is_tax_inclusive: false,
   billing_period: null,
   trial_period_days: null,
   expiration_days: null,
   statement_descriptor: SOLIFYN*SAAS,
   pay_what_you_want: false,
-  metadata: {&quot;tier&quot;:&quot;enterprise&quot;,&quot;department&quot;:&quot;engineering&quot;},
-  custom_fields: [{&quot;id&quot;:&quot;57aa2241-eae4-43dc-b9ae-36069b84b2da&quot;,&quot;name&quot;:&quot;Discord Username&quot;,&quot;order&quot;:0,&quot;required&quot;:true,&quot;field_type&quot;:&quot;text&quot;,&quot;placeholder&quot;:&quot;e.g. your_discord#1234&quot;},{&quot;id&quot;:&quot;c86da32a-a967-457c-815b-c3440294d70b&quot;,&quot;name&quot;:&quot;Company Name&quot;,&quot;order&quot;:1,&quot;required&quot;:false,&quot;field_type&quot;:&quot;text&quot;,&quot;placeholder&quot;:&quot;e.g. Acme Corp (Optional)&quot;}],
+  metadata: {tier&#x3D;enterprise, department&#x3D;engineering},
+  custom_fields: [{id&#x3D;57aa2241-eae4-43dc-b9ae-36069b84b2da, name&#x3D;Discord Username, order&#x3D;0, required&#x3D;true, field_type&#x3D;text, placeholder&#x3D;e.g. your_discord#1234}, {id&#x3D;c86da32a-a967-457c-815b-c3440294d70b, name&#x3D;Company Name, order&#x3D;1, required&#x3D;false, field_type&#x3D;text, placeholder&#x3D;e.g. Acme Corp (Optional)}],
   stock: null,
   activation_limit: 5,
   is_listed: true,
   is_free: false,
-  created_at: 2026-05-18T12:00Z,
-  updated_at: 2026-05-18T12:00Z,
+  created_at: 2026-05-18T12:00:00.000Z,
+  updated_at: 2026-05-18T12:00:00.000Z,
   is_permanently_deleted: false,
   brand_id: brd_4e29285b8sdf34ff51e07d4,
   digital_link: null,

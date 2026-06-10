@@ -33,8 +33,8 @@ instance = Solifyn::Brand.new(
   statement_descriptor: ACME CORP INC,
   merchant_id: mer_123,
   business_id: biz_123,
-  created_at: 2025-01-01T12:00Z,
-  updated_at: 2025-01-01T12:00Z
+  created_at: 2025-01-01T12:00:00Z,
+  updated_at: 2025-01-01T12:00:00Z
 )
 ```
 

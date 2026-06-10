@@ -23,7 +23,7 @@ instance = Solifyn::WebhookDeliveryResponseDto.new(
   id: dlv_12345,
   endpoint_id: ep_12345,
   event: payment.succeeded,
-  payload: {&quot;type&quot;:&quot;payment.succeeded&quot;,&quot;data&quot;:{}},
+  payload: {type&#x3D;payment.succeeded, data&#x3D;{}},
   response_status: 200,
   response_body: {&quot;success&quot;:true},
   duration_ms: 120,

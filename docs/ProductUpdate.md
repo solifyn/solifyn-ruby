@@ -16,6 +16,9 @@
 | **has_github_access** | **Boolean** | Whether the purchase includes GitHub repository access. | [optional][default to false] |
 | **github_repo** | **String** | GitHub repository to grant access to (format: owner/repo). | [optional] |
 | **github_permission** | **String** | GitHub collaborator permission level. | [optional] |
+| **has_discord_access** | **Boolean** | Whether the purchase includes Discord server role access. | [optional][default to false] |
+| **discord_guild_id** | **String** | Discord Guild (Server) ID to grant access to. | [optional] |
+| **discord_role_id** | **String** | Discord Role ID to assign to the user. | [optional] |
 | **is_tax_inclusive** | **Boolean** | Whether tax is included in the base price. | [optional][default to false] |
 | **activation_limit** | **Integer** | Maximum concurrent activated instances allowed per license key. | [optional] |
 | **brand_id** | **String** | Brand id for the product, if not provided will default to primary brand. | [optional] |
@@ -49,6 +52,9 @@ instance = Solifyn::ProductUpdate.new(
   has_github_access: false,
   github_repo: solifyn/premium-app,
   github_permission: pull,
+  has_discord_access: false,
+  discord_guild_id: 123456789012345678,
+  discord_role_id: 876543210987654321,
   is_tax_inclusive: false,
   activation_limit: null,
   brand_id: brd_4e29285b8sdf34ff51e07d4,
@@ -57,8 +63,8 @@ instance = Solifyn::ProductUpdate.new(
   expiration_days: null,
   statement_descriptor: SOLIFYN*SAAS,
   pay_what_you_want: false,
-  metadata: {&quot;internal_id&quot;:&quot;12345&quot;,&quot;campaign&quot;:&quot;summer_sale&quot;},
-  custom_fields: [{&quot;id&quot;:&quot;57aa2241-eae4-43dc-b9ae-36069b84b2da&quot;,&quot;name&quot;:&quot;Discord Username&quot;,&quot;order&quot;:0,&quot;required&quot;:true,&quot;field_type&quot;:&quot;text&quot;,&quot;placeholder&quot;:&quot;e.g. your_discord#1234&quot;},{&quot;id&quot;:&quot;c86da32a-a967-457c-815b-c3440294d70b&quot;,&quot;name&quot;:&quot;Company Name&quot;,&quot;order&quot;:1,&quot;required&quot;:false,&quot;field_type&quot;:&quot;text&quot;,&quot;placeholder&quot;:&quot;e.g. Acme Corp (Optional)&quot;}],
+  metadata: {internal_id&#x3D;12345, campaign&#x3D;summer_sale},
+  custom_fields: [{id&#x3D;57aa2241-eae4-43dc-b9ae-36069b84b2da, name&#x3D;Discord Username, order&#x3D;0, required&#x3D;true, field_type&#x3D;text, placeholder&#x3D;e.g. your_discord#1234}, {id&#x3D;c86da32a-a967-457c-815b-c3440294d70b, name&#x3D;Company Name, order&#x3D;1, required&#x3D;false, field_type&#x3D;text, placeholder&#x3D;e.g. Acme Corp (Optional)}],
   stock: 100,
   is_listed: true,
   is_free: false,

@@ -16,7 +16,7 @@ require 'solifyn'
 instance = Solifyn::MeterIngestResponseDto.new(
   processed: 5,
   failed: 1,
-  errors: [{&quot;event&quot;:&quot;evt_9Y3kP4qR7tU1vW2xZ5aB6c&quot;,&quot;error&quot;:&quot;Meter not found&quot;}]
+  errors: [{event&#x3D;evt_9Y3kP4qR7tU1vW2xZ5aB6c, error&#x3D;Meter not found}]
 )
 ```
 

@@ -120,18 +120,6 @@ module Solifyn
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'title',
-        :'product_id',
-        :'collection_id',
-        :'customer_name',
-        :'customer_email',
-        :'address_line1',
-        :'city',
-        :'state',
-        :'postal_code',
-        :'country',
-        :'redirect_url',
-        :'cancel_url',
       ])
     end
 

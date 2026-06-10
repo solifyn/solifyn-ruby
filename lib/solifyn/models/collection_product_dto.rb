@@ -60,6 +60,15 @@ module Solifyn
     # GitHub collaborator permission level.
     attr_accessor :github_permission
 
+    # Whether the product includes Discord role access.
+    attr_accessor :has_discord_access
+
+    # Discord Guild (Server) ID to grant access to.
+    attr_accessor :discord_guild_id
+
+    # Discord Role ID to assign to the user.
+    attr_accessor :discord_role_id
+
     # Whether the product price already includes applicable sales taxes.
     attr_accessor :is_tax_inclusive
 
@@ -166,6 +175,9 @@ module Solifyn
         :'has_github_access' => :'hasGithubAccess',
         :'github_repo' => :'githubRepo',
         :'github_permission' => :'githubPermission',
+        :'has_discord_access' => :'hasDiscordAccess',
+        :'discord_guild_id' => :'discordGuildId',
+        :'discord_role_id' => :'discordRoleId',
         :'is_tax_inclusive' => :'isTaxInclusive',
         :'billing_period' => :'billingPeriod',
         :'trial_period_days' => :'trialPeriodDays',
@@ -214,6 +226,9 @@ module Solifyn
         :'has_github_access' => :'Boolean',
         :'github_repo' => :'String',
         :'github_permission' => :'String',
+        :'has_discord_access' => :'Boolean',
+        :'discord_guild_id' => :'String',
+        :'discord_role_id' => :'String',
         :'is_tax_inclusive' => :'Boolean',
         :'billing_period' => :'Integer',
         :'trial_period_days' => :'Integer',
@@ -242,23 +257,6 @@ module Solifyn
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'description',
-        :'image_url',
-        :'discount',
-        :'github_repo',
-        :'github_permission',
-        :'billing_period',
-        :'trial_period_days',
-        :'expiration_days',
-        :'statement_descriptor',
-        :'metadata',
-        :'custom_fields',
-        :'stock',
-        :'brand_id',
-        :'digital_link',
-        :'instructions',
-        :'activation_message',
-        :'expiry_hours',
       ])
     end
 
@@ -363,6 +361,24 @@ module Solifyn
         self.github_permission = attributes[:'github_permission']
       else
         self.github_permission = nil
+      end
+
+      if attributes.key?(:'has_discord_access')
+        self.has_discord_access = attributes[:'has_discord_access']
+      else
+        self.has_discord_access = nil
+      end
+
+      if attributes.key?(:'discord_guild_id')
+        self.discord_guild_id = attributes[:'discord_guild_id']
+      else
+        self.discord_guild_id = nil
+      end
+
+      if attributes.key?(:'discord_role_id')
+        self.discord_role_id = attributes[:'discord_role_id']
+      else
+        self.discord_role_id = nil
       end
 
       if attributes.key?(:'is_tax_inclusive')
@@ -527,12 +543,20 @@ module Solifyn
         invalid_properties.push('invalid value for "status", status cannot be nil.')
       end
 
+      if @image_url.nil?
+        invalid_properties.push('invalid value for "image_url", image_url cannot be nil.')
+      end
+
       if @tax_category.nil?
         invalid_properties.push('invalid value for "tax_category", tax_category cannot be nil.')
       end
 
       if @pricing_type.nil?
         invalid_properties.push('invalid value for "pricing_type", pricing_type cannot be nil.')
+      end
+
+      if @discount.nil?
+        invalid_properties.push('invalid value for "discount", discount cannot be nil.')
       end
 
       if @has_license_key.nil?
@@ -547,12 +571,60 @@ module Solifyn
         invalid_properties.push('invalid value for "has_github_access", has_github_access cannot be nil.')
       end
 
+      if @github_repo.nil?
+        invalid_properties.push('invalid value for "github_repo", github_repo cannot be nil.')
+      end
+
+      if @github_permission.nil?
+        invalid_properties.push('invalid value for "github_permission", github_permission cannot be nil.')
+      end
+
+      if @has_discord_access.nil?
+        invalid_properties.push('invalid value for "has_discord_access", has_discord_access cannot be nil.')
+      end
+
+      if @discord_guild_id.nil?
+        invalid_properties.push('invalid value for "discord_guild_id", discord_guild_id cannot be nil.')
+      end
+
+      if @discord_role_id.nil?
+        invalid_properties.push('invalid value for "discord_role_id", discord_role_id cannot be nil.')
+      end
+
       if @is_tax_inclusive.nil?
         invalid_properties.push('invalid value for "is_tax_inclusive", is_tax_inclusive cannot be nil.')
       end
 
+      if @billing_period.nil?
+        invalid_properties.push('invalid value for "billing_period", billing_period cannot be nil.')
+      end
+
+      if @trial_period_days.nil?
+        invalid_properties.push('invalid value for "trial_period_days", trial_period_days cannot be nil.')
+      end
+
+      if @expiration_days.nil?
+        invalid_properties.push('invalid value for "expiration_days", expiration_days cannot be nil.')
+      end
+
+      if @statement_descriptor.nil?
+        invalid_properties.push('invalid value for "statement_descriptor", statement_descriptor cannot be nil.')
+      end
+
       if @pay_what_you_want.nil?
         invalid_properties.push('invalid value for "pay_what_you_want", pay_what_you_want cannot be nil.')
+      end
+
+      if @metadata.nil?
+        invalid_properties.push('invalid value for "metadata", metadata cannot be nil.')
+      end
+
+      if @custom_fields.nil?
+        invalid_properties.push('invalid value for "custom_fields", custom_fields cannot be nil.')
+      end
+
+      if @stock.nil?
+        invalid_properties.push('invalid value for "stock", stock cannot be nil.')
       end
 
       if @activation_limit.nil?
@@ -579,6 +651,26 @@ module Solifyn
         invalid_properties.push('invalid value for "is_permanently_deleted", is_permanently_deleted cannot be nil.')
       end
 
+      if @brand_id.nil?
+        invalid_properties.push('invalid value for "brand_id", brand_id cannot be nil.')
+      end
+
+      if @digital_link.nil?
+        invalid_properties.push('invalid value for "digital_link", digital_link cannot be nil.')
+      end
+
+      if @instructions.nil?
+        invalid_properties.push('invalid value for "instructions", instructions cannot be nil.')
+      end
+
+      if @activation_message.nil?
+        invalid_properties.push('invalid value for "activation_message", activation_message cannot be nil.')
+      end
+
+      if @expiry_hours.nil?
+        invalid_properties.push('invalid value for "expiry_hours", expiry_hours cannot be nil.')
+      end
+
       if @business_id.nil?
         invalid_properties.push('invalid value for "business_id", business_id cannot be nil.')
       end
@@ -599,25 +691,44 @@ module Solifyn
       return false if @price.nil?
       return false if @currency.nil?
       return false if @status.nil?
+      return false if @image_url.nil?
       return false if @tax_category.nil?
       tax_category_validator = EnumAttributeValidator.new('String', ["digital_products", "saas", "physical_products", "service"])
       return false unless tax_category_validator.valid?(@tax_category)
       return false if @pricing_type.nil?
       pricing_type_validator = EnumAttributeValidator.new('String', ["usage_based", "one_time", "renewal"])
       return false unless pricing_type_validator.valid?(@pricing_type)
+      return false if @discount.nil?
       return false if @has_license_key.nil?
       return false if @has_digital_delivery.nil?
       return false if @has_github_access.nil?
+      return false if @github_repo.nil?
+      return false if @github_permission.nil?
       github_permission_validator = EnumAttributeValidator.new('String', ["pull", "triage", "push", "maintain", "admin"])
       return false unless github_permission_validator.valid?(@github_permission)
+      return false if @has_discord_access.nil?
+      return false if @discord_guild_id.nil?
+      return false if @discord_role_id.nil?
       return false if @is_tax_inclusive.nil?
+      return false if @billing_period.nil?
+      return false if @trial_period_days.nil?
+      return false if @expiration_days.nil?
+      return false if @statement_descriptor.nil?
       return false if @pay_what_you_want.nil?
+      return false if @metadata.nil?
+      return false if @custom_fields.nil?
+      return false if @stock.nil?
       return false if @activation_limit.nil?
       return false if @is_listed.nil?
       return false if @is_free.nil?
       return false if @created_at.nil?
       return false if @updated_at.nil?
       return false if @is_permanently_deleted.nil?
+      return false if @brand_id.nil?
+      return false if @digital_link.nil?
+      return false if @instructions.nil?
+      return false if @activation_message.nil?
+      return false if @expiry_hours.nil?
       return false if @business_id.nil?
       return false if @quantity.nil?
       true
@@ -673,6 +784,9 @@ module Solifyn
           has_github_access == o.has_github_access &&
           github_repo == o.github_repo &&
           github_permission == o.github_permission &&
+          has_discord_access == o.has_discord_access &&
+          discord_guild_id == o.discord_guild_id &&
+          discord_role_id == o.discord_role_id &&
           is_tax_inclusive == o.is_tax_inclusive &&
           billing_period == o.billing_period &&
           trial_period_days == o.trial_period_days &&
@@ -706,7 +820,7 @@ module Solifyn
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, price, currency, description, status, image_url, tax_category, pricing_type, discount, has_license_key, has_digital_delivery, has_github_access, github_repo, github_permission, is_tax_inclusive, billing_period, trial_period_days, expiration_days, statement_descriptor, pay_what_you_want, metadata, custom_fields, stock, activation_limit, is_listed, is_free, created_at, updated_at, is_permanently_deleted, brand_id, digital_link, instructions, activation_message, expiry_hours, business_id, quantity].hash
+      [id, name, price, currency, description, status, image_url, tax_category, pricing_type, discount, has_license_key, has_digital_delivery, has_github_access, github_repo, github_permission, has_discord_access, discord_guild_id, discord_role_id, is_tax_inclusive, billing_period, trial_period_days, expiration_days, statement_descriptor, pay_what_you_want, metadata, custom_fields, stock, activation_limit, is_listed, is_free, created_at, updated_at, is_permanently_deleted, brand_id, digital_link, instructions, activation_message, expiry_hours, business_id, quantity].hash
     end
 
     # Builds the object from hash

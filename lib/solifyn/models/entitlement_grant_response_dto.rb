@@ -42,6 +42,18 @@ module Solifyn
     # The connected customer GitHub username.
     attr_accessor :github_username
 
+    # Target Discord Guild ID if type is DISCORD.
+    attr_accessor :discord_guild_id
+
+    # Target Discord Role ID if type is DISCORD.
+    attr_accessor :discord_role_id
+
+    # The connected customer Discord username.
+    attr_accessor :discord_username
+
+    # The connected customer Discord user ID.
+    attr_accessor :discord_user_id
+
     # Delivery status of the collaborator invite (PENDING, DELIVERED, FAILED, REVOKED).
     attr_accessor :status
 
@@ -72,6 +84,10 @@ module Solifyn
         :'github_repo' => :'githubRepo',
         :'github_permission' => :'githubPermission',
         :'github_username' => :'githubUsername',
+        :'discord_guild_id' => :'discordGuildId',
+        :'discord_role_id' => :'discordRoleId',
+        :'discord_username' => :'discordUsername',
+        :'discord_user_id' => :'discordUserId',
         :'status' => :'status',
         :'oauth_url' => :'oauthUrl',
         :'error_details' => :'errorDetails',
@@ -98,6 +114,10 @@ module Solifyn
         :'github_repo' => :'String',
         :'github_permission' => :'String',
         :'github_username' => :'String',
+        :'discord_guild_id' => :'String',
+        :'discord_role_id' => :'String',
+        :'discord_username' => :'String',
+        :'discord_user_id' => :'String',
         :'status' => :'String',
         :'oauth_url' => :'String',
         :'error_details' => :'String',
@@ -172,6 +192,22 @@ module Solifyn
 
       if attributes.key?(:'github_username')
         self.github_username = attributes[:'github_username']
+      end
+
+      if attributes.key?(:'discord_guild_id')
+        self.discord_guild_id = attributes[:'discord_guild_id']
+      end
+
+      if attributes.key?(:'discord_role_id')
+        self.discord_role_id = attributes[:'discord_role_id']
+      end
+
+      if attributes.key?(:'discord_username')
+        self.discord_username = attributes[:'discord_username']
+      end
+
+      if attributes.key?(:'discord_user_id')
+        self.discord_user_id = attributes[:'discord_user_id']
       end
 
       if attributes.key?(:'status')
@@ -274,6 +310,10 @@ module Solifyn
           github_repo == o.github_repo &&
           github_permission == o.github_permission &&
           github_username == o.github_username &&
+          discord_guild_id == o.discord_guild_id &&
+          discord_role_id == o.discord_role_id &&
+          discord_username == o.discord_username &&
+          discord_user_id == o.discord_user_id &&
           status == o.status &&
           oauth_url == o.oauth_url &&
           error_details == o.error_details &&
@@ -291,7 +331,7 @@ module Solifyn
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, business_id, customer_id, payment_id, product_id, type, github_repo, github_permission, github_username, status, oauth_url, error_details, metadata, created_at, updated_at].hash
+      [id, business_id, customer_id, payment_id, product_id, type, github_repo, github_permission, github_username, discord_guild_id, discord_role_id, discord_username, discord_user_id, status, oauth_url, error_details, metadata, created_at, updated_at].hash
     end
 
     # Builds the object from hash
