@@ -159,6 +159,7 @@ docs/WebhookDeliveryResponseDto.md
 docs/WebhookDisputePayload.md
 docs/WebhookEndpointApi.md
 docs/WebhookEndpointResponseDto.md
+docs/WebhookEntitlementGrantPayload.md
 docs/WebhookLicensePayload.md
 docs/WebhookPaymentPayload.md
 docs/WebhookPaymentPayloadBillingAddress.md
@@ -322,6 +323,7 @@ lib/solifyn/models/update_webhook_endpoint_dto.rb
 lib/solifyn/models/webhook_delivery_response_dto.rb
 lib/solifyn/models/webhook_dispute_payload.rb
 lib/solifyn/models/webhook_endpoint_response_dto.rb
+lib/solifyn/models/webhook_entitlement_grant_payload.rb
 lib/solifyn/models/webhook_license_payload.rb
 lib/solifyn/models/webhook_payment_payload.rb
 lib/solifyn/models/webhook_payment_payload_billing_address.rb

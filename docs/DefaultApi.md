@@ -7,6 +7,10 @@ All URIs are relative to *https://api.solifyn.com*
 | [**dispute_created_post**](DefaultApi.md#dispute_created_post) | **POST** /dispute.created | Dispute Created |
 | [**dispute_lost_post**](DefaultApi.md#dispute_lost_post) | **POST** /dispute.lost | Dispute Lost |
 | [**dispute_won_post**](DefaultApi.md#dispute_won_post) | **POST** /dispute.won | Dispute Won |
+| [**entitlement_grant_created_post**](DefaultApi.md#entitlement_grant_created_post) | **POST** /entitlement_grant.created | Entitlement Grant Created |
+| [**entitlement_grant_delivered_post**](DefaultApi.md#entitlement_grant_delivered_post) | **POST** /entitlement_grant.delivered | Entitlement Grant Delivered |
+| [**entitlement_grant_failed_post**](DefaultApi.md#entitlement_grant_failed_post) | **POST** /entitlement_grant.failed | Entitlement Grant Failed |
+| [**entitlement_grant_revoked_post**](DefaultApi.md#entitlement_grant_revoked_post) | **POST** /entitlement_grant.revoked | Entitlement Grant Revoked |
 | [**license_created_post**](DefaultApi.md#license_created_post) | **POST** /license.created | License Created |
 | [**license_revoked_post**](DefaultApi.md#license_revoked_post) | **POST** /license.revoked | License Revoked |
 | [**payment_created_post**](DefaultApi.md#payment_created_post) | **POST** /payment.created | Payment Created |
@@ -214,6 +218,286 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **webhook_dispute_payload** | [**WebhookDisputePayload**](WebhookDisputePayload.md) |  | [optional] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+
+## entitlement_grant_created_post
+
+> entitlement_grant_created_post(opts)
+
+Entitlement Grant Created
+
+Occurs when a new entitlement grant is created (e.g., at checkout completion if the product has GitHub access). The collaborator invitation is pending.
+
+### Examples
+
+```ruby
+require 'time'
+require 'solifyn'
+# setup authorization
+Solifyn.configure do |config|
+  # Configure Bearer authorization (API Key): ApiKeyAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Solifyn::DefaultApi.new
+opts = {
+  webhook_entitlement_grant_payload:  # WebhookEntitlementGrantPayload | 
+}
+
+begin
+  # Entitlement Grant Created
+  api_instance.entitlement_grant_created_post(opts)
+rescue Solifyn::ApiError => e
+  puts "Error when calling DefaultApi->entitlement_grant_created_post: #{e}"
+end
+```
+
+#### Using the entitlement_grant_created_post_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> entitlement_grant_created_post_with_http_info(opts)
+
+```ruby
+begin
+  # Entitlement Grant Created
+  data, status_code, headers = api_instance.entitlement_grant_created_post_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Solifyn::ApiError => e
+  puts "Error when calling DefaultApi->entitlement_grant_created_post_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **webhook_entitlement_grant_payload** | [**WebhookEntitlementGrantPayload**](WebhookEntitlementGrantPayload.md) |  | [optional] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+
+## entitlement_grant_delivered_post
+
+> entitlement_grant_delivered_post(opts)
+
+Entitlement Grant Delivered
+
+Occurs when the customer successfully connects their GitHub account and the collaborator invitation is successfully delivered.
+
+### Examples
+
+```ruby
+require 'time'
+require 'solifyn'
+# setup authorization
+Solifyn.configure do |config|
+  # Configure Bearer authorization (API Key): ApiKeyAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Solifyn::DefaultApi.new
+opts = {
+  webhook_entitlement_grant_payload:  # WebhookEntitlementGrantPayload | 
+}
+
+begin
+  # Entitlement Grant Delivered
+  api_instance.entitlement_grant_delivered_post(opts)
+rescue Solifyn::ApiError => e
+  puts "Error when calling DefaultApi->entitlement_grant_delivered_post: #{e}"
+end
+```
+
+#### Using the entitlement_grant_delivered_post_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> entitlement_grant_delivered_post_with_http_info(opts)
+
+```ruby
+begin
+  # Entitlement Grant Delivered
+  data, status_code, headers = api_instance.entitlement_grant_delivered_post_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Solifyn::ApiError => e
+  puts "Error when calling DefaultApi->entitlement_grant_delivered_post_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **webhook_entitlement_grant_payload** | [**WebhookEntitlementGrantPayload**](WebhookEntitlementGrantPayload.md) |  | [optional] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+
+## entitlement_grant_failed_post
+
+> entitlement_grant_failed_post(opts)
+
+Entitlement Grant Failed
+
+Occurs when invitation delivery fails (e.g., if the user GitHub account is flagged or invitation limit is reached).
+
+### Examples
+
+```ruby
+require 'time'
+require 'solifyn'
+# setup authorization
+Solifyn.configure do |config|
+  # Configure Bearer authorization (API Key): ApiKeyAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Solifyn::DefaultApi.new
+opts = {
+  webhook_entitlement_grant_payload:  # WebhookEntitlementGrantPayload | 
+}
+
+begin
+  # Entitlement Grant Failed
+  api_instance.entitlement_grant_failed_post(opts)
+rescue Solifyn::ApiError => e
+  puts "Error when calling DefaultApi->entitlement_grant_failed_post: #{e}"
+end
+```
+
+#### Using the entitlement_grant_failed_post_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> entitlement_grant_failed_post_with_http_info(opts)
+
+```ruby
+begin
+  # Entitlement Grant Failed
+  data, status_code, headers = api_instance.entitlement_grant_failed_post_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Solifyn::ApiError => e
+  puts "Error when calling DefaultApi->entitlement_grant_failed_post_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **webhook_entitlement_grant_payload** | [**WebhookEntitlementGrantPayload**](WebhookEntitlementGrantPayload.md) |  | [optional] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+
+## entitlement_grant_revoked_post
+
+> entitlement_grant_revoked_post(opts)
+
+Entitlement Grant Revoked
+
+Occurs when the customer access is removed from the repository (manually or automatically via subscription cancel/refund).
+
+### Examples
+
+```ruby
+require 'time'
+require 'solifyn'
+# setup authorization
+Solifyn.configure do |config|
+  # Configure Bearer authorization (API Key): ApiKeyAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = Solifyn::DefaultApi.new
+opts = {
+  webhook_entitlement_grant_payload:  # WebhookEntitlementGrantPayload | 
+}
+
+begin
+  # Entitlement Grant Revoked
+  api_instance.entitlement_grant_revoked_post(opts)
+rescue Solifyn::ApiError => e
+  puts "Error when calling DefaultApi->entitlement_grant_revoked_post: #{e}"
+end
+```
+
+#### Using the entitlement_grant_revoked_post_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> entitlement_grant_revoked_post_with_http_info(opts)
+
+```ruby
+begin
+  # Entitlement Grant Revoked
+  data, status_code, headers = api_instance.entitlement_grant_revoked_post_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Solifyn::ApiError => e
+  puts "Error when calling DefaultApi->entitlement_grant_revoked_post_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **webhook_entitlement_grant_payload** | [**WebhookEntitlementGrantPayload**](WebhookEntitlementGrantPayload.md) |  | [optional] |
 
 ### Return type
 

@@ -205,6 +205,254 @@ module Solifyn
       return data, status_code, headers
     end
 
+    # Entitlement Grant Created
+    # Occurs when a new entitlement grant is created (e.g., at checkout completion if the product has GitHub access). The collaborator invitation is pending.
+    # @param [Hash] opts the optional parameters
+    # @option opts [WebhookEntitlementGrantPayload] :webhook_entitlement_grant_payload 
+    # @return [nil]
+    def entitlement_grant_created_post(opts = {})
+      entitlement_grant_created_post_with_http_info(opts)
+      nil
+    end
+
+    # Entitlement Grant Created
+    # Occurs when a new entitlement grant is created (e.g., at checkout completion if the product has GitHub access). The collaborator invitation is pending.
+    # @param [Hash] opts the optional parameters
+    # @option opts [WebhookEntitlementGrantPayload] :webhook_entitlement_grant_payload 
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def entitlement_grant_created_post_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.entitlement_grant_created_post ...'
+      end
+      # resource path
+      local_var_path = '/entitlement_grant.created'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'webhook_entitlement_grant_payload'])
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"DefaultApi.entitlement_grant_created_post",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#entitlement_grant_created_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Entitlement Grant Delivered
+    # Occurs when the customer successfully connects their GitHub account and the collaborator invitation is successfully delivered.
+    # @param [Hash] opts the optional parameters
+    # @option opts [WebhookEntitlementGrantPayload] :webhook_entitlement_grant_payload 
+    # @return [nil]
+    def entitlement_grant_delivered_post(opts = {})
+      entitlement_grant_delivered_post_with_http_info(opts)
+      nil
+    end
+
+    # Entitlement Grant Delivered
+    # Occurs when the customer successfully connects their GitHub account and the collaborator invitation is successfully delivered.
+    # @param [Hash] opts the optional parameters
+    # @option opts [WebhookEntitlementGrantPayload] :webhook_entitlement_grant_payload 
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def entitlement_grant_delivered_post_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.entitlement_grant_delivered_post ...'
+      end
+      # resource path
+      local_var_path = '/entitlement_grant.delivered'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'webhook_entitlement_grant_payload'])
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"DefaultApi.entitlement_grant_delivered_post",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#entitlement_grant_delivered_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Entitlement Grant Failed
+    # Occurs when invitation delivery fails (e.g., if the user GitHub account is flagged or invitation limit is reached).
+    # @param [Hash] opts the optional parameters
+    # @option opts [WebhookEntitlementGrantPayload] :webhook_entitlement_grant_payload 
+    # @return [nil]
+    def entitlement_grant_failed_post(opts = {})
+      entitlement_grant_failed_post_with_http_info(opts)
+      nil
+    end
+
+    # Entitlement Grant Failed
+    # Occurs when invitation delivery fails (e.g., if the user GitHub account is flagged or invitation limit is reached).
+    # @param [Hash] opts the optional parameters
+    # @option opts [WebhookEntitlementGrantPayload] :webhook_entitlement_grant_payload 
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def entitlement_grant_failed_post_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.entitlement_grant_failed_post ...'
+      end
+      # resource path
+      local_var_path = '/entitlement_grant.failed'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'webhook_entitlement_grant_payload'])
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"DefaultApi.entitlement_grant_failed_post",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#entitlement_grant_failed_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Entitlement Grant Revoked
+    # Occurs when the customer access is removed from the repository (manually or automatically via subscription cancel/refund).
+    # @param [Hash] opts the optional parameters
+    # @option opts [WebhookEntitlementGrantPayload] :webhook_entitlement_grant_payload 
+    # @return [nil]
+    def entitlement_grant_revoked_post(opts = {})
+      entitlement_grant_revoked_post_with_http_info(opts)
+      nil
+    end
+
+    # Entitlement Grant Revoked
+    # Occurs when the customer access is removed from the repository (manually or automatically via subscription cancel/refund).
+    # @param [Hash] opts the optional parameters
+    # @option opts [WebhookEntitlementGrantPayload] :webhook_entitlement_grant_payload 
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def entitlement_grant_revoked_post_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.entitlement_grant_revoked_post ...'
+      end
+      # resource path
+      local_var_path = '/entitlement_grant.revoked'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'webhook_entitlement_grant_payload'])
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"DefaultApi.entitlement_grant_revoked_post",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#entitlement_grant_revoked_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # License Created
     # Occurs when a new software license key is created or assigned to a customer purchase.
     # @param [Hash] opts the optional parameters
