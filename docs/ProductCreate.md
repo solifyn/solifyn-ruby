@@ -19,6 +19,8 @@
 | **has_discord_access** | **Boolean** | Whether the purchase includes Discord server role access. | [optional][default to false] |
 | **discord_guild_id** | **String** | Discord Guild (Server) ID to grant access to. | [optional] |
 | **discord_role_id** | **String** | Discord Role ID to assign to the user. | [optional] |
+| **has_framer_access** | **Boolean** | Whether the purchase includes Framer Template access. | [optional][default to false] |
+| **framer_template_id** | **String** | Framer Template ID to grant access to. | [optional] |
 | **is_tax_inclusive** | **Boolean** | Whether tax is included in the base price. | [optional][default to false] |
 | **activation_limit** | **Integer** | Maximum concurrent activated instances allowed per license key. | [optional] |
 | **brand_id** | **String** | Brand id for the product, if not provided will default to primary brand. | [optional] |
@@ -56,6 +58,8 @@ instance = Solifyn::ProductCreate.new(
   has_discord_access: false,
   discord_guild_id: 123456789012345678,
   discord_role_id: 876543210987654321,
+  has_framer_access: false,
+  framer_template_id: fmt_8Z1aB2cD3eF4gH5iJ6kL7m,
   is_tax_inclusive: false,
   activation_limit: null,
   brand_id: brd_4e29285b8sdf34ff51e07d4,
