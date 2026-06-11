@@ -33,6 +33,7 @@
 | **is_listed** | **Boolean** | Whether the product is publicly visible. | [optional][default to true] |
 | **is_free** | **Boolean** | Whether the product is free of charge. | [optional][default to false] |
 | **addons** | [**Array&lt;ProductCreateAddonsInner&gt;**](ProductCreateAddonsInner.md) | Product addons configurations. | [optional] |
+| **entitlement_ids** | **Array&lt;String&gt;** | Array of independent entitlement IDs to link to this product. | [optional] |
 
 ## Example
 
@@ -68,7 +69,8 @@ instance = Solifyn::ProductUpdate.new(
   stock: 100,
   is_listed: true,
   is_free: false,
-  addons: null
+  addons: null,
+  entitlement_ids: null
 )
 ```
 

@@ -86,6 +86,8 @@ module Solifyn
     # Retrieve all GitHub repository entitlement grants for the active business.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :status Filter by status (PENDING, DELIVERED, FAILED, REVOKED)
+    # @option opts [String] :entitlement_id Filter by entitlement config ID
+    # @option opts [String] :product_id Filter by product ID
     # @return [Array<EntitlementGrantResponseDto>]
     def entitlement_grants_list(opts = {})
       data, _status_code, _headers = entitlement_grants_list_with_http_info(opts)
@@ -96,6 +98,8 @@ module Solifyn
     # Retrieve all GitHub repository entitlement grants for the active business.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :status Filter by status (PENDING, DELIVERED, FAILED, REVOKED)
+    # @option opts [String] :entitlement_id Filter by entitlement config ID
+    # @option opts [String] :product_id Filter by product ID
     # @return [Array<(Array<EntitlementGrantResponseDto>, Integer, Hash)>] Array<EntitlementGrantResponseDto> data, response status code and response headers
     def entitlement_grants_list_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -107,6 +111,8 @@ module Solifyn
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'status'] = opts[:'status'] if !opts[:'status'].nil?
+      query_params[:'entitlementId'] = opts[:'entitlement_id'] if !opts[:'entitlement_id'].nil?
+      query_params[:'productId'] = opts[:'product_id'] if !opts[:'product_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

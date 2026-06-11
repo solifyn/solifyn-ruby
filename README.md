@@ -133,6 +133,16 @@ Class | Method | HTTP request | Description
 *Solifyn::EntitlementGrantsApi* | [**entitlement_grants_list**](docs/EntitlementGrantsApi.md#entitlement_grants_list) | **GET** /v1/entitlement-grants | List Entitlement Grants
 *Solifyn::EntitlementGrantsApi* | [**entitlement_grants_retry**](docs/EntitlementGrantsApi.md#entitlement_grants_retry) | **POST** /v1/entitlement-grants/{id}/retry | Retry Entitlement Grant Delivery
 *Solifyn::EntitlementGrantsApi* | [**entitlement_grants_revoke**](docs/EntitlementGrantsApi.md#entitlement_grants_revoke) | **POST** /v1/entitlement-grants/{id}/revoke | Manually Revoke Entitlement Grant
+*Solifyn::EntitlementsApi* | [**entitlements_create**](docs/EntitlementsApi.md#entitlements_create) | **POST** /v1/entitlements | Create Entitlement
+*Solifyn::EntitlementsApi* | [**entitlements_delete**](docs/EntitlementsApi.md#entitlements_delete) | **DELETE** /v1/entitlements/{id} | Delete Entitlement
+*Solifyn::EntitlementsApi* | [**entitlements_get**](docs/EntitlementsApi.md#entitlements_get) | **GET** /v1/entitlements/{id} | Retrieve Entitlement
+*Solifyn::EntitlementsApi* | [**entitlements_list**](docs/EntitlementsApi.md#entitlements_list) | **GET** /v1/entitlements | List Entitlements
+*Solifyn::EntitlementsApi* | [**entitlements_update**](docs/EntitlementsApi.md#entitlements_update) | **PATCH** /v1/entitlements/{id} | Update Entitlement
+*Solifyn::FramerIntegrationApi* | [**framer_create_template**](docs/FramerIntegrationApi.md#framer_create_template) | **POST** /v1/framer/templates | Create Framer Template
+*Solifyn::FramerIntegrationApi* | [**framer_delete_template**](docs/FramerIntegrationApi.md#framer_delete_template) | **DELETE** /v1/framer/templates/{id} | Delete Framer Template
+*Solifyn::FramerIntegrationApi* | [**framer_get_template**](docs/FramerIntegrationApi.md#framer_get_template) | **GET** /v1/framer/templates/{id} | Retrieve Framer Template
+*Solifyn::FramerIntegrationApi* | [**framer_list_templates**](docs/FramerIntegrationApi.md#framer_list_templates) | **GET** /v1/framer/templates | List Framer Templates
+*Solifyn::FramerIntegrationApi* | [**framer_update_template**](docs/FramerIntegrationApi.md#framer_update_template) | **PUT** /v1/framer/templates/{id} | Update Framer Template
 *Solifyn::GitHubIntegrationApi* | [**github_get_install_url**](docs/GitHubIntegrationApi.md#github_get_install_url) | **GET** /v1/github/install | Get GitHub App Installation URL
 *Solifyn::GitHubIntegrationApi* | [**github_list_repos**](docs/GitHubIntegrationApi.md#github_list_repos) | **GET** /v1/github/repos | List Available GitHub Repositories
 *Solifyn::LicenseApi* | [**licenses_create**](docs/LicenseApi.md#licenses_create) | **POST** /v1/licenses | Create License Key
@@ -238,6 +248,8 @@ Class | Method | HTTP request | Description
  - [Solifyn::CreateCollectionCheckoutDto](docs/CreateCollectionCheckoutDto.md)
  - [Solifyn::CreateCollectionDto](docs/CreateCollectionDto.md)
  - [Solifyn::CreateCustomerDto](docs/CreateCustomerDto.md)
+ - [Solifyn::CreateEntitlementDto](docs/CreateEntitlementDto.md)
+ - [Solifyn::CreateFramerTemplateDto](docs/CreateFramerTemplateDto.md)
  - [Solifyn::CreateMeterDto](docs/CreateMeterDto.md)
  - [Solifyn::CreateSetupCheckoutDto](docs/CreateSetupCheckoutDto.md)
  - [Solifyn::CreateWebhookEndpointDto](docs/CreateWebhookEndpointDto.md)
@@ -259,7 +271,9 @@ Class | Method | HTTP request | Description
  - [Solifyn::DisputeFileUpload](docs/DisputeFileUpload.md)
  - [Solifyn::DisputeList](docs/DisputeList.md)
  - [Solifyn::DisputeListMetaDto](docs/DisputeListMetaDto.md)
+ - [Solifyn::EntitlementDetailResponseDto](docs/EntitlementDetailResponseDto.md)
  - [Solifyn::EntitlementGrantResponseDto](docs/EntitlementGrantResponseDto.md)
+ - [Solifyn::FramerTemplateResponseDto](docs/FramerTemplateResponseDto.md)
  - [Solifyn::GithubReposResponseDto](docs/GithubReposResponseDto.md)
  - [Solifyn::Instance](docs/Instance.md)
  - [Solifyn::Invoice](docs/Invoice.md)
@@ -273,6 +287,7 @@ Class | Method | HTTP request | Description
  - [Solifyn::LicensesUpdateInstancePostRequest](docs/LicensesUpdateInstancePostRequest.md)
  - [Solifyn::LicensesUpdateRequest](docs/LicensesUpdateRequest.md)
  - [Solifyn::LicensesVerifyRequest](docs/LicensesVerifyRequest.md)
+ - [Solifyn::LinkedProductDto](docs/LinkedProductDto.md)
  - [Solifyn::MeterDetailResponseDto](docs/MeterDetailResponseDto.md)
  - [Solifyn::MeterEventsResponseDto](docs/MeterEventsResponseDto.md)
  - [Solifyn::MeterIngestEventDto](docs/MeterIngestEventDto.md)
@@ -333,6 +348,8 @@ Class | Method | HTTP request | Description
  - [Solifyn::UpdateCollectionDto](docs/UpdateCollectionDto.md)
  - [Solifyn::UpdateCollectionProductDto](docs/UpdateCollectionProductDto.md)
  - [Solifyn::UpdateCustomerDto](docs/UpdateCustomerDto.md)
+ - [Solifyn::UpdateEntitlementDto](docs/UpdateEntitlementDto.md)
+ - [Solifyn::UpdateFramerTemplateDto](docs/UpdateFramerTemplateDto.md)
  - [Solifyn::UpdateInstanceDto](docs/UpdateInstanceDto.md)
  - [Solifyn::UpdateMeterDto](docs/UpdateMeterDto.md)
  - [Solifyn::UpdateWebhookEndpointDto](docs/UpdateWebhookEndpointDto.md)

@@ -100,7 +100,9 @@ end
 
 api_instance = Solifyn::EntitlementGrantsApi.new
 opts = {
-  status: 'status_example' # String | Filter by status (PENDING, DELIVERED, FAILED, REVOKED)
+  status: 'status_example', # String | Filter by status (PENDING, DELIVERED, FAILED, REVOKED)
+  entitlement_id: 'entitlement_id_example', # String | Filter by entitlement config ID
+  product_id: 'product_id_example' # String | Filter by product ID
 }
 
 begin
@@ -135,6 +137,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **status** | **String** | Filter by status (PENDING, DELIVERED, FAILED, REVOKED) | [optional] |
+| **entitlement_id** | **String** | Filter by entitlement config ID | [optional] |
+| **product_id** | **String** | Filter by product ID | [optional] |
 
 ### Return type
 

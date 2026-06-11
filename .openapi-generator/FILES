@@ -39,6 +39,8 @@ docs/CreateCheckoutLinkDto.md
 docs/CreateCollectionCheckoutDto.md
 docs/CreateCollectionDto.md
 docs/CreateCustomerDto.md
+docs/CreateEntitlementDto.md
+docs/CreateFramerTemplateDto.md
 docs/CreateMeterDto.md
 docs/CreateSetupCheckoutDto.md
 docs/CreateWebhookEndpointDto.md
@@ -67,8 +69,12 @@ docs/DisputeFileUpload.md
 docs/DisputeList.md
 docs/DisputeListMetaDto.md
 docs/DisputesApi.md
+docs/EntitlementDetailResponseDto.md
 docs/EntitlementGrantResponseDto.md
 docs/EntitlementGrantsApi.md
+docs/EntitlementsApi.md
+docs/FramerIntegrationApi.md
+docs/FramerTemplateResponseDto.md
 docs/GitHubIntegrationApi.md
 docs/GithubReposResponseDto.md
 docs/Instance.md
@@ -86,6 +92,7 @@ docs/LicensesDeactivateRequest.md
 docs/LicensesUpdateInstancePostRequest.md
 docs/LicensesUpdateRequest.md
 docs/LicensesVerifyRequest.md
+docs/LinkedProductDto.md
 docs/MeterDetailResponseDto.md
 docs/MeterEventsResponseDto.md
 docs/MeterIngestEventDto.md
@@ -153,6 +160,8 @@ docs/UpdateCheckoutLinkDto.md
 docs/UpdateCollectionDto.md
 docs/UpdateCollectionProductDto.md
 docs/UpdateCustomerDto.md
+docs/UpdateEntitlementDto.md
+docs/UpdateFramerTemplateDto.md
 docs/UpdateInstanceDto.md
 docs/UpdateMeterDto.md
 docs/UpdateWebhookEndpointDto.md
@@ -181,6 +190,8 @@ lib/solifyn/api/discord_integration_api.rb
 lib/solifyn/api/discounts_api.rb
 lib/solifyn/api/disputes_api.rb
 lib/solifyn/api/entitlement_grants_api.rb
+lib/solifyn/api/entitlements_api.rb
+lib/solifyn/api/framer_integration_api.rb
 lib/solifyn/api/git_hub_integration_api.rb
 lib/solifyn/api/license_api.rb
 lib/solifyn/api/license_keys_api.rb
@@ -226,6 +237,8 @@ lib/solifyn/models/create_checkout_link_dto.rb
 lib/solifyn/models/create_collection_checkout_dto.rb
 lib/solifyn/models/create_collection_dto.rb
 lib/solifyn/models/create_customer_dto.rb
+lib/solifyn/models/create_entitlement_dto.rb
+lib/solifyn/models/create_framer_template_dto.rb
 lib/solifyn/models/create_meter_dto.rb
 lib/solifyn/models/create_setup_checkout_dto.rb
 lib/solifyn/models/create_webhook_endpoint_dto.rb
@@ -247,7 +260,9 @@ lib/solifyn/models/dispute_evidence_update.rb
 lib/solifyn/models/dispute_file_upload.rb
 lib/solifyn/models/dispute_list.rb
 lib/solifyn/models/dispute_list_meta_dto.rb
+lib/solifyn/models/entitlement_detail_response_dto.rb
 lib/solifyn/models/entitlement_grant_response_dto.rb
+lib/solifyn/models/framer_template_response_dto.rb
 lib/solifyn/models/github_repos_response_dto.rb
 lib/solifyn/models/instance.rb
 lib/solifyn/models/invoice.rb
@@ -261,6 +276,7 @@ lib/solifyn/models/licenses_deactivate_request.rb
 lib/solifyn/models/licenses_update_instance_post_request.rb
 lib/solifyn/models/licenses_update_request.rb
 lib/solifyn/models/licenses_verify_request.rb
+lib/solifyn/models/linked_product_dto.rb
 lib/solifyn/models/meter_detail_response_dto.rb
 lib/solifyn/models/meter_events_response_dto.rb
 lib/solifyn/models/meter_ingest_event_dto.rb
@@ -321,6 +337,8 @@ lib/solifyn/models/update_checkout_link_dto.rb
 lib/solifyn/models/update_collection_dto.rb
 lib/solifyn/models/update_collection_product_dto.rb
 lib/solifyn/models/update_customer_dto.rb
+lib/solifyn/models/update_entitlement_dto.rb
+lib/solifyn/models/update_framer_template_dto.rb
 lib/solifyn/models/update_instance_dto.rb
 lib/solifyn/models/update_meter_dto.rb
 lib/solifyn/models/update_webhook_endpoint_dto.rb

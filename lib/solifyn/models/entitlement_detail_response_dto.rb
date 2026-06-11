@@ -14,94 +14,90 @@ require 'date'
 require 'time'
 
 module Solifyn
-  class EntitlementGrantResponseDto
-    # The unique entitlement grant ID.
+  class EntitlementDetailResponseDto
+    # The unique entitlement ID
     attr_accessor :id
 
-    # The business ID context.
+    # The owning business ID
     attr_accessor :business_id
 
-    # The customer ID.
-    attr_accessor :customer_id
+    # The name of the entitlement
+    attr_accessor :name
 
-    # Associated payment transaction ID.
-    attr_accessor :payment_id
-
-    # The purchased product ID.
-    attr_accessor :product_id
-
-    # The type of entitlement (e.g. GITHUB, DISCORD, TELEGRAM).
+    # The type of access to grant
     attr_accessor :type
 
-    # Target GitHub repository (owner/repo) if type is GITHUB.
-    attr_accessor :github_repo
-
-    # GitHub access permission level if type is GITHUB.
-    attr_accessor :github_permission
-
-    # The connected customer GitHub username.
-    attr_accessor :github_username
-
-    # Target Discord Guild ID if type is DISCORD.
-    attr_accessor :discord_guild_id
-
-    # Target Discord Role ID if type is DISCORD.
-    attr_accessor :discord_role_id
-
-    # The connected customer Discord username.
-    attr_accessor :discord_username
-
-    # The connected customer Discord user ID.
-    attr_accessor :discord_user_id
-
-    # The Framer template ID if type is FRAMER.
-    attr_accessor :framer_template_id
-
-    # The single-use remix link generated for the customer if type is FRAMER.
-    attr_accessor :framer_remix_link
-
-    # Delivery status of the collaborator invite (PENDING, DELIVERED, FAILED, REVOKED).
+    # Status of the entitlement
     attr_accessor :status
 
-    # OAuth URL to redirect the customer to.
-    attr_accessor :oauth_url
-
-    # Error message if invitation delivery failed.
-    attr_accessor :error_details
-
-    # Platform-specific metadata.
-    attr_accessor :metadata
-
-    # Creation timestamp.
+    # When the entitlement was created
     attr_accessor :created_at
 
-    # Modification timestamp.
+    # When the entitlement was last updated
     attr_accessor :updated_at
+
+    # The GitHub repository (e.g., owner/repo)
+    attr_accessor :github_repo
+
+    # The GitHub repository permission level
+    attr_accessor :github_permission
+
+    # The Discord Guild/Server ID
+    attr_accessor :discord_guild_id
+
+    # The Discord Role ID to assign
+    attr_accessor :discord_role_id
+
+    # The associated Framer Template ID
+    attr_accessor :framer_template_id
+
+    # The static License Key (if not dynamically generated)
+    attr_accessor :license_key
+
+    # The maximum activation limit for licenses
+    attr_accessor :activation_limit
+
+    # A message shown to the user upon license activation
+    attr_accessor :activation_message
+
+    # The number of hours until the entitlement expires
+    attr_accessor :expiry_hours
+
+    # The digital download URL or redirect link
+    attr_accessor :digital_link
+
+    # Custom setup instructions for the user
+    attr_accessor :instructions
+
+    # Number of active customer grants issued from this entitlement
+    attr_accessor :grants_count
+
+    # Products that are currently linked to this entitlement
+    attr_accessor :products
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
         :'business_id' => :'businessId',
-        :'customer_id' => :'customerId',
-        :'payment_id' => :'paymentId',
-        :'product_id' => :'productId',
+        :'name' => :'name',
         :'type' => :'type',
+        :'status' => :'status',
+        :'created_at' => :'createdAt',
+        :'updated_at' => :'updatedAt',
         :'github_repo' => :'githubRepo',
         :'github_permission' => :'githubPermission',
-        :'github_username' => :'githubUsername',
         :'discord_guild_id' => :'discordGuildId',
         :'discord_role_id' => :'discordRoleId',
-        :'discord_username' => :'discordUsername',
-        :'discord_user_id' => :'discordUserId',
         :'framer_template_id' => :'framerTemplateId',
-        :'framer_remix_link' => :'framerRemixLink',
-        :'status' => :'status',
-        :'oauth_url' => :'oauthUrl',
-        :'error_details' => :'errorDetails',
-        :'metadata' => :'metadata',
-        :'created_at' => :'createdAt',
-        :'updated_at' => :'updatedAt'
+        :'license_key' => :'licenseKey',
+        :'activation_limit' => :'activationLimit',
+        :'activation_message' => :'activationMessage',
+        :'expiry_hours' => :'expiryHours',
+        :'digital_link' => :'digitalLink',
+        :'instructions' => :'instructions',
+        :'grants_count' => :'grantsCount',
+        :'products' => :'products'
       }
     end
 
@@ -115,25 +111,24 @@ module Solifyn
       {
         :'id' => :'String',
         :'business_id' => :'String',
-        :'customer_id' => :'String',
-        :'payment_id' => :'String',
-        :'product_id' => :'String',
+        :'name' => :'String',
         :'type' => :'String',
+        :'status' => :'String',
+        :'created_at' => :'Time',
+        :'updated_at' => :'Time',
         :'github_repo' => :'String',
         :'github_permission' => :'String',
-        :'github_username' => :'String',
         :'discord_guild_id' => :'String',
         :'discord_role_id' => :'String',
-        :'discord_username' => :'String',
-        :'discord_user_id' => :'String',
         :'framer_template_id' => :'String',
-        :'framer_remix_link' => :'String',
-        :'status' => :'String',
-        :'oauth_url' => :'String',
-        :'error_details' => :'String',
-        :'metadata' => :'Object',
-        :'created_at' => :'String',
-        :'updated_at' => :'String'
+        :'license_key' => :'String',
+        :'activation_limit' => :'Float',
+        :'activation_message' => :'String',
+        :'expiry_hours' => :'Float',
+        :'digital_link' => :'String',
+        :'instructions' => :'String',
+        :'grants_count' => :'Float',
+        :'products' => :'Array<LinkedProductDto>'
       }
     end
 
@@ -147,13 +142,13 @@ module Solifyn
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Solifyn::EntitlementGrantResponseDto` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Solifyn::EntitlementDetailResponseDto` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Solifyn::EntitlementGrantResponseDto`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Solifyn::EntitlementDetailResponseDto`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -170,20 +165,10 @@ module Solifyn
         self.business_id = nil
       end
 
-      if attributes.key?(:'customer_id')
-        self.customer_id = attributes[:'customer_id']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       else
-        self.customer_id = nil
-      end
-
-      if attributes.key?(:'payment_id')
-        self.payment_id = attributes[:'payment_id']
-      end
-
-      if attributes.key?(:'product_id')
-        self.product_id = attributes[:'product_id']
-      else
-        self.product_id = nil
+        self.name = nil
       end
 
       if attributes.key?(:'type')
@@ -192,58 +177,10 @@ module Solifyn
         self.type = nil
       end
 
-      if attributes.key?(:'github_repo')
-        self.github_repo = attributes[:'github_repo']
-      end
-
-      if attributes.key?(:'github_permission')
-        self.github_permission = attributes[:'github_permission']
-      end
-
-      if attributes.key?(:'github_username')
-        self.github_username = attributes[:'github_username']
-      end
-
-      if attributes.key?(:'discord_guild_id')
-        self.discord_guild_id = attributes[:'discord_guild_id']
-      end
-
-      if attributes.key?(:'discord_role_id')
-        self.discord_role_id = attributes[:'discord_role_id']
-      end
-
-      if attributes.key?(:'discord_username')
-        self.discord_username = attributes[:'discord_username']
-      end
-
-      if attributes.key?(:'discord_user_id')
-        self.discord_user_id = attributes[:'discord_user_id']
-      end
-
-      if attributes.key?(:'framer_template_id')
-        self.framer_template_id = attributes[:'framer_template_id']
-      end
-
-      if attributes.key?(:'framer_remix_link')
-        self.framer_remix_link = attributes[:'framer_remix_link']
-      end
-
       if attributes.key?(:'status')
         self.status = attributes[:'status']
       else
         self.status = nil
-      end
-
-      if attributes.key?(:'oauth_url')
-        self.oauth_url = attributes[:'oauth_url']
-      end
-
-      if attributes.key?(:'error_details')
-        self.error_details = attributes[:'error_details']
-      end
-
-      if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
       end
 
       if attributes.key?(:'created_at')
@@ -256,6 +193,64 @@ module Solifyn
         self.updated_at = attributes[:'updated_at']
       else
         self.updated_at = nil
+      end
+
+      if attributes.key?(:'github_repo')
+        self.github_repo = attributes[:'github_repo']
+      end
+
+      if attributes.key?(:'github_permission')
+        self.github_permission = attributes[:'github_permission']
+      end
+
+      if attributes.key?(:'discord_guild_id')
+        self.discord_guild_id = attributes[:'discord_guild_id']
+      end
+
+      if attributes.key?(:'discord_role_id')
+        self.discord_role_id = attributes[:'discord_role_id']
+      end
+
+      if attributes.key?(:'framer_template_id')
+        self.framer_template_id = attributes[:'framer_template_id']
+      end
+
+      if attributes.key?(:'license_key')
+        self.license_key = attributes[:'license_key']
+      end
+
+      if attributes.key?(:'activation_limit')
+        self.activation_limit = attributes[:'activation_limit']
+      end
+
+      if attributes.key?(:'activation_message')
+        self.activation_message = attributes[:'activation_message']
+      end
+
+      if attributes.key?(:'expiry_hours')
+        self.expiry_hours = attributes[:'expiry_hours']
+      end
+
+      if attributes.key?(:'digital_link')
+        self.digital_link = attributes[:'digital_link']
+      end
+
+      if attributes.key?(:'instructions')
+        self.instructions = attributes[:'instructions']
+      end
+
+      if attributes.key?(:'grants_count')
+        self.grants_count = attributes[:'grants_count']
+      else
+        self.grants_count = nil
+      end
+
+      if attributes.key?(:'products')
+        if (value = attributes[:'products']).is_a?(Array)
+          self.products = value
+        end
+      else
+        self.products = nil
       end
     end
 
@@ -272,12 +267,8 @@ module Solifyn
         invalid_properties.push('invalid value for "business_id", business_id cannot be nil.')
       end
 
-      if @customer_id.nil?
-        invalid_properties.push('invalid value for "customer_id", customer_id cannot be nil.')
-      end
-
-      if @product_id.nil?
-        invalid_properties.push('invalid value for "product_id", product_id cannot be nil.')
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
       if @type.nil?
@@ -296,6 +287,14 @@ module Solifyn
         invalid_properties.push('invalid value for "updated_at", updated_at cannot be nil.')
       end
 
+      if @grants_count.nil?
+        invalid_properties.push('invalid value for "grants_count", grants_count cannot be nil.')
+      end
+
+      if @products.nil?
+        invalid_properties.push('invalid value for "products", products cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -305,12 +304,13 @@ module Solifyn
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @id.nil?
       return false if @business_id.nil?
-      return false if @customer_id.nil?
-      return false if @product_id.nil?
+      return false if @name.nil?
       return false if @type.nil?
       return false if @status.nil?
       return false if @created_at.nil?
       return false if @updated_at.nil?
+      return false if @grants_count.nil?
+      return false if @products.nil?
       true
     end
 
@@ -321,25 +321,24 @@ module Solifyn
       self.class == o.class &&
           id == o.id &&
           business_id == o.business_id &&
-          customer_id == o.customer_id &&
-          payment_id == o.payment_id &&
-          product_id == o.product_id &&
+          name == o.name &&
           type == o.type &&
+          status == o.status &&
+          created_at == o.created_at &&
+          updated_at == o.updated_at &&
           github_repo == o.github_repo &&
           github_permission == o.github_permission &&
-          github_username == o.github_username &&
           discord_guild_id == o.discord_guild_id &&
           discord_role_id == o.discord_role_id &&
-          discord_username == o.discord_username &&
-          discord_user_id == o.discord_user_id &&
           framer_template_id == o.framer_template_id &&
-          framer_remix_link == o.framer_remix_link &&
-          status == o.status &&
-          oauth_url == o.oauth_url &&
-          error_details == o.error_details &&
-          metadata == o.metadata &&
-          created_at == o.created_at &&
-          updated_at == o.updated_at
+          license_key == o.license_key &&
+          activation_limit == o.activation_limit &&
+          activation_message == o.activation_message &&
+          expiry_hours == o.expiry_hours &&
+          digital_link == o.digital_link &&
+          instructions == o.instructions &&
+          grants_count == o.grants_count &&
+          products == o.products
     end
 
     # @see the `==` method
@@ -351,7 +350,7 @@ module Solifyn
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, business_id, customer_id, payment_id, product_id, type, github_repo, github_permission, github_username, discord_guild_id, discord_role_id, discord_username, discord_user_id, framer_template_id, framer_remix_link, status, oauth_url, error_details, metadata, created_at, updated_at].hash
+      [id, business_id, name, type, status, created_at, updated_at, github_repo, github_permission, discord_guild_id, discord_role_id, framer_template_id, license_key, activation_limit, activation_message, expiry_hours, digital_link, instructions, grants_count, products].hash
     end
 
     # Builds the object from hash

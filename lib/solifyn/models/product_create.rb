@@ -102,6 +102,9 @@ module Solifyn
     # Product addons configurations.
     attr_accessor :addons
 
+    # Array of independent entitlement IDs to link to this product.
+    attr_accessor :entitlement_ids
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -155,7 +158,8 @@ module Solifyn
         :'stock' => :'stock',
         :'is_listed' => :'isListed',
         :'is_free' => :'isFree',
-        :'addons' => :'addons'
+        :'addons' => :'addons',
+        :'entitlement_ids' => :'entitlementIds'
       }
     end
 
@@ -195,7 +199,8 @@ module Solifyn
         :'stock' => :'Integer',
         :'is_listed' => :'Boolean',
         :'is_free' => :'Boolean',
-        :'addons' => :'Array<ProductCreateAddonsInner>'
+        :'addons' => :'Array<ProductCreateAddonsInner>',
+        :'entitlement_ids' => :'Array<String>'
       }
     end
 
@@ -365,6 +370,12 @@ module Solifyn
           self.addons = value
         end
       end
+
+      if attributes.key?(:'entitlement_ids')
+        if (value = attributes[:'entitlement_ids']).is_a?(Array)
+          self.entitlement_ids = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -471,7 +482,8 @@ module Solifyn
           stock == o.stock &&
           is_listed == o.is_listed &&
           is_free == o.is_free &&
-          addons == o.addons
+          addons == o.addons &&
+          entitlement_ids == o.entitlement_ids
     end
 
     # @see the `==` method
@@ -483,7 +495,7 @@ module Solifyn
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, description, price, currency, image_url, tax_category, discount, has_license_key, has_digital_delivery, has_github_access, github_repo, github_permission, has_discord_access, discord_guild_id, discord_role_id, is_tax_inclusive, activation_limit, brand_id, billing_period, trial_period_days, expiration_days, statement_descriptor, pay_what_you_want, metadata, custom_fields, stock, is_listed, is_free, addons].hash
+      [name, description, price, currency, image_url, tax_category, discount, has_license_key, has_digital_delivery, has_github_access, github_repo, github_permission, has_discord_access, discord_guild_id, discord_role_id, is_tax_inclusive, activation_limit, brand_id, billing_period, trial_period_days, expiration_days, statement_descriptor, pay_what_you_want, metadata, custom_fields, stock, is_listed, is_free, addons, entitlement_ids].hash
     end
 
     # Builds the object from hash

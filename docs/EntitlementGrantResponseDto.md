@@ -17,6 +17,8 @@
 | **discord_role_id** | **String** | Target Discord Role ID if type is DISCORD. | [optional] |
 | **discord_username** | **String** | The connected customer Discord username. | [optional] |
 | **discord_user_id** | **String** | The connected customer Discord user ID. | [optional] |
+| **framer_template_id** | **String** | The Framer template ID if type is FRAMER. | [optional] |
+| **framer_remix_link** | **String** | The single-use remix link generated for the customer if type is FRAMER. | [optional] |
 | **status** | **String** | Delivery status of the collaborator invite (PENDING, DELIVERED, FAILED, REVOKED). |  |
 | **oauth_url** | **String** | OAuth URL to redirect the customer to. | [optional] |
 | **error_details** | **String** | Error message if invitation delivery failed. | [optional] |
@@ -43,6 +45,8 @@ instance = Solifyn::EntitlementGrantResponseDto.new(
   discord_role_id: 876543210987654321,
   discord_username: discorduser#1234,
   discord_user_id: 112233445566778899,
+  framer_template_id: tmpl_123456,
+  framer_remix_link: https://api.solifyn.com/v1/framer/remix/grant_123456,
   status: PENDING,
   oauth_url: https://github.com/login/oauth/authorize...,
   error_details: Permission denied,
